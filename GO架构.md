@@ -49,15 +49,15 @@
 
 总的来说, 一名顶级架构师需要具备丰富的技术知识和经验, 能够根据业务场景和项目需求进行最佳实践的组合使用, 具有优秀的沟通和协调能力, 以保证项目顺利完成.
 
-```
+
 1、采用微服务架构模式。将系统分解为一组独立的服务，使用服务网格来管理服务间的通信。
 实际项目还需要根据具体需求进行改进, 如熔断,限流,服务注册,配置中心等.
-- 服务发现: 负责管理服务之间的调用关系, 如使用consul,etcd,zookeeper等
-- 负载均衡: 负责对请求进行分发, 如使用nginx, HAProxy等
-- 服务熔断: 负责在服务出现故障时进行降级处理, 避免整体瘫痪
-- 服务限流: 负责限制服务的访问频率, 避免系统被攻击
-- 配置中心: 负责管理服务的配置信息, 如使用Apollo, Spring Cloud Config等
-- 监控和日志: 负责对系统进行监控和日志记录, 如使用Prometheus, ELK等
+ - 服务发现: 负责管理服务之间的调用关系, 如使用consul,etcd,zookeeper等
+ - 负载均衡: 负责对请求进行分发, 如使用nginx, HAProxy等
+ - 服务熔断: 负责在服务出现故障时进行降级处理, 避免整体瘫痪
+ - 服务限流: 负责限制服务的访问频率, 避免系统被攻击
+ - 配置中心: 负责管理服务的配置信息, 如使用Apollo, Spring Cloud Config等
+ - 监控和日志: 负责对系统进行监控和日志记录, 如使用Prometheus, ELK等
 
     为了实现上述功能,我们还需要使用一些第三方库,例如:
     gin-gonic/gin : gin是一个用于golang的web框架
@@ -70,11 +70,90 @@
 
 4、使用redis作为高性能缓存系统来加速请求响应
 
+首先,需要安装go-redis包
+
+```
+go get github.com/go-redis/redis
+
+```
+
+然后可以在代码中使用如下方式连接到redis服务器:
+
+
+```
+package cache
+
+import (
+    "github.com/go-redis/redis"
+)
+
+var client *redis.Client
+
+func init() {
+    client = redis.NewClient(&redis.Options{
+        Addr:     "localhost:6379",
+        Password: "", // no password set
+        DB:       0,  // use default DB
+    })
+}
+
+func Set(key string, value interface{}, expiration time.Duration) error {
+    return client.Set(key, value, expiration).Err()
+}
+
+func Get(key string) (string, error) {
+    return client.Get(key).Result()
+}
+
+func Delete(key string) error {
+    return client.Del(key).Err()
+}
+    
+```
+
+然后在业务代码中通过调用cache包中的函数来实现对缓存的操作
+
+```
+package main
+
+import (
+    "fmt"
+    "time"
+
+    "your_project/cache"
+)
+
+func main() {
+    key := "key"
+    value := "value"
+    expiration := time.Minute * 10
+
+    err := cache.Set(key, value, expiration)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    val, err := cache.Get(key)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(val)
+
+    err = cache.Delete(key)
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+
+```
+
+
 5、使用mysql作为数据库系统。
 
 6、使用orm框架来管理数据库交互。
 
 7、使用JWT来验证用户身份。
+
 8、使用自定义的结构体来表示领域模型，并使用函数来处理业务逻辑。
 
 9、使用错误处理函数来统一处理错误，将错误进行统一处理。
@@ -91,4 +170,4 @@
 
 15、使用监控和追踪工具来监控系统性能和状态
 
-```
+
