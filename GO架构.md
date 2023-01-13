@@ -523,6 +523,70 @@ router.Use(errorMiddleware)
 ---
 
 ---
+
+它实现了一个 RESTful API 端点，用于查询用户信息并返回 JSON 结果。
+
+```
+package main
+
+import (
+    "database/sql"
+    "net/http"
+
+    "github.com/gin-gonic/gin"
+    _ "github.com/go-sql-driver/mysql"
+)
+
+type User struct {
+    ID       int    `json:"id"`
+    Username string `json:"username"`
+    Password string `json:"password"`
+    Email    string `json:"email"`
+    Phone    string `json:"phone"`
+}
+
+func main() {
+    router := gin.Default()
+
+    // open mysql
+    db, err := sql.Open("mysql", "root:password@tcp(127.0.0.1:3306)/users")
+    if err != nil {
+        panic(err)
+    }
+    defer db.Close()
+
+    // check mysql connection
+    err = db.Ping()
+    if err != nil {
+        panic(err)
+    }
+
+    // get user by id
+    router.GET("/user/:id", func(c *gin.Context) {
+        var user User
+
+        // get id from url parameters
+        id := c.Param("id")
+
+        // query mysql
+        err := db.QueryRow("SELECT id, username, password, email, phone FROM users WHERE id = ?", id).Scan(&user.ID, &user.Username, &user.Password, &user.Email, &user.Phone)
+        if err != nil {
+            c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+            return
+        }
+
+        c.JSON(http.StatusOK, gin.H{"user": user})
+    })
+
+    router.Run()
+}
+
+```
+上面的代码使用 Gin 框架实现了一个 RESTful API 端点，它能够接受 GET 请求并从URL中获取用户id，然后它使用 MySQL 驱动执行一个查询用户信息的 SQL 语句。如果执行成功，它会返回一个包含用户信息的 JSON 结果，如果执行失败，它会返回对应错误信息。
+
+---
+
+---
 **《龟虽寿》** **两汉·曹操**
 
 **神龟虽寿，犹有竟时。**
