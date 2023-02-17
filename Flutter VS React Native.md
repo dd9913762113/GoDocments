@@ -30,7 +30,7 @@ Image with link:
 
 Html Image:
 
-<img width="250" height="250" src="https://raw.githubusercontent.com/dd9913762113/sources/main/test/images/hottopic160228_1.jpg"/>
+<img width=80% height=80% src="https://raw.githubusercontent.com/dd9913762113/sources/main/test/images/hottopic160228_1.jpg"/>
 
 Video:
 
