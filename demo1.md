@@ -1,9 +1,9 @@
 
 <details> 
-    <summary>展开查看</summary>
-    
-    1. test1
-    2. test2
+    <summary>展开查看</summary>   
+        
+    [id]: <http://example.com/>  "Optional Title Here"
+ 
         * [api](#2.18.1)
         * [Request Headers](#2.18.2)
         * [Request Method](#2.18.3)
@@ -11,20 +11,47 @@
         * [Request Demo](#2.18.5)
         * [Response Body](#2.18.6)
         * [Response Demo](#2.18.7)
+        * [123](www.baidu.com)
         
 </details>
 
+<details open>
+    <summary>订单中心</summary> 
+    <a href>我的活动</a>
+    <dd><a href="#2.18.1">我的订单</a></dd>
+    <dd><a href>我的活动</a></dd>
+    <dd><a href>评价晒单</a></dd>
+    <dd><a href>购物助手</a></dd>
+    <p>This is <a href="http://example.com/" title="Title">
+an example</a> inline link.</p>
+See my [About](/about/) page for details.   
 
-* [目录1](#40)
-   * [1. GETBETINFO 索取投注信息](#2.18)
-        * [api](#2.18.1)
-        * [Request Headers](#2.18.2)
-        * [Request Method](#2.18.3)
-        * [Request Body](#2.18.4)
-        * [Request Demo](#2.18.5)
-        * [Response Body](#2.18.6)
-        * [Response Demo](#2.18.7)
-   * [标题2](#42)
+
+</details>
+
+
+
+
+
+
+
+* [IM API](#40)
+   * [2.18 GETBETINFO 索取投注信息](#d2.18)
+        * [2.18.1 api](#d2.18.1)
+        * [2.18.2 Request Headers](#d2.18.2)
+        * [2.18.3 Request Method](#d2.18.3)
+        * [2.18.4 Request Body](#d2.18.4)
+        * [2.18.5 Request Demo](#d2.18.5)
+        * [2.18.6 Response Body](#2.18.6)
+        * [2.18.7 Response Demo](#2.18.7)
+   * [2.19 PLACEBET 投注](#2.19)
+        * [api](#2.19.1)
+        * [Request Headers](#2.19.2)
+        * [Request Method](#2.19.3)
+        * [Request Body](#2.19.4)
+        * [Request Demo](#2.19.5)
+        * [Response Body](#2.19.6)
+        * [Response Demo](#2.19.7)
    * [标题3](#43)
    * [标题4](#44)
 
@@ -33,11 +60,11 @@
 ---
 ---
 
-<h2 id="2.18"> 2.18 GETBETINFO 索取投注信息 描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
+<h2 id="d2.18"> 2.18 GETBETINFO 索取投注信息 描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
 
-<h4 id="2.18.1"> 2.18.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
+<h3 id="d2.18.1"> 2.18.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
 
-<h4 id="2.18.2"> 2.18.2 Request Headers</h4>
+<h3 id="d2.18.2"> 2.18.2 Request Headers</h3>
 
 ```
 [
@@ -47,16 +74,16 @@
     "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8"
 ]
 ```
+<h3 id="d2.18.3"> 2.18.3 Request Method: Post</h3>
 
-#### 2.18.3 Request Method: Post
+<h3 id="d2.18.4"> 2.18.4 Request Body</h3>
 
-#### 2.18.4 Request Body
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
 refreshTime			|String		|R			|请求报文头
 isSuccess					|String		|R			|FB登录后token，没有登录则为空字符串
 
-#### 2.18.5 请求示例：
+<h3 id="d2.18.5"> 2.18.5 请求示例</h3>
 
 ```
 {
@@ -85,7 +112,8 @@ isSuccess					|String		|R			|FB登录后token，没有登录则为空字符串
 
 ```
 
-#### 2.18.6 返回结果
+<h3 id="2.18.6"> 2.18.6 返回结果</h3>
+
 
 [详情看FB文档](https://doc.newsportspro.com/apidoc_app.html#%E8%8E%B7%E5%8F%96%E8%B5%9B%E4%BA%8B%E5%88%97%E8%A1%A8%E4%BF%A1%E6%81%AF)
 
@@ -98,7 +126,7 @@ message					|String		|R			|FB登录后token，没有登录则为空字符串
 location					|String		|R			|FB登录后token，没有登录则为空字符串
 data					|String		|R			|FB登录后token，没有登录则为空字符串
 
-#### 2.18.7 返回示例：
+<h3 id="2.18.7"> 2.18.7 返回示例</h3>
 
 ```
 {
@@ -153,11 +181,16 @@ data					|String		|R			|FB登录后token，没有登录则为空字符串
 ---
 
 ## 2.19 PLACEBET 投注 描述:此 API 常用于展示各投注项目.当会员在确认投注时将被调用.
+<h3 id="2.19"> 2.19 PLACEBET 投注 描述:此 API 常用于展示各投注项目.当会员在确认投注时将被调用.</h3>
+
 ### /api/Imd/InplayMatrix/PLACEBET
+<h3 id="2.19.1"> 2.19.1 /api/Imd/InplayMatrix/PLACEBET</h3>
+
 
 
 
 #### Request Headers
+<h3 id="2.19.2"> 2.18.2 Request Headers</h3>
 
 ```
 ["User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4", 
@@ -167,21 +200,26 @@ data					|String		|R			|FB登录后token，没有登录则为空字符串
 ```
 
 #### Request Method: Post
+<h3 id="2.19.3"> 2.18.3 Request Method: Post</h3>
+
 
 ####  请求参数
+<h3 id="2.19.4"> 2.18.4 Request Body</h3>
+
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
 refreshTime			|String		|R			|请求报文头
 isSuccess					|String		|R			|FB登录后token，没有登录则为空字符串
 
 #### 请求示例：
+<h3 id="2.19.5"> 2.18.5 Request Demo</h3>
 
 ```
 {}
 
 ```
 
-#### 2.1.2 返回结果
+<h3 id="2.19.6"> 2.18.6 Response Body</h3>
 
 [详情看FB文档](https://doc.newsportspro.com/apidoc_app.html#%E8%8E%B7%E5%8F%96%E8%B5%9B%E4%BA%8B%E5%88%97%E8%A1%A8%E4%BF%A1%E6%81%AF)
 
@@ -194,7 +232,9 @@ message					|String		|R			|FB登录后token，没有登录则为空字符串
 location					|String		|R			|FB登录后token，没有登录则为空字符串
 data					|String		|R			|FB登录后token，没有登录则为空字符串
 
+
 #### 返回示例：
+<h3 id="2.19.7"> 2.18.7 Response Demo</h3>
 
 ```
 {}
