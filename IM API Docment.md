@@ -2,6 +2,17 @@
 
 <details open><summary>IM API</summary><blockquote>
 
+<details><summary>2.1 GETBETINFO 索取所有体育计数</summary><blockquote>
+    <dd><a href=#d2.1>2.1 api</a></dd>
+    <dd><a href=#d2.1.2>2.1.2 Request Headers</a></dd>
+    <dd><a href=#d2.1.3>2.1.3 Request Method</a></dd>
+    <dd><a href=#d2.1.4>2.1.4 Request Body</a></dd>
+    <dd><a href=#d2.1.5>2.1.5 Request Demo</a></dd>
+    <dd><a href=#d2.1.6>2.1.6 Response Body</a></dd>
+    <dd><a href=#d2.1.7>2.1.7 Response Demo</a></dd>
+    <dd><a href=#d2.1.8>2.1.8 状态码</a></dd>
+</blockquote></details>
+
 <details><summary>2.18 GETBETINFO 索取投注信息</summary><blockquote>
     <dd><a href=#d2.18>2.18.1 api</a></dd>
     <dd><a href=#d2.18.2>2.18.2 Request Headers</a></dd>
@@ -132,7 +143,1253 @@
 ---
 
 
-<h2 id="d2.18"> 2.18 GETBETINFO 索取投注信息 描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
+<h2 id="d2.1"> 2.1 GETALLSPORTCOUNT 索取所有体育计数 <p>描述:此 API 常用于检索目前为每项体育提供的赛事计数.特定赛事组类的赛事计数亦可能在适用的情况的返回.目前, 角球赛事计数将被返回于足球下.</h2>
+
+<h3 id="d2.1.1"> 2.1.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
+
+<h3 id="d2.1.2"> 2.1.2 Request Headers</h3>
+
+```
+[
+    "Content-Type": "application/json",
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9"
+]
+```
+
+<h3 id="d2.1.3"> 2.1.3 Request Method: Post</h3>
+
+<h3 id="d2.1.4"> 2.1.4 Request Body</h3>
+
+|范围** |数据类型** |强制性** |描述** |
+| - | - | - | - |
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟|
+|LanguageCode |String |Yes |为本地名称返回的语言|
+|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事。<p>当IsCombo提交null时，将返回连串过关计数和 非连串过关计数。 |
+
+
+<h3 id="d2.1.5"> 2.1.5 请求示例</h3>
+
+```
+{
+    "timeStamp": 1677129974,
+    "isCombo": false,
+    "languageCode": "CHS"
+}
+```
+<h3 id="d2.1.6"> 2.1.6 返回结果</h3>
+
+[详情看IM文档](http://imd.kkty1.com/swagger/index.html)
+
+|范围** |数据类型** |空值** |描述** |
+| - | - | - | - |
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
+|SportId |Int |No |指出体育项目. 参考附录3.3.|
+|SportName |String |No |体育项目名称在指定请求中返回相应语言.|
+|Order Number |Short |No |体育项目序号.|
+|Count |Int |No |体育赛事计数.|
+|EarlyFECount |Int |No |早盘盘口的体育定时赛事计数.|
+|TodayFECount |Int |No |今日盘口的体育定时赛事计数.|
+|RBFECount |Int |No |滚球盘口的体育定时赛事计数.|
+|ORCount |Int |No |冠军赛事计数。 |
+|IsCombo |Boolean |No |指出计数是连串过关赛事或者非连串过关赛事。|
+|IsHasLive |Boolean |No |指出目前是否提供滚球赛事. |
+|EventGroupTypes |List |No |赛事组别类型清单|
+|-  EventGroupTypeId |Int |No |指出赛事组别类型。参考附录3.4。|
+|-  Count |Int |No |赛事组别类型的赛事计数|
+|-  EarlyFECount |Int |No |早盘盘口的体育/组别类型定时赛事计数.|
+|-  TodayFECount |Int |No |今日盘口的体育/组别类型定时赛事计数.|
+|-  RBFECount |Int |No |滚球盘口的体育/组别类型定时赛事计数.|
+|-  ORCount |Int |No |冠军赛事计数。 |
+|-  IsHasLive |Boolean |No |指出目前是否给赛事组别类型提供滚球赛事.|
+|ProgrammeList |List |No |ProgrammeIds 清单 |
+|-  ProgrammeId |Int |No |指出特定的竞赛程序|
+|-  ProgrammeName |String |No |程序名称在指定请求中返回相应语言.|
+|-  Count |Int |No |程序的赛事计数.|
+|-  EarlyFECount |Int |No |早盘盘口的体育/程序定时赛事计数.|
+|-  TodayFECoun t |Int |No |今日盘口的体育/程序定时赛事计数. |
+|-  RBFECount |Int |No |滚球盘口的体育/程序定时赛事计数.|
+|-  ORCount |Int |No |冠军赛事计数。 |
+|-  IsHasLive |Boolean |No |指出目前是否给程序提供滚球赛事.|
+|CompetitionList |List |No |竞赛 清单 |
+|- CompetitionId |Int |No |指出特定的竞赛|
+|- CompetitionName |String |No |竞赛名称在指定请求中返回相应语言.|
+|- Count |Int |No |竞赛的赛事计数.|
+|- EarlyFECount |Int |No |早盘盘口的体育/竞赛定时赛事计数.|
+|- TodayFECount |Int |No |今日盘口的体育/竞赛定时赛事计数.|
+|- RBFECount |Int |No |滚球盘口的体育/竞赛定时赛事计数.|
+|- ORCount |Int |No |冠军赛事计数。 |
+|- IsHasLive |Boolean |No |指出目前是否给竞赛提供滚球赛事.|
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
+
+<h3 id="d2.1.7"> 2.1.7 返回示例</h3>
+
+```
+{
+    "refreshTime": 1677130035,
+    "isSuccess": true,
+    "errorCode": 10000,
+    "message": "",
+    "location": "",
+    "data": {
+        "SportCount": [
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 1288,
+                        "EarlyFECount": 1072,
+                        "TodayFECount": 126,
+                        "RBFECount": 10,
+                        "ORCount": 80,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 2,
+                        "Count": 21,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 21,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    },
+                    {
+                        "EventGroupTypeId": 3,
+                        "Count": 68,
+                        "EarlyFECount": 36,
+                        "TodayFECount": 32,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    {
+                        "ProgrammeId": 181,
+                        "ProgrammeName": "VS FIFA",
+                        "Count": 38,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 32,
+                        "RBFECount": 6,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "ProgrammeId": 199,
+                        "ProgrammeName": "VS PES",
+                        "Count": 19,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 15,
+                        "RBFECount": 4,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    }
+                ],
+                "CompetitionList": [
+                    {
+                        "CompetitionID": 252,
+                        "CompetitionName": "*德国甲级联赛",
+                        "Count": 23,
+                        "EarlyFECount": 18,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 5,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 390,
+                        "RBOrderNumber": 60
+                    },
+                    {
+                        "CompetitionID": 271,
+                        "CompetitionName": "*欧洲冠军联赛",
+                        "Count": 9,
+                        "EarlyFECount": 6,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 3,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 350,
+                        "RBOrderNumber": 20
+                    },
+                    {
+                        "CompetitionID": 130,
+                        "CompetitionName": "*西班牙甲级联赛",
+                        "Count": 25,
+                        "EarlyFECount": 20,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 5,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 370,
+                        "RBOrderNumber": 50
+                    },
+                    {
+                        "CompetitionID": 191,
+                        "CompetitionName": "*英格兰超级联赛",
+                        "Count": 30,
+                        "EarlyFECount": 20,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 10,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 350,
+                        "RBOrderNumber": 30
+                    },
+                    {
+                        "CompetitionID": 102,
+                        "CompetitionName": "*意大利甲级联赛",
+                        "Count": 22,
+                        "EarlyFECount": 20,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 2,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 410,
+                        "RBOrderNumber": 40
+                    },
+                    {
+                        "CompetitionID": 255,
+                        "CompetitionName": "法国甲级联赛",
+                        "Count": 22,
+                        "EarlyFECount": 20,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 2,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 410,
+                        "RBOrderNumber": 190
+                    }
+                ],
+                "IsCombo": false,
+                "IsHasLive": true,
+                "EarlyFECount": 1000,
+                "TodayFECount": 78,
+                "ORCount": 80,
+                "RBFECount": 10,
+                "Count": 1168
+            },
+            {
+                "SportId": 2,
+                "SportName": "篮球",
+                "OrderNumber": 2,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 303,
+                        "EarlyFECount": 87,
+                        "TodayFECount": 177,
+                        "RBFECount": 7,
+                        "ORCount": 32,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 4,
+                        "Count": 74,
+                        "EarlyFECount": 29,
+                        "TodayFECount": 45,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    },
+                    {
+                        "EventGroupTypeId": 5,
+                        "Count": 8,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 8,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    },
+                    {
+                        "EventGroupTypeId": 6,
+                        "Count": 11,
+                        "EarlyFECount": 1,
+                        "TodayFECount": 9,
+                        "RBFECount": 1,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 7,
+                        "Count": 9,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 9,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    {
+                        "ProgrammeId": 201,
+                        "ProgrammeName": "VS CBA",
+                        "Count": 3,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 0,
+                        "RBFECount": 3,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    }
+                ],
+                "CompetitionList": [
+                    {
+                        "CompetitionID": 3277,
+                        "CompetitionName": "*NBA",
+                        "Count": 14,
+                        "EarlyFECount": 6,
+                        "TodayFECount": 8,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false,
+                        "PMOrderNumber": 1000,
+                        "RBOrderNumber": 1000
+                    }
+                ],
+                "IsCombo": false,
+                "IsHasLive": true,
+                "EarlyFECount": 89,
+                "TodayFECount": 177,
+                "ORCount": 32,
+                "RBFECount": 7,
+                "Count": 305
+            },
+            {
+                "SportId": 3,
+                "SportName": "网球",
+                "OrderNumber": 3,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 242,
+                        "EarlyFECount": 2,
+                        "TodayFECount": 231,
+                        "RBFECount": 9,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 8,
+                        "Count": 40,
+                        "EarlyFECount": 1,
+                        "TodayFECount": 36,
+                        "RBFECount": 3,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 9,
+                        "Count": 218,
+                        "EarlyFECount": 2,
+                        "TodayFECount": 212,
+                        "RBFECount": 4,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 10,
+                        "Count": 224,
+                        "EarlyFECount": 2,
+                        "TodayFECount": 214,
+                        "RBFECount": 8,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": true,
+                "EarlyFECount": 7,
+                "TodayFECount": 693,
+                "ORCount": 0,
+                "RBFECount": 24,
+                "Count": 724
+            },
+            {
+                "SportId": 8,
+                "SportName": "棒球",
+                "OrderNumber": 8,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 1,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 1,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 1,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 1
+            },
+            {
+                "SportId": 11,
+                "SportName": "拳击",
+                "OrderNumber": 11,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 25,
+                        "EarlyFECount": 25,
+                        "TodayFECount": 0,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 25,
+                "TodayFECount": 0,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 25
+            },
+            {
+                "SportId": 13,
+                "SportName": "板球",
+                "OrderNumber": 13,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 6,
+                        "EarlyFECount": 3,
+                        "TodayFECount": 3,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 3,
+                "TodayFECount": 3,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 6
+            },
+            {
+                "SportId": 19,
+                "SportName": "美式足球",
+                "OrderNumber": 19,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 4,
+                        "EarlyFECount": 3,
+                        "TodayFECount": 1,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 3,
+                "TodayFECount": 1,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 4
+            },
+            {
+                "SportId": 25,
+                "SportName": "冰上曲棍球",
+                "OrderNumber": 25,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 22,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 22,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 22,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 22
+            },
+            {
+                "SportId": 31,
+                "SportName": "橄榄球",
+                "OrderNumber": 31,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 20,
+                        "EarlyFECount": 19,
+                        "TodayFECount": 1,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 19,
+                "TodayFECount": 1,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 20
+            },
+            {
+                "SportId": 34,
+                "SportName": "斯诺克英式台球",
+                "OrderNumber": 34,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 12,
+                        "EarlyFECount": 2,
+                        "TodayFECount": 10,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 2,
+                "TodayFECount": 10,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 12
+            },
+            {
+                "SportId": 36,
+                "SportName": "乒乓",
+                "OrderNumber": 36,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 194,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 189,
+                        "RBFECount": 5,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 14,
+                        "Count": 5,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 0,
+                        "RBFECount": 5,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 16,
+                        "Count": 1,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 0,
+                        "RBFECount": 1,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    },
+                    {
+                        "EventGroupTypeId": 20,
+                        "Count": 1,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 0,
+                        "RBFECount": 1,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": true,
+                "EarlyFECount": 0,
+                "TodayFECount": 189,
+                "ORCount": 0,
+                "RBFECount": 12,
+                "Count": 201
+            },
+            {
+                "SportId": 39,
+                "SportName": "虚拟足球",
+                "OrderNumber": 39,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 40,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 40,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 40,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 40
+            },
+            {
+                "SportId": 40,
+                "SportName": "排球",
+                "OrderNumber": 40,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 23,
+                        "EarlyFECount": 3,
+                        "TodayFECount": 20,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 3,
+                "TodayFECount": 20,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 23
+            },
+            {
+                "SportId": 43,
+                "SportName": "虚拟篮球",
+                "OrderNumber": 43,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 64,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 64,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 64,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 64
+            },
+            {
+                "SportId": 44,
+                "SportName": "虚拟世界杯",
+                "OrderNumber": 44,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 20,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 20,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 20,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 20
+            },
+            {
+                "SportId": 46,
+                "SportName": "虚拟国家杯",
+                "OrderNumber": 46,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 24,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 24,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 24,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 24
+            },
+            {
+                "SportId": 47,
+                "SportName": "虚拟足球英国联赛",
+                "OrderNumber": 47,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 60,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 60,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 60,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 60
+            },
+            {
+                "SportId": 49,
+                "SportName": "虚拟足球西班牙友谊赛",
+                "OrderNumber": 49,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 12,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 12,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 12,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 12
+            },
+            {
+                "SportId": 51,
+                "SportName": "金融投注",
+                "OrderNumber": 51,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 3,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 0,
+                        "RBFECount": 3,
+                        "ORCount": 0,
+                        "IsHasLive": true
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": true,
+                "EarlyFECount": 0,
+                "TodayFECount": 0,
+                "ORCount": 0,
+                "RBFECount": 3,
+                "Count": 3
+            },
+            {
+                "SportId": 52,
+                "SportName": "虚拟足球西班牙联赛",
+                "OrderNumber": 52,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 60,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 60,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 60,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 60
+            },
+            {
+                "SportId": 53,
+                "SportName": "虚拟足球意大利联赛",
+                "OrderNumber": 53,
+                "EventGroupTypes": [
+                    {
+                        "EventGroupTypeId": 1,
+                        "Count": 60,
+                        "EarlyFECount": 0,
+                        "TodayFECount": 60,
+                        "RBFECount": 0,
+                        "ORCount": 0,
+                        "IsHasLive": false
+                    }
+                ],
+                "ProgrammeList": [
+                    
+                ],
+                "CompetitionList": [
+                    
+                ],
+                "IsCombo": false,
+                "IsHasLive": false,
+                "EarlyFECount": 0,
+                "TodayFECount": 60,
+                "ORCount": 0,
+                "RBFECount": 0,
+                "Count": 60
+            }
+        ],
+        "ServerTime": "2023-02-23 13:26:07",
+        "StatusCode": 100,
+        "StatusDesc": "Success"
+    }
+}
+
+```
+<h3 id="d2.1.8"> 2.1.8 状态码</h3>
+
+|状态编码** |描述** |
+| - | - |
+|**100** |成功 |
+|**101** |无效时间戳|
+|**400** |系统错误 |
+|**700** |维护 |
+|**710** |访问地区限制|
+
+---
+---
+---
+---
+---
+
+<h2 id="d2.2"> 2.2 GETALLCOMPETITIONCOUNT 索取所有竞赛计数 <p>描述:此 API 常用于检索目前为每场竞赛提供的赛事计数.</h2>
+
+<h3 id="d2.2.1"> 2.2.1 /api/Imd/InplayMatrix/GETALLCOMPETITIONCOUNT</h3>
+
+<h3 id="d2.2.2"> 2.2.2 Request Headers</h3>
+
+```
+[
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
+    "Content-Type": "application/json"
+]
+```
+
+<h3 id="d2.2.3"> 2.2.3 Request Method: Post</h3>
+
+<h3 id="d2.2.4"> 2.2.4 Request Body</h3>
+
+|范围**  |数据类型**  |强制性**  |描述 |
+| - | - | - | - |
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
+|LanguageCode |String |Yes |为本地名称返回的语言.|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.|
+|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事|
+|Market |Int |Yes |<p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球 |
+|EventDate |Date |No |指出只返回属于特定赛事日期的赛事. 仅适用于 早盘盘口.|
+|EventGroupTypeIds |List of Int |No |可选参数用于指出只返回特定赛事组别类型的 赛果. 参考附录3.4。|
+|IncludeCloseEvent |Boolean |Yes |指出计数是否包括关闭赛事.|
+
+
+<h3 id="d2.2.5"> 2.2.5 请求示例</h3>
+
+```
+{}
+```
+<h3 id="d2.2.6"> 2.2.6 返回结果</h3>
+
+[详情看IM文档](http://imd.kkty1.com/swagger/index.html)
+
+|范围** |数据类 型**  |空值**  |描述 |
+| - | :- | - | - |
+|SportId |Int |No |指出体育项目ID. 参考附录.|
+|SportName |String |No |体育项目名称在特定请求中返回相应语言.|
+|OrderNumber |Short |No |体育项目序号.|
+|CompetitionId |Int |No |每场竞赛的特定ID.|
+|CompetitionName |String |No |竞赛名称在指定请求中返回相应语言.|
+|PMOrderNumber |Int |No |竞赛赛前序号. |
+|RBOrderNumber |Int |No |竞赛滚球序号.|
+|ProgrammeId |Int |No |竞赛组别的特定ID. |
+|ProgrammeName |String |No |竞赛组别名称在指定请求中返回相应语言.|
+|ProgrammeOrder Number |Int |No |竞赛组别序号|
+|Count |Int |No |竞赛赛事计数.|
+|StatusCode |Int |No |指出请求状态编码|
+|StatusDesc |String |No |状态编码的描述含义|
+
+<h3 id="d2.2.7"> 2.2.7 返回示例</h3>
+
+```
+{}
+```
+<h3 id="d2.2.8"> 2.2.8 状态码</h3>
+
+|状态编码** |描述** |
+| - | - |
+|**100** |成功 |
+|**101** |无效时间戳|
+|**400** |系统错误 |
+|**700** |维护 |
+|**710** |访问地区限制|
+
+---
+---
+---
+---
+---
+
+<h2 id="d2.3"> 2.3 GETEVENTINFOMBT 索取赛事和主要玩法资料 <p>描述:此 API 根据请求参数中指定的特定准则, 常用于检索为特定体育所提供的所有赛事相关的赛事及主要玩法赔率信息. 访问频率限制: 早盘 (1 分钟), 今日 (1 分钟), 滚球 (1 分钟)</h2>
+
+<h3 id="d2.3.1"> 2.3.1 /api/Imd/InplayMatrix/geteventinfombt</h3>
+
+<h3 id="d2.3.2"> 2.3.2 Request Headers</h3>
+
+```
+[
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
+    "Content-Type": "application/json"
+]
+```
+
+<h3 id="d2.3.3"> 2.3.3 Request Method: Post</h3>
+
+<h3 id="d2.3.4"> 2.3.4 Request Body</h3>
+
+|范围**  |数据类 型**  |强制性**  |描述 |
+| - | - | - | - |
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.SportId 39, 43, 44, 46, 47, 49, 52, 53, 请参考 GetVSEventInfo/GetDeltaVSEventInfo。 |
+|Market |Int |Yes | <p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球 <p> 在早上(上午 9 点至下午 12 点)，今日盘口将 包括早盘(直至上午 12 点)的赛事。|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
+
+
+<h3 id="d2.3.5"> 2.3.5 请求示例</h3>
+
+```
+{}
+```
+<h3 id="d2.3.6"> 2.3.6 返回结果</h3>
+
+[详情看IM文档](http://imd.kkty1.com/swagger/index.html)
+
+|范围** |数据类型**  |空值**  |描述 |
+| - | :- | - | - |
+|Sports |List |No |体育项目清单|
+|- SportId |Int |No |指出体育项目. 参考附录3.3.|
+|- SportName |String |No |运营商体育项目名称的默认语言|
+|- OrderNumber |Int |No |体育项目序号|
+|- Events |List |No |赛事清单 |
+|-- OpenParlay |Bool |No |指出赛事是否支持连串过关|
+|-- IsLive |Bool |No |指出赛事是否提供滚球|
+|-- Market |Int |No | <p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球|
+|-- EventId |Long |No |赛事的特定 ID|
+|-- EventStatusId |Int |No | <p>指赛事状态 1 = 开盘 <p>2 = 关盘 |
+|-- OrderNumber |Int |No |IMSB 中使用的序号用于排序竞赛中赛事的先后显示|
+|-- EventDate |Date |No |赛事日期 |
+|-- GroundTypeId |Int |No | <p>指出赛事是否举办于其中一队的主场或中立场. <p> 0 = 中立场 <p>1 = 主场 |
+|-- EventGroupID |Long |No | <p>如果赛事是属于赛事组别，将显示赛事组别 ID。 <p>实际赛事可以分为不同事件组类型的多个赛事。 <p>范例： <p>Arsenal vs Everton (EPL) (Event ID: 00001) <p>Arsenal vs Everton (EPL Corners) (Event ID: 00002) <p>Arsenal vs Everton (EPL Specials) (Event ID: 00003) |
+|-- EventGroupTypeId |Int |No |指出赛事的组别类型. 参考附录3.4.|
+|-- TotalMarketlineC ount |Int |Yes | 指出赛事盘口总数. |
+|-- IsPopular |Bool |No |指出是否热门赛事|
+|-- IsFavourite |Bool |No |指出是否是会员的收藏赛事 (如果会员令牌以提交)|
+|-- BREventId |Long |Yes | 可视化投注预测赛事ID. |
+|-- SourceId |String |Yes | 赛事的外部参考ID. |
+|-- HasVisualization  |Bool |No | 指出赛事是否是可视化. |
+|-- HasStatistic |Bool |No | 指出赛事是否有的BetRadar的统计。不适用于IPIS商家。 |
+|-- Season |String |Yes |赛季指标. 仅适用于虚拟足球, 虚拟篮球和虚拟世界杯各 项体育. |
+|-- MatchDay |String |Yes |赛日指标. 仅适用于虚拟足球和虚拟篮球|
+|-- LiveStreaming |Int |Yes |<p>指出赛事是否有现场直播Url <p> 0 = 没有 <p> 1 = 有 |
+|-- LiveStreamingUrl |List |Yes |现场直播 URL清单. |
+|--- URL |String |Yes |现场直播Url |
+|--- Priority |Int |Yes |现场直播 URL优先级. |
+|--- Type |Int |Yes |<p>播放类型. <p>0 = Unknown <p>1 = iFrame <p>2 = FLV <p>3 = M3U8 |
+|-- HomeTeamId |Int |No | 主队或参赛者的特定 ID. |
+|-- HomeTeam |String |Yes | 运营商主队名称的默认语言.  |
+|-- AwayTeamId |Int |No | 客队或参赛者的特定 ID|
+|-- AwayTeam |String |Yes | 运营商客队名称的默认语言. |
+|-- RBTime |String |Yes | <p>如果赛事是在滚球中，这是赛事的滚球时间.  <p>请参考附录 3.5。|
+|-- RBTimeStatus |Int |Yes |<p>如果赛事是在滚球中，这是赛事的滚球时间的状态. <p>0 =不适用 <p>1 = 开始 <p>2 = 进行中 <p>3 = 暂停 </p>|
+|-- HomeScore |Int |Yes |主队的当前比分|
+|-- AwayScore |Int |Yes |客队的当前比分|
+|-- HomeRedCard |Int |Yes |主队当前红牌|
+|-- AwayRedCard |Int |Yes |客队当前红牌|
+|-- RelatedScores |List |Yes |相关比分清单 |
+|--- EventGroupTypeId |Int |No |指出比分的组别类型. 参考附录3.4|
+|--- HomeScore |Int |Yes |主队的当前组别类型比分|
+|--- AwayScore |Int |Yes |客队的当前组别类型比分|
+|-- ExtraInfo |String |Yes |赛事的更多信息。每个体育的额外信息将有所不同。|
+|--- HasCorner |Bool |No |指出赛事是否具有角球投注类型。 适用于足球。|
+|--- Server |String |Yes |指出当前的开球球员/球队。 适用于乒乓球和网球。 |
+|--- BestOfN |Intege r |Yes |指出赛事的最大局数。 适用于乒乓球和网球。 |
+|--- HPoints |String |Yes |指出当局的主队的分数。 适用于网球。 |
+|--- APoints |String  |Yes |指出当局的客队的分数。 <p>适用于网球。 |
+|--- PreviousClose |Decim al |Yes |表示前一天的收盘指数。 仅适用于金融投注。|
+|--- TodayOpen |Decim al |Yes |表示今天的开盘指数。 仅适用于金融投注。|
+|--- TodayHighest |Decim al |Yes |表示今天的最高指数。 仅适用于金融投注。|
+|--- TodayLowest |Decim al |Yes |表示今天的最低指数。 仅适用于金融投注。|
+|--- CurrentIndex |Decim al |Yes |表示当前的指标。 仅适用于金融投注。|
+|-- Competition |List |No |竞赛 |
+|--- CompetitionId |Int |No |每场竞赛的特定 ID|
+|--- CompetitionName |String |No |运营商竞赛名称的默认语言|
+|--- PMOrderNumber |Int |No |IMSB 中使用的序号用于排序赛前的比赛先后显示|
+|--- RBOrderNumber |Int |No |IMSB 中使用的序号用于排序滚球中的比赛先后显示|
+|-- Programme |List |Yes |竞赛程序 清单 |
+|--- ProgrammeId |Int |Yes |指出特定的竞赛程序|
+|--- ProgrammeName |String |Yes |程序名称. |
+|-- MarketLines |List |Yes |盘口清单 |
+|--- MarketLineId |Long |No |盘口的特定 ID|
+|--- BetTypeId |Int |No |投注类型 ID |
+|--- BetTypeName |String |No |运营商投注类型的默认语言|
+|--- BetTypeNameList |List |No |投注类型的支持语言 |
+|---- LanguageCode |String |No |语言 |
+|---- BetTypeName |String |No |投注类型的名称 |
+|--- PeriodId |Int |No |<p>比赛时段 ID  <p>1 = 全场 <p>2 = 上半场 <p>3 = 下半场 |
+|--- PeriodName |String |No |运营商比赛时段的默认语言|
+|--- MarketLineLevel |Int |No |盘口级别 |
+|--- MarketlineStatusId |Int |No |<p>指出盘口状态. <p>1 = 开盘 <p>2 = 关盘 |
+|--- IsLocked |Boolea n |No |指出盘口是否封盘|
+|--- WagerSelections |List |No |投注选项清单|
+|---- WagerSelectionId |Long |No |投注选项的特定 ID|
+|---- SelectionId |Int |No |投注类型选项 ID|
+|---- SelectionName |String |Yes |运营商投注类型选项的默认语言|
+|---- Handicap |Float |Yes |<p>该项目仅适用于让球盘和大小盘.  <p>对于让球，主/客队的让球值是一样的。 <p>让球值是正值是指着主队正在让球。 <p>让分值为负值是指 着客队正在让球。 <p>对于大小盘，就是大于或小于的得分比较。 <p>如果是空值等于该让分不适用于该盘口或投注类型。|
+|---- Specifiers |String |Yes |其他下注资料. |
+|---- Odds |Float |No |选择赔率值|
+|---- OddsList |List |No |赔率清单 |
+|----- OddsType |Int |No |<p>赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
+|----- OddsValues |Float |No |选择赔率值|
+|Delta |Doubl e |Yes |<p>Delta 版本。 <p>Delta 值在 5 分钟后过期。 <p>对应于各自的 SportId 和 Market。 <p>格式：yyMMddHHmmssfff <p>范例: 171219001225452 |
+|StatusCode |Int |No |指出请求状态编码|
+|StatusDesc |String |No |状态编码的描述含义|
+
+
+<h3 id="d2.3.7"> 2.3.7 返回示例</h3>
+
+```
+{}
+```
+<h3 id="d2.3.8"> 2.3.8 状态码</h3>
+
+|状态编码** |描述** |
+| - | - |
+|**100** |成功 |
+|**101** |无效时间戳|
+|**313** |无效体育 ID |
+|**332** |盘口无效 |
+|**400** |系统错误 |
+|**700** |维护 |
+|**710** |访问地区限制|
+
+---
+---
+---
+---
+---
+
+
+<h2 id="d2.7"> 2.7 GETSELECTEDEVENTINFO 索取赛事选项资料 <p>描述:此 API 根据所提交的赛事 ID 清单用于检索已选赛事及赔率信息.有关赛事并属于同一组赛事 ID 也将同时被返回</h2>
+
+<h3 id="d2.7.1"> 2.7.1 /api/Imd/InplayMatrix/GETSELECTEDEVENTINFO</h3>
+
+<h3 id="d2.7.2"> 2.7.2 Request Headers</h3>
+
+```
+["Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiI4bW5CeW91SDhrRlIwQXFIS1JhM29JeU92NjAifQ.eyJuYmYiOjE2NzcwNTE3OTYsImV4cCI6MTY3NzEzODc5NiwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjpbImh0dHA6Ly96ZGlkZW50aXR5c2VydmVyLnpoc2VydmljZS9yZXNvdXJjZXMiLCJhcGlzIl0sImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2NzcwNTE3OTYsImlkcCI6ImxvY2FsIiwiYWNjb3VudGlkIjoiMTQyODM1Iiwic3lzdGVtdHlwZSI6IjQxIiwiaXNzdXBlcmFkbWluIjoiRmFsc2UiLCJzY29wZSI6WyJhcGlzIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInBhc3N3b3JkIl19.aooH-5ARYDLOlAKrb_-FrVQoMIsII82WS4SDxXdJ9uP0oIDEJMkR91LejjLH_LXPc1HXfWzUPwXW41T-gnbGB5ERiJF0OSbZLu5jla77kr3xZ-m_cgPdKuUeRCdrQQUaZn5TVxGHmDXMwjGfCZEKZsjEcTqDM5eYsNVjcBzcm6zbtAyjg07B4sbbE22QLdQS6DRFOOdmvMvngzM4tBaq2KDENNwdGkPE4_2_Y2ck0fc24K7ON5jtqBxdVzjn7imcPdBlg82uu9gNKE0cdvlY54ooollHv2S4UxiIwtiJY4MGxFx0G_fpNvDVDxZd8xi3SUM5jnshJG7te8w8zb5c-g", 
+"Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8", 
+"User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4", 
+"Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9", 
+"Accept": "text/plain", 
+"Content-Type": "application/json,application/json-patch+json"]
+```
+
+<h3 id="d2.7.3"> 2.7.3 Request Method: Post</h3>
+
+<h3 id="d2.7.4"> 2.7.4 Request Body</h3>
+
+|范围**  |数据类型**  |强制性**  |描述 |
+| - | - | - | - |
+|SportId |Int |Yes |指出体育项目. 参考附录3.3|
+|EventIds |List |Yes |检索赛事 ID |
+|BetTypeIds |List of Int |No |指出返回的投注类型|
+|PeriodIds |List of Int |No |<p>筛选时段的ID清单.  <p>1 = FT 全场 <p>2 = 1H 上半场 <p>3 = 2H 下半场 |
+|OddsType |Int |Yes |赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
+|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事 |
+|IncludeGroup Events |Boolean |Yes |指出属于相同赛事组别ID的其他赛事是否同 时被返回. |
+|Token |String |No |会员令牌. |
+|MemberCode |String |No |用户名. |
+|LanguageCode |String |No |为本地名称返回的语言.|
+|TimeStamp |String |Yes  |新生成的时间戳将持续 5 分钟|
+
+
+<h3 id="d2.7.5"> 2.7.5 请求示例</h3>
+
+```
+{}
+```
+<h3 id="d2.7.6"> 2.7.6 返回结果</h3>
+
+[详情看IM文档](http://imd.kkty1.com/swagger/index.html)
+
+```
+该响应与 GetEventInfoMBT 响应一致. 
+```
+
+
+<h3 id="d2.7.7"> 2.7.7 返回示例</h3>
+
+```
+{}
+```
+<h3 id="d2.7.8"> 2.7.8 状态码</h3>
+
+|状态编码** |描述** |
+| - | - |
+|**100** |成功 |
+|**101** |无效时间戳|
+|**313** |无效体育 ID |
+|**330** |<p>` `ID </p><p>无效赛事类型</p>|
+|**334** |无效赛事 ID |
+|**380** |无可选盘口|
+|**400** |系统错误 |
+|**501** |用户无访问权限|
+|**700** |维护 |
+|**710** |访问地区限制|
+
+---
+---
+---
+---
+---
+
+
+<h2 id="d2.7"> 2.18 GETBETINFO 索取投注信息 描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
 
 <h3 id="d2.18.1"> 2.18.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
 
@@ -170,7 +1427,7 @@
 |ReturnNearest Handicap |Boolean |No |<p>若设置为 true而当前的让球盘选项不再开出, API 将返回投注选项资料最接近的让球盘.  这仅应用在让球投注类型. <p>若返回的让球盘与提交的让球盘有差别, 投注选项的状态编码将返回 381. <p>对于篮球滚球赛事，请为让球和大小投注类型设置“ReturnNearestHandicap”= true 以增加成功投注的几率。|
 |Token |String |Yes |会员令牌. |
 |MemberCode |String |Yes |用户名. |
-|TimeStamp |String |Yes |<p> 5 分钟 <p>新生成的时间戳将持续|
+|TimeStamp |String |Yes |新生成的时间戳将持续5 分钟|
 
 
 <h3 id="d2.18.5"> 2.18.5 请求示例</h3>
