@@ -21,6 +21,7 @@
     <dd><a href=#d2.19.5>2.19.5 Request Demo</a></dd>
     <dd><a href=#d2.19.6>2.19.6 Response Body</a></dd>
     <dd><a href=#d2.19.7>2.19.7 Response Demo</a></dd>
+    <dd><a href=#d2.19.8>2.19.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.20 GETBETLIST 索取投注明细 </summary><blockquote>
@@ -31,6 +32,7 @@
     <dd><a href=#d2.20.5>2.20.5 Request Demo</a></dd>
     <dd><a href=#d2.20.6>2.20.6 Response Body</a></dd>
     <dd><a href=#d2.20.7>2.20.7 Response Demo</a></dd>
+    <dd><a href=#d2.20.8>2.20.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.21 GETSTATEMENT 索取投注账目 </summary><blockquote>
@@ -41,6 +43,7 @@
     <dd><a href=#d2.21.5>2.21.5 Request Demo</a></dd>
     <dd><a href=#d2.21.6>2.21.6 Response Body</a></dd>
     <dd><a href=#d2.21.7>2.21.7 Response Demo</a></dd>
+    <dd><a href=#d2.21.8>2.21.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.22 GETBALANCE 索取余额 </summary><blockquote>
@@ -51,6 +54,7 @@
     <dd><a href=#d2.22.5>2.22.5 Request Demo</a></dd>
     <dd><a href=#d2.22.6>2.22.6 Response Body</a></dd>
     <dd><a href=#d2.22.7>2.22.7 Response Demo</a></dd>
+    <dd><a href=#d2.22.8>2.22.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.23 GETPENDINGWAGERSTATUS 索取待处理投注状态 </summary><blockquote>
@@ -61,6 +65,7 @@
     <dd><a href=#d2.23.5> 2.23.5 Request Demo</a></dd>
     <dd><a href=#d2.23.6> 2.23.6 Response Body</a></dd>
     <dd><a href=#d2.23.7> 2.23.7 Response Demo</a></dd>
+    <dd><a href=#d2.23.8>2.23.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.24 GETANNOUNCEMENT 索取通告 </summary><blockquote>
@@ -71,6 +76,7 @@
     <dd><a href=#d2.24.5>2.24.5 Request Demo</a></dd>
     <dd><a href=#d2.24.6>2.24.6 Response Body</a></dd>
     <dd><a href=#d2.24.7>2.24.7 Response Demo</a></dd>
+    <dd><a href=#d2.24.8>2.24.8 状态码</a></dd>
 </blockquote></details>
 
 
@@ -82,6 +88,7 @@
     <dd><a href=#d2.28.5>2.28.5 Request Demo</a></dd>
     <dd><a href=#d2.28.6>2.28.6 Response Body</a></dd>
     <dd><a href=#d2.28.7>2.28.7 Response Demo</a></dd>
+    <dd><a href=#d2.28.8>2.28.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.29 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
@@ -92,6 +99,7 @@
     <dd><a href=#d2.29.5>2.29.5 Request Demo</a></dd>
     <dd><a href=#d2.29.6>2.29.6 Response Body</a></dd>
     <dd><a href=#d2.29.7>2.29.7 Response Demo</a></dd>
+    <dd><a href=#d2.29.8>2.29.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.30 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
@@ -102,6 +110,7 @@
     <dd><a href=#d2.30.5>2.30.5 Request Demo</a></dd>
     <dd><a href=#d2.30.6>2.30.6 Response Body</a></dd>
     <dd><a href=#d2.30.7>2.30.7 Response Demo</a></dd>
+    <dd><a href=#d2.30.8>2.30.8 状态码</a></dd>
 </blockquote></details>
 
 <details><summary>2.32 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
@@ -112,6 +121,7 @@
     <dd><a href=#d2.32.5>2.32.5 Request Demo</a></dd>
     <dd><a href=#d2.32.6>2.32.6 Response Body</a></dd>
     <dd><a href=#d2.32.7>2.32.7 Response Demo</a></dd>
+    <dd><a href=#d2.32.8>2.32.8 状态码</a></dd>
 </blockquote></details>
 
 
