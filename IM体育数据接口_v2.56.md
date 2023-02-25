@@ -17,10 +17,7 @@ Inplay Matrix 体育赔率整合规格
 |2.27 |7/11/2019 ||<p>- 删除 GetEventInfo </p><p>- 删除 GetDeltaEventInfo </p><p>- 加上 GetEventInfoMBT </p><p>- 加上 GetDeltaEventInfoMBT </p><p>- 加上 GetMLInfoOBT </p><p>- 加上 GetDeltaMLInfoOBT </p>|
 |2.28 |17/12/2019 ||<p>- 加上 GetLiveStreamingInfo API </p><p>- 为赛事对象加上 “LiveStreaming”的响应参数</p><p>. </p><p>- 在 GetDeltaMLInfoOBT 的响应参数中加上新操作 “移除所有盘口” (ID=13) </p><p>- 把 EventGroupTypeId = 0 从赛事组别类型 ID 中删 除 </p><p>- 在 GetLiveResults API 加上 EventGroupTypeIds 响应 参数 </p><p>- 在 GetCompletedResults API 加上 </p><p>“EventGroupID” 和“EventGroupTypeID” 的响应 参数 </p>|
 |2.29 |10/2/2020 ||<p>- 加上 GetFavouriteEvent API. </p><p>- 加上 AddFavouriteEvent API. </p><p>- 加上 RemoveFavouriteEvent API. </p><p>- 加上 GetMemberByToken API. </p><p>- 加上 Currency Code Appendix. </p>|
-|2.30 |10/3/2020 ||<p>- 加上 GetCompanyById API. </p><p>- 在 GetAnnouncement API 加上 “OrderBy” 的请求 参数 </p>|
-
-||||- 加上滚球时间段附录|
-| :- | :- | :- | - |
+|2.30 |10/3/2020 ||<p>- 加上 GetCompanyById API. </p><p>- 在 GetAnnouncement API 加上 “OrderBy” 的请求 参数 </p>- 加上滚球时间段附录|
 |2.31 |7/4/2020 ||<p>- 加上秘鲁索尔货币</p><p>- 加上西班牙文</p><p>- 为赛事相关的 api 增加了 ExtraInfo 和 HasCorner 响 应参数 </p><p>- 删除亚洲 9 号球,沙滩排球,台球和赛车的体育 ID </p>|
 |2.32 |20/4/2020 ||- 从语言编码中删除繁体， 日本，韩文|
 |2.33 |25/6/2020 ||<p>- 把 IsBetTradeOpen 的响应参数从赛事对象上删除</p><p>- 加上 IPIS 版本 附录 </p><p>- 在赛事对象上加上 BetTypeNameList </p><p>- 加上乒乓球体育 ID </p><p>- 新增乒乓球赛事组别类型 ID </p><p>- 为乒乓球的请求参数加上 BestOfN 和 ExtraInfo </p><p>- 在 GetFavouriteEvent API 加上 IncludeGroupEvents 的请求参数</p>|
@@ -34,9 +31,7 @@ Inplay Matrix 体育赔率整合规格
 |2.40 |11/1/2021 ||<p>- 新增“金融投注”体育。 </p><p>- 新增“OverallScore” 响应参数在 GetCompletedResults 和 GetBetList/GetStatement API。 </p>|
 |2.41 |1/2/2021 ||<p>- 新增以太坊货币. </p><p>- 删除”HasNews”和”BRTournamentID” 响应参数。 </p>|
 |2.42 |5/3/2021 ||<p>- 加密货币支持 4 位小数。 </p><p>- IPIS 版本 1 将于 2021-03-09 到期。 </p><p>- 新增“BettingStyle” 响应参数在 GetUserPreference API。 </p><p>- 新增“BettingStyle” 请求参数在 UpdateUserPreference API。 </p><p>- 新增“上半场”， “下半场”和“加时赛” 赛事 组别类型。</p><p>- 新增“RelatedScores” 响应参数在 GetCompletedResults API。 </p>|
-|2.43 |19/3/2021 ||- 新增“BetTradeSuccessDateTime” 响应参数在 GetBetList / GetStatement API。 |
-||||-新增货币. |
-|||||
+|2.43 |19/3/2021 ||- 新增“BetTradeSuccessDateTime” 响应参数在 GetBetList / GetStatement API。 <p>-新增货币. |
 |2.44 |12/4/2021 ||<p>- 新增“EventIds”和“CompetitionIds”请求参 数在 GetOutrightEvents API。 </p><p>- 新增“ComboAutoAccept”和“LanguageCode”请 求参数在 GetUserPrefernces API。 </p><p>- 新增“ComboAutoAccept”和“LanguageCode” 响 应参数在 UpdateUserPreferences API。 </p><p>- 新增定位类型 60，以指示投注类型全名在 GetLocalizations 和 GetDeltaLocalizations API。 </p><p>- 新增“IdList” 和“BTNameCodeList”和</p><p>“LanguageCodeList”请求参数在 GetLocalizations 和 GetDeltaLocalizations API。 </p><p>- 新增“RefId” 请/响应参数在 GetBetInfo API。 </p>|
 |2.45 |26/4/2021 ||<p>- 新增“Market”请求参数在 GetFavouriteEvent API。 </p><p>- 新增“WinningTeamList”, “WinningTeamId”, “WinningTeamName” 响应参数在 GetBetList/GetStatement API。 </p><p>- 新增“Programme”, “ProgrammeId”, “ProgrammeName”响应参数在 GetCompletedResults API。 </p><p>- 新增“Programme”, “ProgrammeId”, “ProgrammeName”响应参数在 GetEventInfoMBT API。 </p>|
 |2.46 |10/5/2021 ||- 新增“ProgrammeIds”请求参数 在”GetFavouriteEvent” API。 |
@@ -137,8 +132,8 @@ Inplay Matrix 体育赔率整合规格
 
 |范围** |数据类型** |空值** |描述** |
 | - | - | - | - |
-|StatusCode |Int |No |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |No |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
 |SportId |Int |No |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
 |SportName |String |No |<p>. </p><p>体育项目名称在指定请求中返回相应语言</p>|
 |Order Number |Short |No |<p>. </p><p>体育项目序号</p>|
@@ -177,8 +172,8 @@ Inplay Matrix 体育赔率整合规格
 |- RBFECount |Int |No |<p>/竞赛定时赛事计数. </p><p>滚球盘口的体育</p>|
 |- ORCount |Int |No |冠军赛事计数。 |
 |- IsHasLive |Boolean |No |<p>. </p><p>指出目前是否给竞赛提供滚球赛事</p>|
-|StatusCode |Int |No |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |No |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
 状态编码** 
 
 
@@ -5120,7 +5115,7 @@ IPIS Mobile
 | - | - | - | - |
 |Token |String |Yes |会员令牌. |
 |MemberCode |String |Yes |用户名. |
-|TimeStamp |String |Yes |<p>` `5 分钟.  </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟.|
 响应** 
 
 
@@ -5233,8 +5228,8 @@ IPIS Mobile
 |- ComboSelection |Int |No |<p>. 单项投注即使不是混</p><p>指出连串过关类型</p>|
 |- EstimatedPayout Amount |Decimal |No |<p>` `$1投注金额. </p><p>预测派彩金额根据</p>|
 |ReturnNearestHa ndicap |Boolean |No |<p>若设置为 true而当前的让球盘选项不再开出, API 将返回投 注选项资料最接近的让球盘. </p><p>这仅应用在让球投注类型. 若返回的让球盘与提交的让球盘 有差别, 投注选项的状态编码将返回 381. </p>|
-|StatusCode |Int |No |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |No |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
 
 
 
@@ -5408,33 +5403,30 @@ IPIS Mobile
 
 
 
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|WagerType |Int ||Yes |指投注性质. |
-|||||1 = Single 单注 |
-|||||2 = Combo 连串过关 |
-|CustomerIP |String ||Yes |客户 IP 地址 |
-|ServerIP |String ||Yes |伺服器 IP 地址 |
-|CustomerMAC Address |String ||No |客户 MAC 地址 |
-|UserAgent |String ||No |用户代理字符|
-|AppDeviceNam e |String ||No |设备名. 只强制客户端渠道|
-|AppModel |String ||No |设备型号. 只强制客户端渠道|
-|AppOSVersion |String ||No |OS 版设备. 只强制客户端渠道|
-|AppPlatform |String ||No |设备平台. 只强制客户端渠道|
-|AppVersion |String ||No |<p>. 只强制客户端渠道</p><p>客户端版本</p>|
-|IsComboAccep tAnyOdds |Boolean ||No |指出会员投注时出现赔率变更并是否接受任何赔 率。 |
-|||||默认是只接受跟高的赔率。 |
-|WagerSelectio nInfos |List ||Yes |投注选项详情清单|
-|- WagerSelectio nId |Long ||Yes |投注选项特定 ID |
-|- MarketlineId |Long ||Yes |盘口特定 ID |
-|- BetTypeId |Int ||Yes |投注类型 ID |
-|- BetTypeSelecti onId |Int ||Yes |<p>` `ID （只适用于定时赛事，如果</p><p>指投注类型选项 优胜冠军会是0） </p>|
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|WagerType |Int |Yes |指投注性质. <p>1 = Single 单注 <p>2 = Combo 连串过关 |
+|CustomerIP |String |Yes |客户 IP 地址 |
+|ServerIP |String |Yes |伺服器 IP 地址 |
+|CustomerMAC Address |String |No |客户 MAC 地址 |
+|UserAgent |String |No |用户代理字符|
+|AppDeviceNam e |String |No |设备名. 只强制客户端渠道|
+|AppModel |String |No |设备型号. 只强制客户端渠道|
+|AppOSVersion |String |No |OS 版设备. 只强制客户端渠道|
+|AppPlatform |String |No |设备平台. 只强制客户端渠道|
+|AppVersion |String |No |<p>. 只强制客户端渠道</p><p>客户端版本</p>|
+|IsComboAccep tAnyOdds |Boolean |No |指出会员投注时出现赔率变更并是否接受任何赔 率。 <p>默认是只接受跟高的赔率。 |
+|WagerSelectio nInfos |List |Yes |投注选项详情清单|
+|- WagerSelectio nId |Long |Yes |投注选项特定 ID |
+|- MarketlineId |Long |Yes |盘口特定 ID |
+|- BetTypeId |Int |Yes |投注类型 ID |
+|- BetTypeSelecti onId |Int |Yes |<p>` `ID （只适用于定时赛事，如果</p><p>指投注类型选项 优胜冠军会是0） </p>|
 |- OutrightTeamI d |Long |Yes |<p>` `ID. （只适用于优胜冠军，如果定</p><p>队伍或参赛者 时赛事会是0） </p>|
 |- OddsType |Int |Yes |赔率类型 1 = 马来盘 2 = 香港盘 3 = 欧洲盘 4 = 印尼盘 |
 |- Handicap |Float |Yes |该项目仅适用于让球盘和大小盘.  对于让球盘，负值等于选项在让分，正值相反。 对于大小盘，就是大于或小于的得分比较。 如果是空值等于该让分不适用于该盘口或投注类 型。 |
-|- Odds |Float |Yes |<p>. </p><p>选择赔率值</p>|
+|- Odds |Float |Yes | 选择赔率值|
 |- HomeScore |Int |No |主队当前得分. (只适用定时滚球赛事和支持比分 的体育项目) |
-|- AwayScore |Int |No |<p>. (只适用定时滚球赛事和支持比分</p><p>客队当前得分 的体育项目) </p>|
+|- AwayScore |Int |No |(只适用定时滚球赛事和支持比分客队当前得分的体育项目) </p>|
 |- EventId |Long |Yes |<p>` `ID. </p><p>赛事的特定</p>|
 |- SportId |Int |Yes |<p>` `ID. 参考附录. </p><p>指出体育项目</p>|
 |- Market |Int |Yes |<p>指出“早盘”、“今日”或者“滚球”的盘口 1 = 早盘 </p><p>2 = 今日 </p><p>3 = 滚球 </p>|
@@ -5444,17 +5436,19 @@ IPIS Mobile
 |- StakeAmount |Decimal |Yes |投注金额(2 decimal places) |
 |Token |String |Yes |会员令牌 |
 |MemberCode |String |Yes |用户名 |
-|TimeStamp |String |Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |<p> 5 分钟 <p>新生成的时间戳将持续 |
 |LanguageCode |String |Yes |使用会员语言投注|
+
+
 响应** 
 
 
 
-|范围** |数据类型||空值**  |描述 |
-| - | - | :- | - | - |
-|WagerSelectionInf os |List ||No |投注选项详情清单|
-|- WagerId |String ||No |下注成功的注单号|
-|- BetStatusMessage |String ||No |对于相应组合选择的注单状态|
+|范围** |数据类型|空值**  |描述 |
+| - | - | - | - |
+|WagerSelectionInf os |List |No |投注选项详情清单|
+|- WagerId |String |No |下注成功的注单号|
+|- BetStatusMessage |String |No |对于相应组合选择的注单状态|
 |- ComboSelectionId |Int ||No |<p>. 单项投注即使不是混合过关也会被显</p><p>指出连串过关类型 示. 参考附录3.6 </p>|
 |- BetConfirmationS tatus |Int |No |<p>投注状态确认</p><p>1 = Pending 待处理 </p><p>2 = Confirmed 已确认 </p><p>3 = Rejected (refers to Danger Cancel) 已拒绝（危险球取 消） </p>|
 |AcceptedWagerSe lectionList |List |Yes |<p>投注资料清单 </p><p>下注成功的</p>|
@@ -5491,9 +5485,8 @@ IPIS Mobile
 |AvailableBalance |Float |Yes |可用余额. |
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -5518,9 +5511,7 @@ IPIS Mobile
 |**352** |无效客户 MAC 地址 |
 |**353** |无效用户代理|
 |**355** |超出投注上限 |
-
 |**395** |在地区限制投注|
-| - | - |
 |**1000** |投注错误（没有成功投注）|
 |**400** |系统错误 |
 |**700** |维护 |
@@ -5528,12 +5519,6 @@ IPIS Mobile
 |**1554** |无效注单 |
 |**1556** |虚拟足球未启用|
 |**1557** |虚拟篮球未启用|
-**Bet Status Message** 
-
-
-
-|状态编码** |描述** |
-| - | - |
 |**100** |成功 |
 |**380** |无可选盘口|
 |**411** |无效货币 |
@@ -5701,59 +5686,39 @@ IPIS Mobile
 
 
 
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|BetConfirmatio nStatus |List ||Yes |<p>确认投注状态清单. </p><p>1 = Pending 待处理 </p>|
-|||||2 = Confirmed 已确认 |
-|||||3 = Rejected (refers to Danger Cancel) 已拒绝 (危|
-|||||险球取消) |
-|||||4 = Cancelled 已取消 |
-|StartDate |Date Time ||No |<p>` `GMT-4. 这是针对赛事日期和时</p><p>开始时间时区为 间。 </p>|
-|EndDate |Date Time ||No |<p>` `GMT -4. 这是针对赛事日期和时</p><p>结束时间时区为 间。 </p>|
-|LanguageCode |String ||Yes |使用会员语言|
-|Token |String ||Yes |会员令牌 |
-|MemberCode |String ||Yes |用户名 |
-|TimeStamp |String ||Yes |新生成的时间戳将持续 5 分钟 |
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|BetConfirmatio nStatus |List |Yes |<p>确认投注状态清单. </p><p>1 = Pending 待处理 </p>2 = Confirmed 已确认 </p>3 = Rejected (refers to Danger Cancel) 已拒绝 (危险球取消) </p>4 = Cancelled 已取消 |
+|StartDate |Date Time |No |<p>` `GMT-4. 这是针对赛事日期和时</p><p>开始时间时区为 间。 </p>|
+|EndDate |Date Time |No |<p>` `GMT -4. 这是针对赛事日期和时</p><p>结束时间时区为 间。 </p>|
+|LanguageCode |String |Yes |使用会员语言|
+|Token |String |Yes |会员令牌 |
+|MemberCode |String |Yes |用户名 |
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟 |
+
 响应** 
 
-|范围** |数据类型||空值**  |描述 |
-| - | - | :- | - | - |
-|WagerList |List ||No |投注清单 |
-|- WagerId |String ||No |下注成功的注单号|
+|范围** |数据类型|空值**  |描述 |
+| - | - | - | - |
+|WagerList |List |No |投注清单 |
+|- WagerId |String |No |下注成功的注单号|
 |- WagerCreationDa teTime |Date Time ||No |投注创建的日期和时间|
-|- MemberCode |String ||No |用户名 |
-|- InputtedStakeAm ount |Decimal ||No |会员提交的投注金额|
-|- MemberWinLoss Amount |Decimal ||No |输赢金额 |
-|- Outcome |Integer ||Yes |结算后投注的结果。|
-|||||（1=赢，2=输，3=平，4=赢一半，5=输一半） |
-|||||对于取消、未结算或兑现的投注，价值将为空。|
-|- OddsType |Int ||No |赔率类型 |
-|||||1 = 马来盘 |
-|||||2 = 香港盘 |
-|||||3 = 欧洲盘 |
-|||||4 = 印尼盘 |
-|- WagerType |Int ||No |<p>. </p><p>指投注性质</p>|
-|||||1 = Single 单注 |
-|||||2 = Combo 连串过关 |
-|- BettingPlatform |String ||Yes |投注的设备|
-|- BetConfirmationS tatus |Int ||No |<p>确认投注状态清单. </p><p>1 = Pending 待处理 </p><p>2 = Confirmed 已确认 </p>|
-|||||3 = Rejected (refers to Danger Cancel) 已拒绝 (危险球取消) |
-|||||4 = Cancelled 已取消 |
-|- BetSettlementStat us |Int ||No |0 = Not Settled 未结算 1 = Settled 已结算 |
-|- BetResettled |Int ||No |0 = Not Resettled 没重新结算 |
-|||||1 = Resettled 有重新结算 |
-|- BetTradeStatus |Int ||No |0 = Not Sold 未售出 |
-|||||1 = Sold 已售出 |
-|||||2 = In Progress 进行中 |
-|||||3 = Cancelled 已取消 |
-|||||对于已售出的投注，无论是否赛事已经结算， BetSettlementStatus=1 |
-|- BetTradeSuccess DateTime |Date Time ||Yes |指出兑现成功时间 |
-|- PricingId |String ||Yes |提前兑现 的价格 ID |
-|- BuyBackPricing |Dec ||Yes |提前兑现提供的回购价格|
-|- BetTradeBuyBack Amount |Dec ||Yes |<p>. 只有已售给提前兑现的投注产生</p><p>提前兑现已买投注的金额 数值 </p>|
-
+|- MemberCode |String |No |用户名 |
+|- InputtedStakeAm ount |Decimal |No |会员提交的投注金额|
+|- MemberWinLoss Amount |Decimal |No |输赢金额 |
+|- Outcome |Integer |Yes |结算后投注的结果。<p>（1=赢，2=输，3=平，4=赢一半，5=输一半） <p>对于取消、未结算或兑现的投注，价值将为空。|
+|- OddsType |Int |No |赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
+|- WagerType |Int |No |指投注性质<p>1 = Single 单注 <p>2 = Combo 连串过关 |
+|- BettingPlatform |String |Yes |投注的设备|
+|- BetConfirmationS tatus |Int |No |<p>确认投注状态清单. <p>1 = Pending 待处理 <p>2 = Confirmed 已确认 <p>3 = Rejected (refers to Danger Cancel) 已拒绝 (危险球取消) <p>4 = Cancelled 已取消 |
+|- BetSettlementStat us |Int |No |0 = Not Settled 未结算 1 = Settled 已结算 |
+|- BetResettled |Int |No |0 = Not Resettled 没重新结算 <p>1 = Resettled 有重新结算 |
+|- BetTradeStatus |Int |No |0 = Not Sold 未售出 <p>1 = Sold 已售出 <p>2 = In Progress 进行中 <p>3 = Cancelled 已取消 <p>对于已售出的投注，无论是否赛事已经结算， BetSettlementStatus=1 |
+|- BetTradeSuccess DateTime |Date Time |Yes |指出兑现成功时间 |
+|- PricingId |String |Yes |提前兑现 的价格 ID |
+|- BuyBackPricing |Dec |Yes |提前兑现提供的回购价格|
+|- BetTradeBuyBack Amount |Dec |Yes |<p>. 只有已售给提前兑现的投注产生<p>提前兑现已买投注的金额 数值 |
 |- NoOfCombination |Int |No |<p>/投注数字 </p><p>指出连串过关类型的排列</p>|
-| :- | - | - | - |
 |- ComboSelection |Int |No |<p>. 单项投注即使不是混合过关也会被显</p><p>指出连串过关类型 示. 参考附录3.6 </p>|
 |- PotentialPayout |Decimal |No |投注潜在的派彩金额|
 |- CanSell |Boolean |No |指出投注可售给提前兑现|
@@ -5772,9 +5737,7 @@ IPIS Mobile
 |-- SourceId |String |Yes |<p>ID. </p><p>赛事的外部参考</p>|
 |-- Season |String |Yes |赛季指标. 仅适用于虚拟足球, 虚拟篮球和虚拟世界杯各项 体育. |
 |-- MatchDay |String |Yes |赛日指标. 仅适用于虚拟足球和虚拟篮球|
-
 |-- EventGroupTypeI d |Int |No |<p>. 参考附录 3.4(只适用于定时赛事) </p><p>指出赛事的组别类型</p>|
-| :- | - | - | - |
 |-- HomeTeamId |Int |No |<p>` `ID (只适用于定时赛事. 如果优胜冠军</p><p>主队或参赛者的特定 会是 0) </p>|
 |-- HomeTeamName |String |Yes |主队名称. (只适用于定时赛事. 如果优胜冠军会是 0) 这将会在请求中还原特定的语言|
 |-- AwayTeamId |Int |No |<p>` `ID (只适用于定时赛事. 如果优胜冠军</p><p>客队或参赛者的特定 会是 0) </p>|
@@ -5793,9 +5756,7 @@ IPIS Mobile
 |-- HomeTeamHTSco re |Int |Yes |<p>上半场得分. 若不存在得分, 将还原为空值. </p><p>主队于赛事</p>|
 |-- AwayTeamHTSco re |Int |Yes |<p>上半场得分. 若不存在得分, 将还原为空值. </p><p>客队于赛事</p>|
 |-- HomeTeamFTSco re |Int |Yes |主队于赛事全场得分. 若不存在得分, 将还原为空值|
-
-|-- AwayTeamFTScor e |Int |Yes |<p>. 若不存在得分, 将还原为空值</p><p>客队于赛事全场得分</p>|
-| :- | - | - | - |
+|-- AwayTeamFTScor e |Int |Yes |<p>. 若不存在得分, 将还原为空值<p>客队于赛事全场得分|
 |-- WagerHomeTeam Score |Int |Yes |主队于投注成功后得分. 只适用于滚球定时的足球（1）， 棒球（8）， 草地曲棍球（18）， 美式足球（19）， 冰 上曲棍球（25）， 橄榄球（31）赛事. 若不存在得分, 将还 原为空值. |
 |-- WagerAwayTeam Score |Int |Yes |客队于投注成功后得分. 只适用于滚球定时的足球（1）， 棒球（8）， 草地曲棍球（18）， 美式足球（19）， 冰 上曲棍球（25）， 橄榄球（31）赛事. 若不存在得分, 将还 原为空值. |
 |-- OverallScore |Int |Yes |指出赛事的总体得分。 如果没有分数，将返回Null。 |
@@ -5805,9 +5766,8 @@ IPIS Mobile
 |-- GroundTypeId |Int |No |<p>` `(只适用于定</p><p>指赛事是否举办于其中一队的主场或中立场 时赛事，如果优胜冠军会是 0) </p><p>0 = Neutral Ground 中立场 </p><p>1 = Home Ground 主场 </p>|
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -5819,6 +5779,7 @@ IPIS Mobile
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
 范例** 
 
 *Table 36: GetBetList Request* 
@@ -6135,22 +6096,18 @@ IPIS Mobile
 
 
 
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|Token |String ||Yes |会员令牌 |
-|MemberCode |String ||Yes |用户名 |
-|DateType |Int ||No |日期类型 |
-|||||1 = 赛事时间 |
-|||||2 = 下注时间 |
-
-||||3 = 结算时间 默认 = 1 |
-| :- | :- | :- | :- |
-|StartDate |Date |Yes |<p>` `GMT-4. 最初日期不可早于</p><p>开始时间时区为 31天 前. </p>|
-|EndDate |Date |Yes |<p>` `GMT -4.  </p><p>结束时间时区为</p>|
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|Token |String |Yes |会员令牌 |
+|MemberCode |String |Yes |用户名 |
+|DateType |Int |No |日期类型 <p>1 = 赛事时间 <p>2 = 下注时间 <p>3 = 结算时间 <p>默认 = 1 |
+|StartDate |Date |Yes |开始时间时区为 GMT-4. 最初日期不可早于31天 前.|
+|EndDate |Date |Yes |结束时间时区为 GMT -4.|
 |StartTime |Time |No |开始时间. 默认为 00:00:00 |
 |EndTime |Time |No |结束时间. 默认为 23:59:59 |
 |LanguageCode |String |Yes |使用会员语言|
-|TimeStamp |String |Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟|
+
 响应** 
 
 与 GetBetList 一致. 
@@ -6205,10 +6162,9 @@ IPIS Mobile
 | - | - | - | - |
 |Token |String |Yes |会员令牌 |
 |MemberCode |String |Yes |用户名 |
-|TimeStamp |String |Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟|
+
 响应** 
-
-
 
 |范围** |数据类型**  |空值**  |描述 |
 | - | - | - | - |
@@ -6216,9 +6172,8 @@ IPIS Mobile
 |StatusDesc |String |No |状态编码的描述含义|
 |AvailableBalance |Float |No |可用余额 |
 |OutstandingBalan ce |Float |No |待结算余额|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -6272,31 +6227,29 @@ IPIS Mobile
 投注状态
 
 IPIS Mobile
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|Token |String ||Yes |会员令牌. |
-|WagerIds |List of String ||Yes |投注ID清单. |
-|MemberCode |String ||Yes |用户名 |
-|LanguageCode |String ||Yes |<p>. </p><p>会员选用的语言</p>|
-|TimeStamp |String ||Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|Token |String |Yes |会员令牌. |
+|WagerIds |List of String |Yes |投注ID清单. |
+|MemberCode |String |Yes |用户名 |
+|LanguageCode |String |Yes |会员选用的语言.|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
+
 响应** 
-
-
 
 |范围** |数据类型**  |空值**  |描述 |
 | - | - | - | - |
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
-|PendingWagerSta tusList |List |No |<p>投注清单 </p><p>确认状态的</p>|
+|PendingWagerStatusList |List |No |确认状态的投注清单|
 |- WagerId |String |No |投注ID. |
-|- BetConfirmationS tatus |Int |No |<p>投注确认状态. </p><p>1 = 待处理 </p><p>2 = 确认 </p><p>3 = 已拒绝 (参考危险球取消 4 = 已取消 </p><p>) </p>|
+|- BetConfirmationStatus |Int |No |<p>投注确认状态. <p>1 = 待处理 <p>2 = 确认 <p>3 = 已拒绝 (参考危险球取消) <p>4 = 已取消 |
 |- WagerItemStatus |List |No |投注中的投注项目清单 |
-|-- WagerItemConfir mationStatus |Int |No |<p>. </p><p>已取消投注的取消原因 0 = 无原因 </p><p>1 = 危险情况 红牌 </p><p>2 = 危险情况 进球 </p>|
-|-- WagerItemCancel Reason |Int |No |<p>已取消投注的取消原因. </p><p>0 = No Reason 无原因 </p><p>1 = Danger Red Card 危险红牌 </p><p>2 = Danger Goal 危险进球 </p><p>4 = Others: Danger 其他：危险</p><p>5 = Others: System Timeout 其他：系统超时</p>|
+|-- WagerItemConfirmationStatus |Int |No |<p>已取消投注的取消原因. <p>0 = 无原因 <p>1 = 危险情况 红牌 <p>2 = 危险情况 进球|
+|-- WagerItemCancelReason |Int |No |<p>已取消投注的取消原因. <p>0 = No Reason 无原因 <p>1 = Danger Red Card 危险红牌 <p>2 = Danger Goal 危险进球 <p>4 = Others: Danger 其他:危险 <p>5 = Others: System Timeout <p>其他:系统超时|
 |-- EventId |Long |No |赛事ID |
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -6308,6 +6261,7 @@ IPIS Mobile
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
 范例** 
 
 *Table 41: GetPendingWagerStatus Request* 
@@ -6348,34 +6302,29 @@ IPIS Mobile
 
 
 
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|OrderBy |Int ||No |<p>.  </p><p>指定使用的排序</p>|
-|||||1 = 通告日期时间升序 |
-|||||2 = 通告日期时间降序 |
-|||||默认 = 1 |
-|TimeStamp |String ||Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|范围**  |数据类型 |强制性**  |描述 |
+| - | - |  - | - |
+|OrderBy |Int |No |<p>指定使用的排序 <p>1 = 通告日期时间升序 <p>2 = 通告日期时间降序 <p>默认 = 1 |
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟|
+
+
 响应** 
 
-
-
-|范围** |数据类型||空值**  |描述 |
-| - | - | :- | - | - |
-|Announcement |List ||No |通告清单 |
-|- AnnouncementId |Long ||No |通告 ID |
-|- PostingDate |Date ||No |通告日期和时间|
-|- ExpiryDate |Date ||No |通告过期日期和时间|
-|- DateUpdated |Date ||No |通告更新日期|
-|- AnnouncementDe tail |List ||No |通告详情清单|
-|-- LanguageCode |String ||No |通告语言 |
-
-|-- Content ||Yes |内容 |
-| - | :- | - | - |
+|范围** |数据类型|空值**  |描述 |
+| - | - |  - | - |
+|Announcement |List |No |通告清单 |
+|- AnnouncementId |Long |No |通告 ID |
+|- PostingDate |Date |No |通告日期和时间|
+|- ExpiryDate |Date |No |通告过期日期和时间|
+|- DateUpdated |Date |No |通告更新日期|
+|- AnnouncementDe tail |List |No |通告详情清单|
+|-- LanguageCode |String |No |通告语言 |
+|-- Content |String |Yes |内容 |
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -6811,40 +6760,37 @@ IPIS Mobile
 
 请求** 
 
-
-
 |范围**  |数据类 型**  |强制性**  |描述 |
 | - | :- | - | - |
-|SportIds |List of Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
-|Market |Int |No |<p>指出“早盘”、“今日”或者“滚球”的盘口 1 = 早盘 </p><p>2 = 今日 </p>|
-
-||||3 = 滚球 |
-| :- | :- | :- | - |
-|ProgrammeIds |List of Int |No |每场竞赛程序的特定ID. 没提供竞赛程序就不会 有竞赛程序的过滤。 |
+|SportIds |List of Int |Yes |指出体育项目. 参考附录3.3.|
+|Market |Int |No |<p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球 |
+|ProgrammeIds |List of Int |No |每场竞赛程序的特定ID. 没提供竞赛程序就不会有竞赛程序的过滤。 |
 |EventGroupTypeI ds |List of Int |No |可选参数用于指出只返回特定赛事组别类型的 赛果. 参考附录3.4。|
 |BetTypeIds |List of Int |No |指出返回的投注类型|
-|PeriodIds |List of Int |No |<p>筛选时段的ID清单.  1 = FT 全场 </p><p>2 = 1H 上半场 </p><p>3 = 2H 下半场 </p>|
-|MarketlineLevels |List of Int |No |可选参数用于指出只返回特定的盘口级别。只 是针对主要玩法。|
-|IncludeGroupEve nts |Boolean |Yes |<p>ID的其他赛事是否同时</p><p>指出属于相同赛事组别 被返回 </p>|
-|OddsType |Int |Yes |赔率类型 1 = 马来盘 2 = 香港盘 3 = 欧洲盘 4 = 印尼盘 |
-|OrderBy |Int |No |<p>指定使用的排序.  </p><p>1 = 赛事日期时间顺序 2 = IM 体育顺序 默认 = 1 </p>|
+|PeriodIds |List of Int |No |<p>筛选时段的ID清单.  <p>1 = FT 全场 <p>2 = 1H 上半场 <p>3 = 2H 下半场 </p>|
+|MarketlineLevels |List of Int |No |可选参数用于指出只返回特定的盘口级别。只是针对主要玩法。|
+|IncludeGroupEvents |Boolean |Yes |指出属于相同赛事组别ID的其他赛事是否同时 被返回|
+|OddsType |Int |Yes |<p>赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
+|OrderBy |Int |No |<p>指定使用的排序. <p>1 = 赛事日期时间顺序 <p>2 = IM 体育顺序 <p>默认 = 1 |
 |MemberCode |String |Yes |用户名 |
 |Token |String |No |会员令牌. |
-|LanguageCode |String |No |<p>. </p><p>为本地名称返回的语言</p>|
-|TimeStamp |String |Yes |<p>5分钟. </p><p>新生成的时间戳将持续</p>|
+|LanguageCode |String |No |为本地名称返回的语言.|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
+
 响应** 
 
-该响应与 GetEventInfoMBT 响应一致. 唯一的区别是 Delta 响应参数（String）的数据类型。 状态编码** 
+该响应与 GetEventInfoMBT 响应一致. 唯一的区别是 Delta 响应参数（String）的数据类型。 
 
 
+状态编码** 
 
 |状态编码** |描述** |
 | - | - |
 |**100** |成功 |
 |**101** |无效时间戳|
-|**313** |<p>ID </p><p>无效体育</p>|
+|**313** |无效体育 ID|
 |**332** |无效盘口 |
-|**336** |<p>` `ID </p><p>无效投注类型</p>|
+|**336** |无效投注类型 ID|
 |**400** |系统错误 |
 |**397** |无效排序 |
 |**700** |维护 |
@@ -6891,30 +6837,31 @@ IPIS Mobile
 
 |范围**  |数据类 型**  |强制性**  |描述 |
 | - | :- | - | - |
-|TimeStamp |String |Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
 |Token |String |No |会员令牌. |
 |MemberCode |String |No |用户名. |
-|SportId |Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.|
 |EventIds |List of Int |Yes |检索赛事 ID清单 |
-|LanguageCode |String |Yes |<p>. </p><p>为本地名称返回的语言</p>|
+|LanguageCode |String |Yes |为本地名称返回的语言.|
+
 响应** 
 
 |范围**  |数据类 型**  |强制性**  |描述 |
 | - | :- | - | - |
-|StatusCode |String |Yes |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |Yes |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |String |Yes |指出请求状态编码.|
+|StatusDesc |String |Yes |状态编码的描述含义.|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
 |**100** |成功 |
 |**101** |无效时间戳|
-|**313** |<p>ID </p><p>无效体育</p>|
+|**313** |无效体育 ID|
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
 范例** 
 
 *Table 52: AddFavouriteEvent Request* 
@@ -6957,32 +6904,32 @@ IPIS Mobile
 
 |范围**  |数据类 型**  |强制性**  |描述 |
 | - | :- | - | - |
-|TimeStamp |String |Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
 |Token |String |No |会员令牌. |
 |MemberCode |String |No |用户名. |
-|SportId |Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.|
 |EventIds |List of Int |Yes |检索赛事 ID清单 |
-|LanguageCode |String |Yes |<p>. </p><p>为本地名称返回的语言</p>|
+|LanguageCode |String |Yes |为本地名称返回的语言.|
+
 响应** 
-
-
 
 |范围**  |数据类 型**  |强制性**  |描述 |
 | - | :- | - | - |
-|StatusCode |String |Yes |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |Yes |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |String |Yes |指出请求状态编码.|
+|StatusDesc |String |Yes |状态编码的描述含义.|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
 |**100** |成功 |
 |**101** |无效时间戳|
-|**313** |<p>ID </p><p>无效体育</p>|
+|**313** |无效体育 ID|
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
+
 范例** 
 
 *Table 54: RemoveFavouriteEvent Request* 
@@ -7017,37 +6964,30 @@ IPIS Mobile
 
 此 API 用于检索提前兑现的 Delta 变化. 访问频率限制: 5 秒 
 
+
 请求** 
 
-
-
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|TimeStamp |String ||Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
-|Token |String ||Yes |会员令牌. |
-|MemberCode |String ||Yes |用户名. |
-|WagerIds |List of String ||Yes |投注ID清单. |
-|Delta |Double ||No |Delta 版本 |
-|||||格式：yyMMddHHmmssfff |
-|||||范例：171219001225452 |
-![](Aspose.Words.a0645f36-2d97-479a-89cf-6c3969ef4a5e.015.png) 提交0进行初始请求。![](Aspose.Words.a0645f36-2d97-479a-89cf-6c3969ef4a5e.016.png)
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|TimeStamp |String |Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
+|Token |String |Yes |会员令牌. |
+|MemberCode |String |Yes |用户名. |
+|WagerIds |List of String |Yes |投注ID清单. |
+|Delta |Double |No | <p>Delta 版本 <p>格式：yyMMddHHmmssfff <p>范例：171219001225452 <p>提交0进行初始请求。|
 
 响应** 
-
-
 
 |范围** |数据类 型**  |空值**  |描述 |
 | - | :- | - | - |
 |Value |List |No |提前兑现版本改变清单 |
-|WagerId |String |No |<p>. </p><p>下注成功的注单号</p>|
-|BetTradeStatus |Int |No |0 = 未售出 1 = 已售出 2 = 进行中 3 = 已取消 |
-|BetTradeBuyBack Amount |Dec |Yes |<p>投注的金额. 只有已售给提前兑现的投注</p><p>提前兑现已买 产生数值. </p>|
-|BuyBackPricing |Dec |Yes |<p>.  </p><p>提前兑现提供的回购价格</p>|
+|WagerId |String |No |下注成功的注单号.|
+|BetTradeStatus |Int |No |<p>0 = 未售出 <p>1 = 已售出 <p>2 = 进行中 <p>3 = 已取消 |
+|BetTradeBuyBackAmount |Dec |Yes |提前兑现已买投注的金额. 只有已售给提前兑现的投注 产生数值.|
+|BuyBackPricing |Dec |Yes |提前兑现提供的回购价格.|
 |PricingId |String |Yes |提前兑现提供的价格ID. |
-|CanSell |Boolean |No |<p>. </p><p>指出投注是否可售给提前兑现</p>|
+|CanSell |Boolean |No |指出投注是否可售给提前兑现.|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -7056,6 +6996,8 @@ IPIS Mobile
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
+
 范例** 
 
 *Table 56: GetDeltaBrtTrade Request* 
@@ -7080,17 +7022,17 @@ IPIS Mobile
 
 
 
-|范围**  |数据类型||强制性**  |描述 |
-| - | - | :- | - | - |
-|WagerId |String ||Yes |成功下注的投注单号|
-|BuyBackPricin g |Decimal ||Yes |提前兑现提供的回购价格|
-|PricingId |String ||Yes |提前兑现 的价格 ID |
-|Token |String ||Yes |会员令牌 |
-|MemberCode |String ||Yes |用户名 |
-|TimeStamp |String ||Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|范围**  |数据类型|强制性**  |描述 |
+| - | - | - | - |
+|WagerId |String |Yes |成功下注的投注单号|
+|BuyBackPricin g |Decimal |Yes |提前兑现提供的回购价格|
+|PricingId |String |Yes |提前兑现 的价格 ID |
+|Token |String |Yes |会员令牌 |
+|MemberCode |String |Yes |用户名 |
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟|
+
+
 响应** 
-
-
 
 |范围** |数据类型**  |空值**  |描述 |
 | - | - | - | - |
@@ -7098,10 +7040,9 @@ IPIS Mobile
 |PricingId |String |Yes |提前兑现 的价格 ID |
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
+
 状态编码** 
-
-
-
 |状态编码** |描述** |
 | - | - |
 |**100** |成功 |
@@ -7109,13 +7050,13 @@ IPIS Mobile
 |**365** |无效投注单号|
 |**366** |无效回购价格 |
 |**367** |价格 ID 过期 |
-
-|**368** |投注不可出售，前一 个请求正在处理中|
-| - | :- |
-|**369** |投注单号已售给提前 兑现 |
+|**368** |投注不可出售，前一个请求正在处理中|
+|**369** |投注单号已售给提前兑现 |
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
+
 范例** 
 
 *Table 57: SubmitBuyBack Request* 
@@ -7166,27 +7107,23 @@ IPIS Mobile
 
 |范围**  |数据类型**  |强制性**  |描述 |
 | - | - | - | - |
-|EventId |Int |Yes |<p>` `ID. </p><p>赛事的特定</p>|
-|SportId |Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
-|TimeStamp |String |Yes |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|EventId |Int |Yes |赛事的特定 ID.|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.|
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟|
+
 响应** 
 
+|范围** |数据类型|空值**  |描述 |
+| - | - | - | - |
+|LiveStreamingURLs |List |Yes |现场直播 URL清单. <p>如果没有直播视频，列表将为空。|
+|- Priority |Int |Yes |现场直播 URL优先级. |
+|- URL |String |Yes |现场直播Url. |
+|- Type |Int |Yes |<p>播放类型. <p>0 = Unknown <p>1 = iFrame <p>2 = FLV <p>3 = M3U8 |
+|- Referer |String |Yes |视频来源的Referer |
+|StatusCode |Int |No |指出请求状态编码<p>当赛事不活跃或不可用或找不到时，返回380 |
+|StatusDesc |String |No |状态编码的描述含义|
 
-
-|范围** |数据类型||空值**  |描述 |
-| - | - | :- | - | - |
-|LiveStreamingURLs |List ||Yes |现场直播 URL清单. |
-|||||如果没有直播视频，列表将为空。|
-|- Priority |Int ||Yes |现场直播 URL优先级. |
-|- URL |String ||Yes |现场直播Url. |
-|- Type |Int ||Yes |<p>播放类型. </p><p>0 = Unknown 1 = iFrame </p><p>2 = FLV </p><p>3 = M3U8 </p>|
-|- Referer |String ||Yes |视频来源的Referer |
-|StatusCode |Int ||No |指出请求状态编码|
-|||||当赛事不活跃或不可用或找不到时，返回380 |
-|StatusDesc |String ||No |状态编码的描述含义|
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -7198,6 +7135,8 @@ IPIS Mobile
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
+
 范例** 
 
 *Table 59: GetLiveStreamingInfo Request* 
@@ -7266,7 +7205,7 @@ IPIS Mobile
 
 |范围**  |数据类型**  |强制性**  |描述 |
 | - | - | - | - |
-|TimeStamp |String |Yes |<p>` `5 分钟.  </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续 5 分钟.|
 |ReferralUrl |String |Yes |ReferralUrl。 |
 响应** 
 
@@ -7280,11 +7219,10 @@ IPIS Mobile
 |BRClientId |String |Yes |Bet Radar客户编号。如果不适用, 值将为null。 |
 |ShowMemberCod e |Boolean |No |指出是否显示用户名。|
 |ServerTime |DateTime |No |服务器时间|
-|StatusCode |Int |No |<p>. </p><p>指出请求状态编码</p>|
-|StatusDesc |String |No |<p>. </p><p>状态编码的描述含义</p>|
+|StatusCode |Int |No |指出请求状态编码.|
+|StatusDesc |String |No |状态编码的描述含义.|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -7293,6 +7231,8 @@ IPIS Mobile
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
+
 范例** 
 
 *Table 61: GetCompanyById Request* 
@@ -7351,57 +7291,54 @@ IPIS Mobile
 |VN |Vietnamese |
 |ID |Indonesian |
 |ES |西班牙文 |
+
 2. 货币 编码** 
 
-
-
-|货币编码** |货币** 名称** ||加密货币** |
-| - | - | :- | - |
-|ALG** |阿拉贡** ||是** |
-|ARS |阿根廷比索|||
-|BCH |比特币现金||是 |
-|BDT |孟加拉塔卡|||
-|BND |汶来元 |||
-|BRL |巴西雷亚尔|||
-|BTG |比特币黄金||是 |
-|CLP |智利比索 |||
-|CNY |中国元 |||
-|DSH |达世币 ||是 |
-|EOS |柚子币 ||是 |
-|ETH |以太坊 ||是 |
-|EUR |欧元 |||
-|GBP |英镑 |||
-|GHS |加纳塞地 |||
-|HBA |哈希图币 ||是 |
-|HKD |港币 |||
-|IDR |印尼盾 |||
-|JPY |日圆 |||
-|KES |肯尼亚先令|||
-|KHR |柬埔寨瑞尔|||
-|KIP |寮幣 |||
-|KRW |韩币 |||
-|LKR |斯里兰卡卢比|||
-|LTC |莱特币 ||是 |
-|MBT |毫比特 ||是 |
-|MMK |缅甸元 |||
-
+|货币编码** |货币** 名称** |加密货币** |
+| - | - | - |
+|ALG** |阿拉贡** |是** |
+|ARS |阿根廷比索||
+|BCH |比特币现金|是 |
+|BDT |孟加拉塔卡||
+|BND |汶来元 ||
+|BRL |巴西雷亚尔||
+|BTG |比特币黄金|是 |
+|CLP |智利比索 ||
+|CNY |中国元 ||
+|DSH |达世币 |是 |
+|EOS |柚子币 |是 |
+|ETH |以太坊 |是 |
+|EUR |欧元 ||
+|GBP |英镑 ||
+|GHS |加纳塞地 ||
+|HBA |哈希图币 |是 |
+|HKD |港币 ||
+|IDR |印尼盾 ||
+|JPY |日圆 ||
+|KES |肯尼亚先令||
+|KHR |柬埔寨瑞尔||
+|KIP |寮幣 ||
+|KRW |韩币 ||
+|LKR |斯里兰卡卢比||
+|LTC |莱特币 |是 |
+|MBT |毫比特 |是 |
+|MMK |缅甸元 ||
 |MXN |墨西哥比索|||
-| - | - | :- | :- |
-|NIO |尼加拉瓜科多巴|||
-|PEN |秘鲁索尔 |||
-|PKR |巴基斯坦卢比|||
-|PLN |波兰兹罗提|||
-|RMB |人民币 |||
-|RUB |俄罗斯卢布|||
-|THB |泰铢 |||
-|TRX |波场币 ||是 |
-|USD |美元 |||
-|UST |USDT 加密货币 ||是 |
-|VND |越南盾 |||
-|XLM |恒星币 ||是 |
-|XRP |瑞波币 ||是 |
-|ZEC |大零币 ||是 |
-|ZWD |津巴布韦元|||
+|NIO |尼加拉瓜科多巴||
+|PEN |秘鲁索尔 ||
+|PKR |巴基斯坦卢比||
+|PLN |波兰兹罗提||
+|RMB |人民币 ||
+|RUB |俄罗斯卢布||
+|THB |泰铢 ||
+|TRX |波场币 |是 |
+|USD |美元 ||
+|UST |USDT 加密货币 |是 |
+|VND |越南盾 ||
+|XLM |恒星币 |是 |
+|XRP |瑞波币 |是 |
+|ZEC |大零币 |是 |
+|ZWD |津巴布韦元||
 
 
 IPIS Mobile
@@ -7693,5 +7630,5 @@ IPIS API 的版本可以在 HTTP custom header“ipis-version” (例: “ipis-v
 |**Version** |**Changes** |**Expiry** |
 | - | - | - |
 |1.0 |Initial version |2021-03-09 |
-|2.0 |All Bet Type Names has been changed. BetTypeName response parameter affected. ||
+|2.0 |All Bet Type Names has been changed. BetTypeName response parameter affected. |||
 
