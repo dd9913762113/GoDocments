@@ -123,60 +123,57 @@ Inplay Matrix 体育赔率整合规格
 
 |范围** |数据类型** |强制性** |描述** |
 | - | - | - | - |
-|TimeStamp |String |Yes |<p>5分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟|
 |LanguageCode |String |Yes |为本地名称返回的语言|
-|IsCombo |Boolean |Yes |<p>指出请求是连串过关赛事或者非连串过关赛 事。 </p><p>当IsCombo提交null时，将返回连串过关计数和 非连串过关计数。 </p>|
+|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事。<p>当IsCombo提交null时，将返回连串过关计数和 非连串过关计数。 |
+
+
 响应** 
-
-
 
 |范围** |数据类型** |空值** |描述** |
 | - | - | - | - |
 |StatusCode |Int |No |指出请求状态编码.|
 |StatusDesc |String |No |状态编码的描述含义.|
-|SportId |Int |No |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
-|SportName |String |No |<p>. </p><p>体育项目名称在指定请求中返回相应语言</p>|
-|Order Number |Short |No |<p>. </p><p>体育项目序号</p>|
-|Count |Int |No |<p>. </p><p>体育赛事计数</p>|
-|EarlyFECount |Int |No |<p>. </p><p>早盘盘口的体育定时赛事计数</p>|
-|TodayFECount |Int |No |<p>. </p><p>今日盘口的体育定时赛事计数</p>|
-|RBFECount |Int |No |<p>. </p><p>滚球盘口的体育定时赛事计数</p>|
+|SportId |Int |No |指出体育项目. 参考附录3.3.|
+|SportName |String |No |体育项目名称在指定请求中返回相应语言.|
+|Order Number |Short |No |体育项目序号.|
+|Count |Int |No |体育赛事计数.|
+|EarlyFECount |Int |No |早盘盘口的体育定时赛事计数.|
+|TodayFECount |Int |No |今日盘口的体育定时赛事计数.|
+|RBFECount |Int |No |滚球盘口的体育定时赛事计数.|
 |ORCount |Int |No |冠军赛事计数。 |
-|IsCombo |Boolean |No |<p>。 </p><p>指出计数是连串过关赛事或者非连串过关赛事</p>|
+|IsCombo |Boolean |No |指出计数是连串过关赛事或者非连串过关赛事。|
 |IsHasLive |Boolean |No |指出目前是否提供滚球赛事. |
 |EventGroupTypes |List |No |赛事组别类型清单|
-
-|-  EventGroupTy peId |Int |No |指出赛事组别类型。参考附录3.4。|
-| - | - | - | - |
+|-  EventGroupTypeId |Int |No |指出赛事组别类型。参考附录3.4。|
 |-  Count |Int |No |赛事组别类型的赛事计数|
-|-  EarlyFECount |Int |No |<p>/组别类型定时赛事计数. </p><p>早盘盘口的体育</p>|
-|-  TodayFECoun t |Int |No |<p>/组别类型定时赛事计数. </p><p>今日盘口的体育</p>|
-|-  RBFECount |Int |No |<p>/组别类型定时赛事计数. </p><p>滚球盘口的体育</p>|
+|-  EarlyFECount |Int |No |早盘盘口的体育/组别类型定时赛事计数.|
+|-  TodayFECount |Int |No |今日盘口的体育/组别类型定时赛事计数.|
+|-  RBFECount |Int |No |滚球盘口的体育/组别类型定时赛事计数.|
 |-  ORCount |Int |No |冠军赛事计数。 |
-|-  IsHasLive |Boolean |No |<p>. </p><p>指出目前是否给赛事组别类型提供滚球赛事</p>|
+|-  IsHasLive |Boolean |No |指出目前是否给赛事组别类型提供滚球赛事.|
 |ProgrammeList |List |No |ProgrammeIds 清单 |
 |-  ProgrammeId |Int |No |指出特定的竞赛程序|
-|-  ProgrammeNa me |String |No |<p>. </p><p>程序名称在指定请求中返回相应语言</p>|
-|-  Count |Int |No |<p>. </p><p>程序的赛事计数</p>|
-|-  EarlyFECount |Int |No |<p>/程序定时赛事计数. </p><p>早盘盘口的体育</p>|
+|-  ProgrammeName |String |No |程序名称在指定请求中返回相应语言.|
+|-  Count |Int |No |程序的赛事计数.|
+|-  EarlyFECount |Int |No |早盘盘口的体育/程序定时赛事计数.|
 |-  TodayFECoun t |Int |No |今日盘口的体育/程序定时赛事计数. |
-|-  RBFECount |Int |No |<p>/程序定时赛事计数. </p><p>滚球盘口的体育</p>|
+|-  RBFECount |Int |No |滚球盘口的体育/程序定时赛事计数.|
 |-  ORCount |Int |No |冠军赛事计数。 |
-|-  IsHasLive |Boolean |No |<p>. </p><p>指出目前是否给程序提供滚球赛事</p>|
+|-  IsHasLive |Boolean |No |指出目前是否给程序提供滚球赛事.|
 |CompetitionList |List |No |竞赛 清单 |
 |- CompetitionId |Int |No |指出特定的竞赛|
-|- CompetitionName |String |No |<p>. </p><p>竞赛名称在指定请求中返回相应语言</p>|
-|- Count |Int |No |<p>. </p><p>竞赛的赛事计数</p>|
-|- EarlyFECount |Int |No |<p>/竞赛定时赛事计数. </p><p>早盘盘口的体育</p>|
-|- TodayFECount |Int |No |<p>/竞赛定时赛事计数. </p><p>今日盘口的体育</p>|
-|- RBFECount |Int |No |<p>/竞赛定时赛事计数. </p><p>滚球盘口的体育</p>|
+|- CompetitionName |String |No |竞赛名称在指定请求中返回相应语言.|
+|- Count |Int |No |竞赛的赛事计数.|
+|- EarlyFECount |Int |No |早盘盘口的体育/竞赛定时赛事计数.|
+|- TodayFECount |Int |No |今日盘口的体育/竞赛定时赛事计数.|
+|- RBFECount |Int |No |滚球盘口的体育/竞赛定时赛事计数.|
 |- ORCount |Int |No |冠军赛事计数。 |
-|- IsHasLive |Boolean |No |<p>. </p><p>指出目前是否给竞赛提供滚球赛事</p>|
+|- IsHasLive |Boolean |No |指出目前是否给竞赛提供滚球赛事.|
 |StatusCode |Int |No |指出请求状态编码.|
 |StatusDesc |String |No |状态编码的描述含义.|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -603,36 +600,34 @@ Inplay Matrix 体育赔率整合规格
 
 |范围**  |数据类型**  |强制性**  |描述 |
 | - | - | - | - |
-|TimeStamp |String |Yes |<p>5分钟.  </p><p>新生成的时间戳将持续</p>|
-|LanguageCode |String |Yes |<p>. </p><p>为本地名称返回的语言</p>|
-|SportId |Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
+|LanguageCode |String |Yes |为本地名称返回的语言.|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.|
 |IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事|
-|Market |Int |Yes |<p>指出“早盘”、“今日”或者“滚球”的盘口 1 = 早盘 </p><p>2 = 今日 </p><p>3 = 滚球 </p>|
-|EventDate |Date |No |<p>. 仅适用于</p><p>指出只返回属于特定赛事日期的赛事 早盘盘口. </p>|
+|Market |Int |Yes |<p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球 |
+|EventDate |Date |No |指出只返回属于特定赛事日期的赛事. 仅适用于 早盘盘口.|
 |EventGroupTypeIds |List of Int |No |可选参数用于指出只返回特定赛事组别类型的 赛果. 参考附录3.4。|
-|IncludeCloseEvent |Boolean |Yes |<p>. </p><p>指出计数是否包括关闭赛事</p>|
+|IncludeCloseEvent |Boolean |Yes |指出计数是否包括关闭赛事.|
+
 响应** 
-
-
 
 |范围** |数据类 型**  |空值**  |描述 |
 | - | :- | - | - |
-|SportId |Int |No |<p>ID. 参考附录. </p><p>指出体育项目</p>|
-|SportName |String |No |<p>. </p><p>体育项目名称在特定请求中返回相应语言</p>|
-|OrderNumber |Short |No |<p>. </p><p>体育项目序号</p>|
-|CompetitionId |Int |No |<p>ID. </p><p>每场竞赛的特定</p>|
-|CompetitionName |String |No |<p>. </p><p>竞赛名称在指定请求中返回相应语言</p>|
+|SportId |Int |No |指出体育项目ID. 参考附录.|
+|SportName |String |No |体育项目名称在特定请求中返回相应语言.|
+|OrderNumber |Short |No |体育项目序号.|
+|CompetitionId |Int |No |每场竞赛的特定ID.|
+|CompetitionName |String |No |竞赛名称在指定请求中返回相应语言.|
 |PMOrderNumber |Int |No |竞赛赛前序号. |
-|RBOrderNumber |Int |No |<p>. </p><p>竞赛滚球序号</p>|
+|RBOrderNumber |Int |No |竞赛滚球序号.|
 |ProgrammeId |Int |No |竞赛组别的特定ID. |
-|ProgrammeName |String |No |<p>. </p><p>竞赛组别名称在指定请求中返回相应语言</p>|
+|ProgrammeName |String |No |竞赛组别名称在指定请求中返回相应语言.|
 |ProgrammeOrder Number |Int |No |竞赛组别序号|
-|Count |Int |No |<p>. </p><p>竞赛赛事计数</p>|
+|Count |Int |No |竞赛赛事计数.|
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -641,6 +636,7 @@ Inplay Matrix 体育赔率整合规格
 |**400** |系统错误 |
 |**700** |维护 |
 |**710** |访问地区限制|
+
 范例** 
 
 *Table 3: GetAllCompetitionCount Request* 
@@ -882,60 +878,56 @@ Inplay Matrix 体育赔率整合规格
 
 
 |范围**  |数据类 型**  |强制性**  |描述 |
-| - | :- | - | - |
-|SportId |Int |Yes |<p>指出体育项目. 参考附录3.3. </p><p>SportId 39, 43, 44, 46, 47, 49, 52, 53, 请参考 GetVSEventInfo/GetDeltaVSEventInfo。 </p>|
-|Market |Int |Yes |指出“早盘”、“今日”或者“滚球”的盘口 |
+| - | - | - | - |
+|SportId |Int |Yes |指出体育项目. 参考附录3.3.SportId 39, 43, 44, 46, 47, 49, 52, 53, 请参考 GetVSEventInfo/GetDeltaVSEventInfo。 |
+|Market |Int |Yes | <p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球 <p> 在早上(上午 9 点至下午 12 点)，今日盘口将 包括早盘(直至上午 12 点)的赛事。|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟.|
 
-||||<p>1 = 早盘 </p><p>2 = 今日 </p><p>3 = 滚球 </p><p>在早上（上午 9 点至下午 12 点），今日盘口将 包括早盘（直至上午 12 点）的赛事。 </p>|
-| :- | :- | :- | - |
-|TimeStamp |String |Yes |<p>5分钟. </p><p>新生成的时间戳将持续</p>|
 响应** 
 
-
-
-|范围** |数据类 型**  |空值**  |描述 |
+|范围** |数据类型**  |空值**  |描述 |
 | - | :- | - | - |
 |Sports |List |No |体育项目清单|
-|- SportId |Int |No |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
+|- SportId |Int |No |指出体育项目. 参考附录3.3.|
 |- SportName |String |No |运营商体育项目名称的默认语言|
 |- OrderNumber |Int |No |体育项目序号|
 |- Events |List |No |赛事清单 |
 |-- OpenParlay |Bool |No |指出赛事是否支持连串过关|
 |-- IsLive |Bool |No |指出赛事是否提供滚球|
-|-- Market |Int |No |<p>指出“早盘”、“今日”或者“滚球”的盘口 1 = 早盘 </p><p>2 = 今日 </p><p>3 = 滚球 </p>|
-|-- EventId |Long |No |<p>` `ID </p><p>赛事的特定</p>|
-|-- EventStatusId |Int |No |<p>.  </p><p>指赛事状态 1 = 开盘 2 = 关盘 </p>|
+|-- Market |Int |No | <p>指出“早盘”、“今日”或者“滚球”的盘口 <p>1 = 早盘 <p>2 = 今日 <p>3 = 滚球|
+|-- EventId |Long |No |赛事的特定 ID|
+|-- EventStatusId |Int |No | <p>指赛事状态 1 = 开盘 <p>2 = 关盘 |
 |-- OrderNumber |Int |No |IMSB 中使用的序号用于排序竞赛中赛事的先后显示|
 |-- EventDate |Date |No |赛事日期 |
-|-- GroundTypeId |Int |No |<p>.  </p><p>指出赛事是否举办于其中一队的主场或中立场 0 = 中立场 </p><p>1 = 主场 </p>|
-|-- EventGroupID |Long |No |<p>如果赛事是属于赛事组别，将显示赛事组别 ID。 实际赛事可以分为不同事件组类型的多个赛事。 </p><p>范例： </p><p>Arsenal vs Everton (EPL) (Event ID: 00001) Arsenal vs Everton (EPL Corners) (Event ID: 00002) Arsenal vs Everton (EPL Specials) (Event ID: 00003) </p>|
-|-- EventGroupTypeI d |Int |No |<p>. 参考附录3.4.  </p><p>指出赛事的组别类型</p>|
-|-- TotalMarketlineC ount |Int |Yes |<p>. </p><p>指出赛事盘口总数</p>|
+|-- GroundTypeId |Int |No | <p>指出赛事是否举办于其中一队的主场或中立场. <p> 0 = 中立场 <p>1 = 主场 |
+|-- EventGroupID |Long |No | <p>如果赛事是属于赛事组别，将显示赛事组别 ID。 <p>实际赛事可以分为不同事件组类型的多个赛事。 <p>范例： <p>Arsenal vs Everton (EPL) (Event ID: 00001) <p>Arsenal vs Everton (EPL Corners) (Event ID: 00002) <p>Arsenal vs Everton (EPL Specials) (Event ID: 00003) |
+|-- EventGroupTypeId |Int |No |指出赛事的组别类型. 参考附录3.4.|
+|-- TotalMarketlineC ount |Int |Yes | 指出赛事盘口总数. |
 |-- IsPopular |Bool |No |指出是否热门赛事|
-|-- IsFavourite |Bool |No |<p>` `（如果会员令牌以提交）</p><p>指出是否是会员的收藏赛事</p>|
-|-- BREventId |Long |Yes |<p>ID. </p><p>可视化投注预测赛事</p>|
-|-- SourceId |String |Yes |<p>ID. </p><p>赛事的外部参考</p>|
-|-- HasVisualization  |Bool |No |<p>. </p><p>指出赛事是否是可视化</p>|
-|-- HasStatistic |Bool |No |<p>有的BetRadar的统计。不适用于IPIS商</p><p>指出赛事是否 家。 </p>|
+|-- IsFavourite |Bool |No |指出是否是会员的收藏赛事 (如果会员令牌以提交)|
+|-- BREventId |Long |Yes | 可视化投注预测赛事ID. |
+|-- SourceId |String |Yes | 赛事的外部参考ID. |
+|-- HasVisualization  |Bool |No | 指出赛事是否是可视化. |
+|-- HasStatistic |Bool |No | 指出赛事是否有的BetRadar的统计。不适用于IPIS商家。 |
 |-- Season |String |Yes |赛季指标. 仅适用于虚拟足球, 虚拟篮球和虚拟世界杯各 项体育. |
 |-- MatchDay |String |Yes |赛日指标. 仅适用于虚拟足球和虚拟篮球|
-|-- LiveStreaming |Int |Yes |<p>有现场直播Url </p><p>指出赛事是否 0 = 没有 </p><p>1 = 有 </p>|
+|-- LiveStreaming |Int |Yes |<p>指出赛事是否有现场直播Url <p> 0 = 没有 <p> 1 = 有 |
 |-- LiveStreamingUrl |List |Yes |现场直播 URL清单. |
 |--- URL |String |Yes |现场直播Url |
 |--- Priority |Int |Yes |现场直播 URL优先级. |
-|--- Type |Int |Yes |<p>播放类型. </p><p>0 = Unknown 1 = iFrame </p><p>2 = FLV </p><p>3 = M3U8 </p>|
-|-- HomeTeamId |Int |No |<p>` `ID.  </p><p>主队或参赛者的特定</p>|
-|-- HomeTeam |String |Yes |运营商主队名称的默认语言.  |
-|-- AwayTeamId |Int |No |<p>` `ID </p><p>客队或参赛者的特定</p>|
-|-- AwayTeam |String |Yes |<p>.  </p><p>运营商客队名称的默认语言</p>|
-|-- RBTime |String |Yes |<p>.  </p><p>如果赛事是在滚球中，这是赛事的滚球时间 请参考附录 3.5。 </p>|
-|-- RBTimeStatus |Int |Yes |<p>的状态. </p><p>如果赛事是在滚球中，这是赛事的滚球时间 0 =不适用 </p><p>1 = 开始 </p><p>2 = 进行中 </p><p>3 = 暂停 </p>|
+|--- Type |Int |Yes |<p>播放类型. <p>0 = Unknown <p>1 = iFrame <p>2 = FLV <p>3 = M3U8 |
+|-- HomeTeamId |Int |No | 主队或参赛者的特定 ID. |
+|-- HomeTeam |String |Yes | 运营商主队名称的默认语言.  |
+|-- AwayTeamId |Int |No | 客队或参赛者的特定 ID|
+|-- AwayTeam |String |Yes | 运营商客队名称的默认语言. |
+|-- RBTime |String |Yes | <p>如果赛事是在滚球中，这是赛事的滚球时间.  <p>请参考附录 3.5。|
+|-- RBTimeStatus |Int |Yes |<p>如果赛事是在滚球中，这是赛事的滚球时间的状态. <p>0 =不适用 <p>1 = 开始 <p>2 = 进行中 <p>3 = 暂停 </p>|
 |-- HomeScore |Int |Yes |主队的当前比分|
 |-- AwayScore |Int |Yes |客队的当前比分|
 |-- HomeRedCard |Int |Yes |主队当前红牌|
 |-- AwayRedCard |Int |Yes |客队当前红牌|
 |-- RelatedScores |List |Yes |相关比分清单 |
-|--- EventGroupTypeI d |Int |No |<p>. 参考附录3.4 </p><p>指出比分的组别类型</p>|
+|--- EventGroupTypeId |Int |No |指出比分的组别类型. 参考附录3.4|
 |--- HomeScore |Int |Yes |主队的当前组别类型比分|
 |--- AwayScore |Int |Yes |客队的当前组别类型比分|
 |-- ExtraInfo |String |Yes |赛事的更多信息。每个体育的额外信息将有所不同。|
@@ -943,14 +935,14 @@ Inplay Matrix 体育赔率整合规格
 |--- Server |String |Yes |指出当前的开球球员/球队。 适用于乒乓球和网球。 |
 |--- BestOfN |Intege r |Yes |指出赛事的最大局数。 适用于乒乓球和网球。 |
 |--- HPoints |String |Yes |指出当局的主队的分数。 适用于网球。 |
-|--- APoints |String  |Yes |<p>。 </p><p>指出当局的客队的分数 适用于网球。 </p>|
-|--- PreviousClose |Decim al |Yes |<p>` `仅适用于金融投注。</p><p>表示前一天的收盘指数。</p>|
-|--- TodayOpen |Decim al |Yes |<p>` `仅适用于金融投注。</p><p>表示今天的开盘指数。</p>|
+|--- APoints |String  |Yes |指出当局的客队的分数。 <p>适用于网球。 |
+|--- PreviousClose |Decim al |Yes |表示前一天的收盘指数。 仅适用于金融投注。|
+|--- TodayOpen |Decim al |Yes |表示今天的开盘指数。 仅适用于金融投注。|
 |--- TodayHighest |Decim al |Yes |表示今天的最高指数。 仅适用于金融投注。|
-|--- TodayLowest |Decim al |Yes |<p>` `仅适用于金融投注。</p><p>表示今天的最低指数。</p>|
-|--- CurrentIndex |Decim al |Yes |<p>` `仅适用于金融投注。</p><p>表示当前的指标。</p>|
+|--- TodayLowest |Decim al |Yes |表示今天的最低指数。 仅适用于金融投注。|
+|--- CurrentIndex |Decim al |Yes |表示当前的指标。 仅适用于金融投注。|
 |-- Competition |List |No |竞赛 |
-|--- CompetitionId |Int |No |<p>` `ID </p><p>每场竞赛的特定</p>|
+|--- CompetitionId |Int |No |每场竞赛的特定 ID|
 |--- CompetitionName |String |No |运营商竞赛名称的默认语言|
 |--- PMOrderNumber |Int |No |IMSB 中使用的序号用于排序赛前的比赛先后显示|
 |--- RBOrderNumber |Int |No |IMSB 中使用的序号用于排序滚球中的比赛先后显示|
@@ -958,33 +950,32 @@ Inplay Matrix 体育赔率整合规格
 |--- ProgrammeId |Int |Yes |指出特定的竞赛程序|
 |--- ProgrammeName |String |Yes |程序名称. |
 |-- MarketLines |List |Yes |盘口清单 |
-|--- MarketLineId |Long |No |<p>` `ID </p><p>盘口的特定</p>|
+|--- MarketLineId |Long |No |盘口的特定 ID|
 |--- BetTypeId |Int |No |投注类型 ID |
 |--- BetTypeName |String |No |运营商投注类型的默认语言|
 |--- BetTypeNameList |List |No |投注类型的支持语言 |
 |---- LanguageCode |String |No |语言 |
 |---- BetTypeName |String |No |投注类型的名称 |
-|--- PeriodId |Int |No |<p>比赛时段 ID  1 = 全场 </p><p>2 = 上半场 3 = 下半场 </p>|
+|--- PeriodId |Int |No |<p>比赛时段 ID  <p>1 = 全场 <p>2 = 上半场 <p>3 = 下半场 |
 |--- PeriodName |String |No |运营商比赛时段的默认语言|
 |--- MarketLineLevel |Int |No |盘口级别 |
-|--- MarketlineStatusI d |Int |No |<p>. </p><p>指出盘口状态 1 = 开盘 </p><p>2 = 关盘 </p>|
+|--- MarketlineStatusId |Int |No |<p>指出盘口状态. <p>1 = 开盘 <p>2 = 关盘 |
 |--- IsLocked |Boolea n |No |指出盘口是否封盘|
 |--- WagerSelections |List |No |投注选项清单|
-|---- WagerSelectionId |Long |No |<p>` `ID </p><p>投注选项的特定</p>|
-|---- SelectionId |Int |No |<p>` `ID </p><p>投注类型选项</p>|
+|---- WagerSelectionId |Long |No |投注选项的特定 ID|
+|---- SelectionId |Int |No |投注类型选项 ID|
 |---- SelectionName |String |Yes |运营商投注类型选项的默认语言|
-|---- Handicap |Float |Yes |<p>该项目仅适用于让球盘和大小盘.  </p><p>对于让球，主/客队的让球值是一样的。 让球值是正值是指着主队正在让球。 让分值为负值 着客队正在让球。 对于大小盘，就是大于或小于的得分比较。 如果是空值等于该让分不适用于该盘口或投注类型。</p><p>是指</p>|
+|---- Handicap |Float |Yes |<p>该项目仅适用于让球盘和大小盘.  <p>对于让球，主/客队的让球值是一样的。 <p>让球值是正值是指着主队正在让球。 <p>让分值为负值是指 着客队正在让球。 <p>对于大小盘，就是大于或小于的得分比较。 <p>如果是空值等于该让分不适用于该盘口或投注类型。|
 |---- Specifiers |String |Yes |其他下注资料. |
 |---- Odds |Float |No |选择赔率值|
 |---- OddsList |List |No |赔率清单 |
-|----- OddsType |Int |No |赔率类型 1 = 马来盘 2 = 香港盘 3 = 欧洲盘 4 = 印尼盘 |
+|----- OddsType |Int |No |<p>赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
 |----- OddsValues |Float |No |选择赔率值|
-|Delta |Doubl e |Yes |<p>Delta 版本。 </p><p>Delta 值在 5 分钟后过期。 对应于各自的 SportId 和 Market。 格式：yyMMddHHmmssfff </p><p>范例: 171219001225452 </p>|
+|Delta |Doubl e |Yes |<p>Delta 版本。 <p>Delta 值在 5 分钟后过期。 <p>对应于各自的 SportId 和 Market。 <p>格式：yyMMddHHmmssfff <p>范例: 171219001225452 |
 |StatusCode |Int |No |指出请求状态编码|
 |StatusDesc |String |No |状态编码的描述含义|
+
 状态编码** 
-
-
 
 |状态编码** |描述** |
 | - | - |
@@ -1494,7 +1485,7 @@ Inplay Matrix 体育赔率整合规格
 |SportId |Int |Yes |<p>. 参考附录3.3. </p><p>指出体育项目</p>|
 |Market |Int |Yes |<p>指出“早盘”、“今日”或者“滚球”的盘口 1 = 早盘 </p><p>2 = 今日 </p><p>3 = 滚球 </p><p>在早上（上午 9 点至下午 12 点），今日 包括早盘（直至上午 12 点）的赛事。 </p><p>盘口将</p>|
 |Delta |Double |Yes |<p>Delta 版本 </p><p>格式：yyMMddHHmmssfff 范例: 171219001225452 </p>|
-|TimeStamp |String |Yes |<p>5分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟|
 响应** 
 
 
@@ -3089,7 +3080,7 @@ IPIS Mobile
 | :- | :- | :- | - |
 |LanguageCode |String |No |<p>. </p><p>为本地名称返回的语言</p>|
 |Delta |Double |Yes |<p>Delta 版本 </p><p>格式：yyMMddHHmmssfff 范例: 171219001225452 </p>|
-|TimeStamp |String |Yes |<p>5分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟|
 响应** 
 
 
@@ -3187,17 +3178,18 @@ IPIS Mobile
 
 |范围**  |数据类型**  |强制性**  |描述 |
 | - | - | - | - |
-|SportId |Int |Yes |<p>. 参考附录3.3 </p><p>指出体育项目</p>|
+|SportId |Int |Yes |指出体育项目. 参考附录3.3|
 |EventIds |List |Yes |检索赛事 ID |
 |BetTypeIds |List of Int |No |指出返回的投注类型|
-|PeriodIds |List of Int |No |<p>筛选时段的ID清单.  1 = FT 全场 </p><p>2 = 1H 上半场 </p><p>3 = 2H 下半场 </p>|
-|OddsType |Int |Yes |赔率类型 1 = 马来盘 2 = 香港盘 3 = 欧洲盘 4 = 印尼盘 |
-|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛 事 |
-|IncludeGroup Events |Boolean |Yes |<p>ID的其他赛事是否同</p><p>指出属于相同赛事组别 时被返回. </p>|
+|PeriodIds |List of Int |No |<p>筛选时段的ID清单.  <p>1 = FT 全场 <p>2 = 1H 上半场 <p>3 = 2H 下半场 |
+|OddsType |Int |Yes |赔率类型 <p>1 = 马来盘 <p>2 = 香港盘 <p>3 = 欧洲盘 <p>4 = 印尼盘 |
+|IsCombo |Boolean |Yes |指出请求是连串过关赛事或者非连串过关赛事 |
+|IncludeGroup Events |Boolean |Yes |指出属于相同赛事组别ID的其他赛事是否同 时被返回. |
 |Token |String |No |会员令牌. |
 |MemberCode |String |No |用户名. |
-|LanguageCod e |String |No |<p>. </p><p>为本地名称返回的语言</p>|
-|TimeStamp |String |Yes  |<p>` `5 分钟 </p><p>新生成的时间戳将持续</p>|
+|LanguageCode |String |No |为本地名称返回的语言.|
+|TimeStamp |String |Yes  |新生成的时间戳将持续 5 分钟|
+
 响应** 
 
 该响应与 GetEventInfoMBT 响应一致. 
@@ -4110,7 +4102,7 @@ IPIS Mobile
 |LanguageCode |String |No |为本地名称返回的语言|
 |ProgrammeId |Int |No |<p>. </p><p>自选参数指出只返回特定程序的竞赛</p>|
 |Delta |Double |Yes |<p>Delta 版本 </p><p>格式：yyMMddHHmmssfff 范例: 171219001225452 </p>|
-|TimeStamp |String |Yes |<p>5分钟 </p><p>新生成的时间戳将持续</p>|
+|TimeStamp |String |Yes |新生成的时间戳将持续5分钟|
 响应** 
 
 
