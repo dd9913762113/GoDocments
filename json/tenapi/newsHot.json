@@ -1,0 +1,41 @@
+{
+    "code": 200,
+    "msg": "success",
+    "data": [
+        {
+            "name": "今日头条热搜榜",
+            "hot": "4427335",
+            "url": "https://tenapi.cn/v2/toutiaohot"
+        },
+        {
+            "name": "今日头条热点新闻",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/toutiaohotnew"
+        },
+        {
+            "name": "百度热搜榜",
+            "hot": "4911942",
+            "url": "https://tenapi.cn/v2/baiduhot"
+        },
+        {
+            "name": "抖音热搜榜",
+            "hot": "4834875",
+            "url": "https://tenapi.cn/v2/douyinhot"
+        },
+        {
+            "name": "微博热搜榜",
+            "hot": "4777661",
+            "url": "https://tenapi.cn/v2/weibohot"
+        },
+        {
+            "name": "知乎热搜榜",
+            "hot": "4687806",
+            "url": "https://tenapi.cn/v2/zhihuhot"
+        },
+        {
+            "name": "哔哩哔哩热搜榜",
+            "hot": "4517162",
+            "url": "https://tenapi.cn/v2/bilihot"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "code": 200,
+    "msg": "success",
+    "data": {
+        "word": {
+            "name": "随机一言",
+            "hot": "4427335",
+            "url": "https://tenapi.cn/v2/yiyan"
+        },
+        "color": {
+            "name": "随机颜色",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/color"
+        },
+        "image": {
+            "name": "随机动漫图",
+            "hot": "4517162",
+            "url": "https://tenapi.cn/v2/acg"
+        },
+        "userip": {
+            "name": "用户IP信息",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/getip"
+        },
+        "weather": {
+            "name": "天气预报查询",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/weather"
+        },
+        "dailyWallpaper": {
+            "name": "Bing每日壁纸",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/bing"
+        },
+        "history": {
+            "name": "历史上的今天",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/history"
+        },
+        "comment163": {
+            "name": "网易云热评",
+            "hot": "4343205",
+            "url": "https://tenapi.cn/v2/comment"
+        }
+    }
+}
