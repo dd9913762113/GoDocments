@@ -102,7 +102,7 @@
     <dd><a href=#d2.28.8>2.28.8 状态码</a></dd>
 </blockquote></details>
 
-<details><summary>2.29 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
+<details><summary>2.29 ADDFAVOURITEEVENT 加收藏赛事 </summary><blockquote>
     <dd><a href=#d2.29>2.29.1 api</a></dd>
     <dd><a href=#d2.29.2>2.29.2 Request Headers</a></dd>
     <dd><a href=#d2.29.3>2.29.3 Request Method</a></dd>
@@ -113,7 +113,7 @@
     <dd><a href=#d2.29.8>2.29.8 状态码</a></dd>
 </blockquote></details>
 
-<details><summary>2.30 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
+<details><summary>2.30 REMOVEFAVOURITEEVENT 删除收藏赛事 </summary><blockquote>
     <dd><a href=#d2.30>2.30.1 api</a></dd>
     <dd><a href=#d2.30.2>2.30.2 Request Headers</a></dd>
     <dd><a href=#d2.30.3>2.30.3 Request Method</a></dd>
@@ -124,7 +124,7 @@
     <dd><a href=#d2.30.8>2.30.8 状态码</a></dd>
 </blockquote></details>
 
-<details><summary>2.32 GETFAVOURITEEVENT 索取所有滚球赛事资料 </summary><blockquote>
+<details><summary>2.32 2.32 SUBMITBUYBACK 提交回购 </summary><blockquote>
     <dd><a href=#d2.32>2.32.1 api</a></dd>
     <dd><a href=#d2.32.2>2.32.2 Request Headers</a></dd>
     <dd><a href=#d2.32.3>2.32.3 Request Method</a></dd>
@@ -145,7 +145,7 @@
 
 <h2 id="d2.1"> 2.1 GETALLSPORTCOUNT 索取所有体育计数 <p>描述:此 API 常用于检索目前为每项体育提供的赛事计数.特定赛事组类的赛事计数亦可能在适用的情况的返回.目前, 角球赛事计数将被返回于足球下.</h2>
 
-<h3 id="d2.1.1"> 2.1.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
+<h3 id="d2.1.1"> 2.1.1 /api/Imd/InplayMatrix/GETALLSPORTCOUNT</h3>
 
 <h3 id="d2.1.2"> 2.1.2 Request Headers</h3>
 
@@ -1095,8 +1095,8 @@
 
 ```
 [
-    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
     "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
     "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
     "Content-Type": "application/json"
 ]
@@ -1121,7 +1121,19 @@
 <h3 id="d2.2.5"> 2.2.5 请求示例</h3>
 
 ```
-{}
+{
+    "sportId": 1,
+    "EventGroupTypeIds": [
+        1
+    ],
+    "IsCombo": false,
+    "Token": "TY327N02,4dbf998e-dd55-4b1e-a99f-03001a5266ea",
+    "market": 6,
+    "MemberCode": "TY327N02",
+    "IncludeCloseEvent": false,
+    "LanguageCode": "CHS",
+    "timeStamp": 1677738005
+}
 ```
 <h3 id="d2.2.6"> 2.2.6 返回结果</h3>
 
@@ -1146,7 +1158,735 @@
 <h3 id="d2.2.7"> 2.2.7 返回示例</h3>
 
 ```
-{}
+{
+    "refreshTime": 1677738066,
+    "isSuccess": true,
+    "errorCode": 10000,
+    "message": "",
+    "location": "",
+    "data": {
+        "CompetitionCount": [
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 107,
+                "CompetitionName": "印度尼西亚甲级联赛",
+                "PMOrderNumber": 118,
+                "RBOrderNumber": 1368,
+                "ProgrammeId": 59,
+                "ProgrammeName": "印度尼西亚",
+                "ProgrammeOrderNumber": 5,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 279,
+                "CompetitionName": "西班牙杯",
+                "PMOrderNumber": 430,
+                "RBOrderNumber": 150,
+                "ProgrammeId": 4,
+                "ProgrammeName": "西班牙",
+                "ProgrammeOrderNumber": 6,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 320,
+                "CompetitionName": "荷兰杯",
+                "PMOrderNumber": 450,
+                "RBOrderNumber": 350,
+                "ProgrammeId": 16,
+                "ProgrammeName": "荷兰",
+                "ProgrammeOrderNumber": 7,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 2269,
+                "CompetitionName": "罗马尼亚甲级联赛",
+                "PMOrderNumber": 590,
+                "RBOrderNumber": 1290,
+                "ProgrammeId": 83,
+                "ProgrammeName": "罗马尼亚",
+                "ProgrammeOrderNumber": 8,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 3783,
+                "CompetitionName": "比利时杯",
+                "PMOrderNumber": 616,
+                "RBOrderNumber": 860,
+                "ProgrammeId": 34,
+                "ProgrammeName": "比利时",
+                "ProgrammeOrderNumber": 9,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 233,
+                "CompetitionName": "丹麦杯",
+                "PMOrderNumber": 660,
+                "RBOrderNumber": 510,
+                "ProgrammeId": 45,
+                "ProgrammeName": "丹麦",
+                "ProgrammeOrderNumber": 10,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 1281,
+                "CompetitionName": "瑞士杯",
+                "PMOrderNumber": 667,
+                "RBOrderNumber": 730,
+                "ProgrammeId": 23,
+                "ProgrammeName": "瑞士",
+                "ProgrammeOrderNumber": 11,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 5837,
+                "CompetitionName": "冰岛联赛杯",
+                "PMOrderNumber": 764,
+                "RBOrderNumber": 2210,
+                "ProgrammeId": 58,
+                "ProgrammeName": "冰岛",
+                "ProgrammeOrderNumber": 12,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 3318,
+                "CompetitionName": "意大利丙级联赛",
+                "PMOrderNumber": 770,
+                "RBOrderNumber": 1680,
+                "ProgrammeId": 6,
+                "ProgrammeName": "意大利",
+                "ProgrammeOrderNumber": 13,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 1162,
+                "CompetitionName": "匈牙利杯",
+                "PMOrderNumber": 778,
+                "RBOrderNumber": 2250,
+                "ProgrammeId": 57,
+                "ProgrammeName": "匈牙利",
+                "ProgrammeOrderNumber": 14,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 2474,
+                "CompetitionName": "塞尔维亚超级联赛",
+                "PMOrderNumber": 817,
+                "RBOrderNumber": 2150,
+                "ProgrammeId": 85,
+                "ProgrammeName": "塞尔维亚",
+                "ProgrammeOrderNumber": 15,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 431,
+                "CompetitionName": "塞尔维亚甲级联赛",
+                "PMOrderNumber": 3230,
+                "RBOrderNumber": 3850,
+                "ProgrammeId": 85,
+                "ProgrammeName": "塞尔维亚",
+                "ProgrammeOrderNumber": 15,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 1243,
+                "CompetitionName": "南非杯",
+                "PMOrderNumber": 990,
+                "RBOrderNumber": 3070,
+                "ProgrammeId": 88,
+                "ProgrammeName": "南非",
+                "ProgrammeOrderNumber": 16,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 602,
+                "CompetitionName": "沙特阿拉伯职业联赛",
+                "PMOrderNumber": 1080,
+                "RBOrderNumber": 1470,
+                "ProgrammeId": 84,
+                "ProgrammeName": "沙特阿拉伯",
+                "ProgrammeOrderNumber": 17,
+                "Count": 3
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 44121,
+                "CompetitionName": "阿联酋职业联赛",
+                "PMOrderNumber": 1085,
+                "RBOrderNumber": 1080,
+                "ProgrammeId": 94,
+                "ProgrammeName": "阿拉伯联合酋长国",
+                "ProgrammeOrderNumber": 18,
+                "Count": 3
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 3725,
+                "CompetitionName": "卡塔尔星级联赛",
+                "PMOrderNumber": 1120,
+                "RBOrderNumber": 1310,
+                "ProgrammeId": 81,
+                "ProgrammeName": "卡塔尔",
+                "ProgrammeOrderNumber": 19,
+                "Count": 3
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 701,
+                "CompetitionName": "科威特超级联赛",
+                "PMOrderNumber": 1175,
+                "RBOrderNumber": 2260,
+                "ProgrammeId": 65,
+                "ProgrammeName": "科威特",
+                "ProgrammeOrderNumber": 20,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 299,
+                "CompetitionName": "巴林超级联赛",
+                "PMOrderNumber": 1180,
+                "RBOrderNumber": 1490,
+                "ProgrammeId": 31,
+                "ProgrammeName": "巴林岛",
+                "ProgrammeOrderNumber": 21,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 934,
+                "CompetitionName": "马来西亚超级联赛",
+                "PMOrderNumber": 1335,
+                "RBOrderNumber": 3885,
+                "ProgrammeId": 68,
+                "ProgrammeName": "马来西亚",
+                "ProgrammeOrderNumber": 22,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 571,
+                "CompetitionName": "印度甲级联赛",
+                "PMOrderNumber": 1750,
+                "RBOrderNumber": 1620,
+                "ProgrammeId": 50,
+                "ProgrammeName": "印度",
+                "ProgrammeOrderNumber": 23,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 789,
+                "CompetitionName": "塞浦路斯杯",
+                "PMOrderNumber": 1915,
+                "RBOrderNumber": 2110,
+                "ProgrammeId": 43,
+                "ProgrammeName": "塞浦路斯",
+                "ProgrammeOrderNumber": 24,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 34673,
+                "CompetitionName": "突尼斯甲级联赛 - 附加赛",
+                "PMOrderNumber": 2155,
+                "RBOrderNumber": 2780,
+                "ProgrammeId": 91,
+                "ProgrammeName": "突尼斯",
+                "ProgrammeOrderNumber": 25,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 12317,
+                "CompetitionName": "科特迪瓦职业联赛",
+                "PMOrderNumber": 2167,
+                "RBOrderNumber": 5650,
+                "ProgrammeId": 156,
+                "ProgrammeName": "科特迪瓦",
+                "ProgrammeOrderNumber": 26,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 1413,
+                "CompetitionName": "斯洛文尼亚乙级联赛",
+                "PMOrderNumber": 3425,
+                "RBOrderNumber": 3740,
+                "ProgrammeId": 120,
+                "ProgrammeName": "斯洛文尼亚",
+                "ProgrammeOrderNumber": 27,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 13148,
+                "CompetitionName": "埃及乙级联赛",
+                "PMOrderNumber": 3545,
+                "RBOrderNumber": 4360,
+                "ProgrammeId": 47,
+                "ProgrammeName": "埃及",
+                "ProgrammeOrderNumber": 28,
+                "Count": 7
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 45262,
+                "CompetitionName": "非洲国家杯U20(在埃及)",
+                "PMOrderNumber": 4540,
+                "RBOrderNumber": 3485,
+                "ProgrammeId": 47,
+                "ProgrammeName": "埃及",
+                "ProgrammeOrderNumber": 28,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 222,
+                "CompetitionName": "以色列乙级联赛",
+                "PMOrderNumber": 3780,
+                "RBOrderNumber": 5065,
+                "ProgrammeId": 61,
+                "ProgrammeName": "以色列",
+                "ProgrammeOrderNumber": 29,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 3720,
+                "CompetitionName": "以色列足球丙级联赛",
+                "PMOrderNumber": 4230,
+                "RBOrderNumber": 5440,
+                "ProgrammeId": 61,
+                "ProgrammeName": "以色列",
+                "ProgrammeOrderNumber": 29,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 14808,
+                "CompetitionName": "乌干达FUFA大联赛",
+                "PMOrderNumber": 4245,
+                "RBOrderNumber": 5725,
+                "ProgrammeId": 122,
+                "ProgrammeName": "乌干达",
+                "ProgrammeOrderNumber": 30,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 45187,
+                "CompetitionName": "亚足联亚洲杯U20(在乌兹别克斯坦)",
+                "PMOrderNumber": 4540,
+                "RBOrderNumber": 1080,
+                "ProgrammeId": 7,
+                "ProgrammeName": "亚洲",
+                "ProgrammeOrderNumber": 31,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 737,
+                "CompetitionName": "巴西杯",
+                "PMOrderNumber": 6210,
+                "RBOrderNumber": 3510,
+                "ProgrammeId": 36,
+                "ProgrammeName": "巴西",
+                "ProgrammeOrderNumber": 32,
+                "Count": 5
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 5831,
+                "CompetitionName": "巴西甲级联赛卡里奥卡",
+                "PMOrderNumber": 8266,
+                "RBOrderNumber": 5525,
+                "ProgrammeId": 36,
+                "ProgrammeName": "巴西",
+                "ProgrammeOrderNumber": 32,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 563,
+                "CompetitionName": "巴西塞阿腊州甲级联赛",
+                "PMOrderNumber": 8268,
+                "RBOrderNumber": 5355,
+                "ProgrammeId": 36,
+                "ProgrammeName": "巴西",
+                "ProgrammeOrderNumber": 32,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 6616,
+                "CompetitionName": "巴西塞阿腊州乙级联赛",
+                "PMOrderNumber": 8277,
+                "RBOrderNumber": 5838,
+                "ProgrammeId": 36,
+                "ProgrammeName": "巴西",
+                "ProgrammeOrderNumber": 32,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 2055,
+                "CompetitionName": "巴西U20联赛",
+                "PMOrderNumber": 8800,
+                "RBOrderNumber": 4615,
+                "ProgrammeId": 36,
+                "ProgrammeName": "巴西",
+                "ProgrammeOrderNumber": 32,
+                "Count": 3
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 9129,
+                "CompetitionName": "南美解放者杯预选赛",
+                "PMOrderNumber": 6270,
+                "RBOrderNumber": 1060,
+                "ProgrammeId": 22,
+                "ProgrammeName": "南美洲",
+                "ProgrammeOrderNumber": 33,
+                "Count": 3
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 258,
+                "CompetitionName": "智利甲级联赛",
+                "PMOrderNumber": 6500,
+                "RBOrderNumber": 760,
+                "ProgrammeId": 39,
+                "ProgrammeName": "智利",
+                "ProgrammeOrderNumber": 34,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 164,
+                "CompetitionName": "巴拉圭甲级联赛",
+                "PMOrderNumber": 6570,
+                "RBOrderNumber": 1750,
+                "ProgrammeId": 78,
+                "ProgrammeName": "巴拉圭",
+                "ProgrammeOrderNumber": 35,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 16081,
+                "CompetitionName": "墨西哥甲组联赛MX",
+                "PMOrderNumber": 6630,
+                "RBOrderNumber": 1780,
+                "ProgrammeId": 70,
+                "ProgrammeName": "墨西哥",
+                "ProgrammeOrderNumber": 36,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 182,
+                "CompetitionName": "哥伦比亚乙级联赛",
+                "PMOrderNumber": 6645,
+                "RBOrderNumber": 3520,
+                "ProgrammeId": 40,
+                "ProgrammeName": "哥伦比亚",
+                "ProgrammeOrderNumber": 37,
+                "Count": 1
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 11710,
+                "CompetitionName": "哥伦比亚女子甲级联赛",
+                "PMOrderNumber": 9200,
+                "RBOrderNumber": 5200,
+                "ProgrammeId": 40,
+                "ProgrammeName": "哥伦比亚",
+                "ProgrammeOrderNumber": 37,
+                "Count": 4
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 2692,
+                "CompetitionName": "萨尔瓦多甲级联赛",
+                "PMOrderNumber": 7635,
+                "RBOrderNumber": 3590,
+                "ProgrammeId": 48,
+                "ProgrammeName": "萨尔瓦多",
+                "ProgrammeOrderNumber": 38,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 158,
+                "CompetitionName": "阿根廷预备队联赛",
+                "PMOrderNumber": 8450,
+                "RBOrderNumber": 3845,
+                "ProgrammeId": 19,
+                "ProgrammeName": "阿根廷",
+                "ProgrammeOrderNumber": 39,
+                "Count": 4
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17175,
+                "CompetitionName": "VS - IM 独家FIFA20中国",
+                "PMOrderNumber": 9911,
+                "RBOrderNumber": 7470,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 40,
+                "Count": 12
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17176,
+                "CompetitionName": "VS - IM 独家FIFA20英格兰",
+                "PMOrderNumber": 9912,
+                "RBOrderNumber": 7450,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 40,
+                "Count": 10
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17174,
+                "CompetitionName": "VS - IM 独家FIFA20德国",
+                "PMOrderNumber": 9913,
+                "RBOrderNumber": 7465,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 40,
+                "Count": 10
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17173,
+                "CompetitionName": "VS - IM 独家FIFA20意大利",
+                "PMOrderNumber": 9914,
+                "RBOrderNumber": 7455,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 40,
+                "Count": 14
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17172,
+                "CompetitionName": "VS - IM 独家FIFA20西班牙",
+                "PMOrderNumber": 9915,
+                "RBOrderNumber": 7460,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 40,
+                "Count": 10
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 21033,
+                "CompetitionName": "VS - IM独家PES21亚洲友谊赛",
+                "PMOrderNumber": 9910,
+                "RBOrderNumber": 7440,
+                "ProgrammeId": 199,
+                "ProgrammeName": "VS PES",
+                "ProgrammeOrderNumber": 41,
+                "Count": 21
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 19861,
+                "CompetitionName": "VS - IM独家PES21 欧洲友谊赛",
+                "PMOrderNumber": 9916,
+                "RBOrderNumber": 7445,
+                "ProgrammeId": 199,
+                "ProgrammeName": "VS PES",
+                "ProgrammeOrderNumber": 41,
+                "Count": 9
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 15195,
+                "CompetitionName": "梦幻足球赛事",
+                "PMOrderNumber": 9995,
+                "RBOrderNumber": 9999,
+                "ProgrammeId": 188,
+                "ProgrammeName": "梦幻足球",
+                "ProgrammeOrderNumber": 42,
+                "Count": 7
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 21033,
+                "CompetitionName": "VS - IM独家PES21亚洲友谊赛",
+                "PMOrderNumber": 9910,
+                "RBOrderNumber": 7440,
+                "ProgrammeId": 199,
+                "ProgrammeName": "VS PES",
+                "ProgrammeOrderNumber": 1,
+                "Count": 4
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 19861,
+                "CompetitionName": "VS - IM独家PES21 欧洲友谊赛",
+                "PMOrderNumber": 9916,
+                "RBOrderNumber": 7445,
+                "ProgrammeId": 199,
+                "ProgrammeName": "VS PES",
+                "ProgrammeOrderNumber": 1,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17176,
+                "CompetitionName": "VS - IM 独家FIFA20英格兰",
+                "PMOrderNumber": 9912,
+                "RBOrderNumber": 7450,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 2,
+                "Count": 2
+            },
+            {
+                "SportId": 1,
+                "SportName": "足球",
+                "OrderNumber": 1,
+                "CompetitionId": 17175,
+                "CompetitionName": "VS - IM 独家FIFA20中国",
+                "PMOrderNumber": 9911,
+                "RBOrderNumber": 7470,
+                "ProgrammeId": 181,
+                "ProgrammeName": "VS FIFA",
+                "ProgrammeOrderNumber": 2,
+                "Count": 2
+            }
+        ],
+        "StatusCode": 100,
+        "StatusDesc": "Success",
+        "ServerTime": "2023-03-02 14:20:05"
+    }
+}
 ```
 <h3 id="d2.2.8"> 2.2.8 状态码</h3>
 
@@ -1166,16 +1906,19 @@
 
 <h2 id="d2.3"> 2.3 GETEVENTINFOMBT 索取赛事和主要玩法资料 <p>描述:此 API 根据请求参数中指定的特定准则, 常用于检索为特定体育所提供的所有赛事相关的赛事及主要玩法赔率信息. 访问频率限制: 早盘 (1 分钟), 今日 (1 分钟), 滚球 (1 分钟)</h2>
 
-<h3 id="d2.3.1"> 2.3.1 /api/Imd/InplayMatrix/geteventinfombt</h3>
+<h3 id="d2.3.1"> 2.3.1 /api/Imd/InplayMatrix/GETEVENTINFOMBT</h3>
+
 
 <h3 id="d2.3.2"> 2.3.2 Request Headers</h3>
 
 ```
 [
-    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
-    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
     "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
-    "Content-Type": "application/json"
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiI4bW5CeW91SDhrRlIwQXFIS1JhM29JeU92NjAifQ.eyJuYmYiOjE2Nzc3Mzc0NDQsImV4cCI6MTY3NzgyNDQ0NCwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjpbImh0dHA6Ly96ZGlkZW50aXR5c2VydmVyLnpoc2VydmljZS9yZXNvdXJjZXMiLCJhcGlzIl0sImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2Nzc3Mzc0NDQsImlkcCI6ImxvY2FsIiwiYWNjb3VudGlkIjoiMTQyODM1Iiwic3lzdGVtdHlwZSI6IjQxIiwiaXNzdXBlcmFkbWluIjoiRmFsc2UiLCJzY29wZSI6WyJhcGlzIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInBhc3N3b3JkIl19.SR34EMmpNTLOiCR0bkV9N9K-zbUx0m-pftbKdAvz0iX1jFBf8S48HkQstJKIi7t0iF9bDGZX9P_kFqEewc5-LZv4NsdBfQc8eYJzP0OFdlAMiwEVOI2GXCUv6LV8k4ZUnKnJETIf2pRvEgtlRUgIWaSJVzM4UVOPIYgOU9K4Q3tJ-fGgZHzK2Z1c2z-PVzgFw8hb_xVmFj0maTiFTJykpprO-21fskePaEUkuni4D77Uu9vcn3oB6G0DEL8H3ajU9H9_U6UgSO7PidxDLNJnBGtfJn_ab1ghf7jZPp8pYi3xOlL_IIyKxbMc-RC12V-juch7dfJlh8Y3hA9EDJ7dRw",
+    "Content-Type": "application/json,application/json-patch+json",
+    "Accept": "text/plain",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8"
 ]
 ```
 
@@ -1193,7 +1936,18 @@
 <h3 id="d2.3.5"> 2.3.5 请求示例</h3>
 
 ```
-{}
+{
+    "market": 6,
+    "size": 50,
+    "languageCode": "CHS",
+    "sportId": 1,
+    "competitionIds": [
+        
+    ],
+    "sortType": 2,
+    "index": 0,
+    "timeStamp": 1677737686
+}
 ```
 <h3 id="d2.3.6"> 2.3.6 返回结果</h3>
 
@@ -1293,7 +2047,7 @@
 <h3 id="d2.3.7"> 2.3.7 返回示例</h3>
 
 ```
-{}
+{"refreshTime":1677737747,"isSuccess":true,"errorCode":10000,"message":"","location":"","data":{"Sports":[{"SportId":1,"SportName":"足球","Events":[{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878851,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 13:50:00","GroundTypeId":1,"EventGroupId":2522031,"EventGroupTypeId":1,"TotalMarketLineCount":5,"IsPopular":false,"IsFavourite":false,"HomeTeamId":146892,"HomeTeam":"柏林联","EngHomeTeam":null,"AwayTeamId":146896,"AwayTeam":"弗赖堡","EngAwayTeam":null,"RBTime":"2H 82","RBTimeStatus":0,"HomeScore":1,"AwayScore":1,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17174,"CompetitionName":"IM 独家FIFA20德国","EngCompetitionName":null,"PMOrderNumber":9913,"RBOrderNumber":7465},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355606686,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120915,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.36","B":"0.35"}},{"OddsType":2,"OddsValues":{"A":"0.36","B":"0.35"}},{"OddsType":3,"OddsValues":{"A":"1.36","B":"1.35"}},{"OddsType":4,"OddsValues":{"A":"-2.78","B":"-2.86"}}],"OddsType":1,"Odds":0.36},{"WagerSelectionId":4350120916,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.6","B":"-0.61"}},{"OddsType":2,"OddsValues":{"A":"1.66","B":"1.63"}},{"OddsType":3,"OddsValues":{"A":"2.66","B":"2.63"}},{"OddsType":4,"OddsValues":{"A":"1.66","B":"1.63"}}],"OddsType":1,"Odds":-0.6}]},{"MarketlineId":1355606687,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120917,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.5","B":"-0.51"}},{"OddsType":2,"OddsValues":{"A":"2","B":"1.96"}},{"OddsType":3,"OddsValues":{"A":"3","B":"2.96"}},{"OddsType":4,"OddsValues":{"A":"2","B":"1.96"}}],"OddsType":1,"Odds":-0.5},{"WagerSelectionId":4350120918,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.26","B":"0.25"}},{"OddsType":2,"OddsValues":{"A":"0.26","B":"0.25"}},{"OddsType":3,"OddsValues":{"A":"1.26","B":"1.25"}},{"OddsType":4,"OddsValues":{"A":"-3.85","B":"-4"}}],"OddsType":1,"Odds":0.26}]},{"MarketlineId":1355606688,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120919,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.14","B":"0.13"}},{"OddsType":2,"OddsValues":{"A":"0.14","B":"0.13"}},{"OddsType":3,"OddsValues":{"A":"1.14","B":"1.13"}},{"OddsType":4,"OddsValues":{"A":"-7.15","B":"-7.7"}}],"OddsType":1,"Odds":0.14},{"WagerSelectionId":4350120920,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.38","B":"-0.39"}},{"OddsType":2,"OddsValues":{"A":"2.63","B":"2.56"}},{"OddsType":3,"OddsValues":{"A":"3.63","B":"3.56"}},{"OddsType":4,"OddsValues":{"A":"2.63","B":"2.56"}}],"OddsType":1,"Odds":-0.38}]},{"MarketlineId":1355606691,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120913,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.55","B":"-0.56"}},{"OddsType":2,"OddsValues":{"A":"1.81","B":"1.78"}},{"OddsType":3,"OddsValues":{"A":"2.81","B":"2.78"}},{"OddsType":4,"OddsValues":{"A":"1.81","B":"1.78"}}],"OddsType":1,"Odds":-0.55},{"WagerSelectionId":4350120914,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.31","B":"0.3"}},{"OddsType":2,"OddsValues":{"A":"0.31","B":"0.3"}},{"OddsType":3,"OddsValues":{"A":"1.31","B":"1.3"}},{"OddsType":4,"OddsValues":{"A":"-3.23","B":"-3.34"}}],"OddsType":1,"Odds":0.31}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878870,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 13:50:00","GroundTypeId":1,"EventGroupId":2522019,"EventGroupTypeId":1,"TotalMarketLineCount":4,"IsPopular":false,"IsFavourite":false,"HomeTeamId":139405,"HomeTeam":"帕尔马","EngHomeTeam":null,"AwayTeamId":129271,"AwayTeam":"国际","EngAwayTeam":null,"RBTime":"2H 88","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17173,"CompetitionName":"IM 独家FIFA20意大利","EngCompetitionName":null,"PMOrderNumber":9914,"RBOrderNumber":7455},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355606632,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120443,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.66","B":"-0.67"}},{"OddsType":2,"OddsValues":{"A":"1.51","B":"1.49"}},{"OddsType":3,"OddsValues":{"A":"2.51","B":"2.49"}},{"OddsType":4,"OddsValues":{"A":"1.51","B":"1.49"}}],"OddsType":1,"Odds":-0.66},{"WagerSelectionId":4350120444,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":2,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":3,"OddsValues":{"A":"1.42","B":"1.41"}},{"OddsType":4,"OddsValues":{"A":"-2.39","B":"-2.44"}}],"OddsType":1,"Odds":0.42}]},{"MarketlineId":1355606633,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350111238,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.11","B":"0.1"}},{"OddsType":2,"OddsValues":{"A":"0.11","B":"0.1"}},{"OddsType":3,"OddsValues":{"A":"1.11","B":"1.1"}},{"OddsType":4,"OddsValues":{"A":"-9.1","B":"-10"}}],"OddsType":1,"Odds":0.11},{"WagerSelectionId":4350111239,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.35","B":"-0.36"}},{"OddsType":2,"OddsValues":{"A":"2.85","B":"2.77"}},{"OddsType":3,"OddsValues":{"A":"3.85","B":"3.77"}},{"OddsType":4,"OddsValues":{"A":"2.85","B":"2.77"}}],"OddsType":1,"Odds":-0.35}]},{"MarketlineId":1355606637,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350118794,"SelectionId":3,"SelectionName":"大","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.44","B":"-0.45"}},{"OddsType":2,"OddsValues":{"A":"2.27","B":"2.22"}},{"OddsType":3,"OddsValues":{"A":"3.27","B":"3.22"}},{"OddsType":4,"OddsValues":{"A":"2.27","B":"2.22"}}],"OddsType":1,"Odds":-0.44},{"WagerSelectionId":4350118795,"SelectionId":4,"SelectionName":"小","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.2","B":"0.19"}},{"OddsType":2,"OddsValues":{"A":"0.2","B":"0.19"}},{"OddsType":3,"OddsValues":{"A":"1.2","B":"1.19"}},{"OddsType":4,"OddsValues":{"A":"-5","B":"-5.27"}}],"OddsType":1,"Odds":0.2}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878853,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 13:50:00","GroundTypeId":1,"EventGroupId":2522008,"EventGroupTypeId":1,"TotalMarketLineCount":5,"IsPopular":false,"IsFavourite":false,"HomeTeamId":146885,"HomeTeam":"博洛尼亚","EngHomeTeam":null,"AwayTeamId":129594,"AwayTeam":"森多利亚","EngAwayTeam":null,"RBTime":"2H 86","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17173,"CompetitionName":"IM 独家FIFA20意大利","EngCompetitionName":null,"PMOrderNumber":9914,"RBOrderNumber":7455},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355606200,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350106718,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79},{"WagerSelectionId":4350106719,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97}]},{"MarketlineId":1355606201,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350106720,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.41","B":"-0.42"}},{"OddsType":2,"OddsValues":{"A":"2.43","B":"2.38"}},{"OddsType":3,"OddsValues":{"A":"3.43","B":"3.38"}},{"OddsType":4,"OddsValues":{"A":"2.43","B":"2.38"}}],"OddsType":1,"Odds":-0.41},{"WagerSelectionId":4350106721,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.17","B":"0.16"}},{"OddsType":2,"OddsValues":{"A":"0.17","B":"0.16"}},{"OddsType":3,"OddsValues":{"A":"1.17","B":"1.16"}},{"OddsType":4,"OddsValues":{"A":"-5.89","B":"-6.25"}}],"OddsType":1,"Odds":0.17}]},{"MarketlineId":1355606202,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343896865,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.03","B":"0.02"}},{"OddsType":2,"OddsValues":{"A":"0.03","B":"0.02"}},{"OddsType":3,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":4,"OddsValues":{"A":"-33.34","B":"-50"}}],"OddsType":1,"Odds":0.03},{"WagerSelectionId":4343896866,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.27","B":"-0.28"}},{"OddsType":2,"OddsValues":{"A":"3.7","B":"3.57"}},{"OddsType":3,"OddsValues":{"A":"4.7","B":"4.57"}},{"OddsType":4,"OddsValues":{"A":"3.7","B":"3.57"}}],"OddsType":1,"Odds":-0.27}]},{"MarketlineId":1355606205,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350119480,"SelectionId":3,"SelectionName":"大","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.28","B":"-0.29"}},{"OddsType":2,"OddsValues":{"A":"3.57","B":"3.44"}},{"OddsType":3,"OddsValues":{"A":"4.57","B":"4.44"}},{"OddsType":4,"OddsValues":{"A":"3.57","B":"3.44"}}],"OddsType":1,"Odds":-0.28},{"WagerSelectionId":4350119481,"SelectionId":4,"SelectionName":"小","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.04","B":"0.03"}},{"OddsType":2,"OddsValues":{"A":"0.04","B":"0.03"}},{"OddsType":3,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":4,"OddsValues":{"A":"-25","B":"-33.34"}}],"OddsType":1,"Odds":0.04}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880882,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 13:50:00","GroundTypeId":1,"EventGroupId":2522583,"EventGroupTypeId":1,"TotalMarketLineCount":12,"IsPopular":false,"IsFavourite":false,"HomeTeamId":173478,"HomeTeam":"韩国","EngHomeTeam":null,"AwayTeamId":173481,"AwayTeam":"澳大利亚","EngAwayTeam":null,"RBTime":"2H 75","RBTimeStatus":0,"HomeScore":2,"AwayScore":1,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":21033,"CompetitionName":"IM独家P21亚洲友谊赛","EngCompetitionName":null,"PMOrderNumber":9910,"RBOrderNumber":7440},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355666815,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350110067,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":2,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":3,"OddsValues":{"A":"1.9","B":"1.89"}},{"OddsType":4,"OddsValues":{"A":"-1.12","B":"-1.13"}}],"OddsType":1,"Odds":0.9},{"WagerSelectionId":4350110068,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":2,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":3,"OddsValues":{"A":"1.86","B":"1.85"}},{"OddsType":4,"OddsValues":{"A":"-1.17","B":"-1.18"}}],"OddsType":1,"Odds":0.86}]},{"MarketlineId":1355666816,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350110071,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.27","B":"0.26"}},{"OddsType":2,"OddsValues":{"A":"0.27","B":"0.26"}},{"OddsType":3,"OddsValues":{"A":"1.27","B":"1.26"}},{"OddsType":4,"OddsValues":{"A":"-3.71","B":"-3.85"}}],"OddsType":1,"Odds":0.27},{"WagerSelectionId":4350110072,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.51","B":"-0.52"}},{"OddsType":2,"OddsValues":{"A":"1.96","B":"1.92"}},{"OddsType":3,"OddsValues":{"A":"2.96","B":"2.92"}},{"OddsType":4,"OddsValues":{"A":"1.96","B":"1.92"}}],"OddsType":1,"Odds":-0.51}]},{"MarketlineId":1355666817,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350110069,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.38","B":"-0.39"}},{"OddsType":2,"OddsValues":{"A":"2.63","B":"2.56"}},{"OddsType":3,"OddsValues":{"A":"3.63","B":"3.56"}},{"OddsType":4,"OddsValues":{"A":"2.63","B":"2.56"}}],"OddsType":1,"Odds":-0.38},{"WagerSelectionId":4350110070,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.14","B":"0.13"}},{"OddsType":2,"OddsValues":{"A":"0.14","B":"0.13"}},{"OddsType":3,"OddsValues":{"A":"1.14","B":"1.13"}},{"OddsType":4,"OddsValues":{"A":"-7.15","B":"-7.7"}}],"OddsType":1,"Odds":0.14}]},{"MarketlineId":1355666820,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350118262,"SelectionId":3,"SelectionName":"大","Handicap":3.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78},{"WagerSelectionId":4350118263,"SelectionId":4,"SelectionName":"小","Handicap":3.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":2,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":3,"OddsValues":{"A":"1.54","B":"1.53"}},{"OddsType":4,"OddsValues":{"A":"-1.86","B":"-1.89"}}],"OddsType":1,"Odds":0.54}]},{"MarketlineId":1355666821,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350114028,"SelectionId":3,"SelectionName":"大","Handicap":3.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78},{"WagerSelectionId":4350114029,"SelectionId":4,"SelectionName":"小","Handicap":3.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":2,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":3,"OddsValues":{"A":"1.54","B":"1.53"}},{"OddsType":4,"OddsValues":{"A":"-1.86","B":"-1.89"}}],"OddsType":1,"Odds":0.54}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880878,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 13:51:00","GroundTypeId":1,"EventGroupId":2522617,"EventGroupTypeId":1,"TotalMarketLineCount":11,"IsPopular":false,"IsFavourite":false,"HomeTeamId":173479,"HomeTeam":"伊朗","EngHomeTeam":null,"AwayTeamId":173482,"AwayTeam":"中国","EngAwayTeam":null,"RBTime":"2H 69","RBTimeStatus":0,"HomeScore":2,"AwayScore":2,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":21033,"CompetitionName":"IM独家P21亚洲友谊赛","EngCompetitionName":null,"PMOrderNumber":9910,"RBOrderNumber":7440},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355666869,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123099,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.94","B":"-0.95"}},{"OddsType":2,"OddsValues":{"A":"1.06","B":"1.05"}},{"OddsType":3,"OddsValues":{"A":"2.06","B":"2.05"}},{"OddsType":4,"OddsValues":{"A":"1.06","B":"1.05"}}],"OddsType":1,"Odds":-0.94},{"WagerSelectionId":4350123100,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":2,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":3,"OddsValues":{"A":"1.7","B":"1.69"}},{"OddsType":4,"OddsValues":{"A":"-1.43","B":"-1.45"}}],"OddsType":1,"Odds":0.7}]},{"MarketlineId":1355666870,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123103,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":2,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":3,"OddsValues":{"A":"1.48","B":"1.47"}},{"OddsType":4,"OddsValues":{"A":"-2.09","B":"-2.13"}}],"OddsType":1,"Odds":0.48},{"WagerSelectionId":4350123104,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.72","B":"-0.73"}},{"OddsType":2,"OddsValues":{"A":"1.38","B":"1.36"}},{"OddsType":3,"OddsValues":{"A":"2.38","B":"2.36"}},{"OddsType":4,"OddsValues":{"A":"1.38","B":"1.36"}}],"OddsType":1,"Odds":-0.72}]},{"MarketlineId":1355666871,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123101,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.66","B":"-0.67"}},{"OddsType":2,"OddsValues":{"A":"1.51","B":"1.49"}},{"OddsType":3,"OddsValues":{"A":"2.51","B":"2.49"}},{"OddsType":4,"OddsValues":{"A":"1.51","B":"1.49"}}],"OddsType":1,"Odds":-0.66},{"WagerSelectionId":4350123102,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":2,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":3,"OddsValues":{"A":"1.42","B":"1.41"}},{"OddsType":4,"OddsValues":{"A":"-2.39","B":"-2.44"}}],"OddsType":1,"Odds":0.42}]},{"MarketlineId":1355666874,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123093,"SelectionId":3,"SelectionName":"大","Handicap":5.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.99","B":"1"}},{"OddsType":2,"OddsValues":{"A":"1.01","B":"1"}},{"OddsType":3,"OddsValues":{"A":"2.01","B":"2"}},{"OddsType":4,"OddsValues":{"A":"1.01","B":"1"}}],"OddsType":1,"Odds":-0.99},{"WagerSelectionId":4350123094,"SelectionId":4,"SelectionName":"小","Handicap":5.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":2,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":3,"OddsValues":{"A":"1.75","B":"1.74"}},{"OddsType":4,"OddsValues":{"A":"-1.34","B":"-1.36"}}],"OddsType":1,"Odds":0.75}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880887,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:00:00","GroundTypeId":1,"EventGroupId":2522609,"EventGroupTypeId":1,"TotalMarketLineCount":14,"IsPopular":false,"IsFavourite":false,"HomeTeamId":173481,"HomeTeam":"澳大利亚","EngHomeTeam":null,"AwayTeamId":173479,"AwayTeam":"伊朗","EngAwayTeam":null,"RBTime":"HT","RBTimeStatus":0,"HomeScore":0,"AwayScore":1,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":21033,"CompetitionName":"IM独家P21亚洲友谊赛","EngCompetitionName":null,"PMOrderNumber":9910,"RBOrderNumber":7440},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355666491,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120098,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":2,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":3,"OddsValues":{"A":"1.76","B":"1.75"}},{"OddsType":4,"OddsValues":{"A":"-1.32","B":"-1.34"}}],"OddsType":1,"Odds":0.76},{"WagerSelectionId":4350120099,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0}]},{"MarketlineId":1355666492,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120505,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78},{"WagerSelectionId":4350120506,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":2,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":3,"OddsValues":{"A":"1.54","B":"1.53"}},{"OddsType":4,"OddsValues":{"A":"-1.86","B":"-1.89"}}],"OddsType":1,"Odds":0.54}]},{"MarketlineId":1355666493,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120507,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.49","B":"0.48"}},{"OddsType":2,"OddsValues":{"A":"0.49","B":"0.48"}},{"OddsType":3,"OddsValues":{"A":"1.49","B":"1.48"}},{"OddsType":4,"OddsValues":{"A":"-2.05","B":"-2.09"}}],"OddsType":1,"Odds":0.49},{"WagerSelectionId":4350120508,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.73","B":"-0.74"}},{"OddsType":2,"OddsValues":{"A":"1.36","B":"1.35"}},{"OddsType":3,"OddsValues":{"A":"2.36","B":"2.35"}},{"OddsType":4,"OddsValues":{"A":"1.36","B":"1.35"}}],"OddsType":1,"Odds":-0.73}]},{"MarketlineId":1355666496,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121154,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":2,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":3,"OddsValues":{"A":"1.82","B":"1.81"}},{"OddsType":4,"OddsValues":{"A":"-1.22","B":"-1.24"}}],"OddsType":1,"Odds":0.82},{"WagerSelectionId":4350121155,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":2,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":3,"OddsValues":{"A":"1.94","B":"1.93"}},{"OddsType":4,"OddsValues":{"A":"-1.07","B":"-1.08"}}],"OddsType":1,"Odds":0.94}]},{"MarketlineId":1355666497,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121156,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.88","B":"-0.89"}},{"OddsType":2,"OddsValues":{"A":"1.13","B":"1.12"}},{"OddsType":3,"OddsValues":{"A":"2.13","B":"2.12"}},{"OddsType":4,"OddsValues":{"A":"1.13","B":"1.12"}}],"OddsType":1,"Odds":-0.88},{"WagerSelectionId":4350121157,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":2,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":3,"OddsValues":{"A":"1.64","B":"1.63"}},{"OddsType":4,"OddsValues":{"A":"-1.57","B":"-1.59"}}],"OddsType":1,"Odds":0.64}]},{"MarketlineId":1355666498,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121066,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":2,"OddsValues":{"A":"0.42","B":"0.41"}},{"OddsType":3,"OddsValues":{"A":"1.42","B":"1.41"}},{"OddsType":4,"OddsValues":{"A":"-2.39","B":"-2.44"}}],"OddsType":1,"Odds":0.42},{"WagerSelectionId":4350121067,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.66","B":"-0.67"}},{"OddsType":2,"OddsValues":{"A":"1.51","B":"1.49"}},{"OddsType":3,"OddsValues":{"A":"2.51","B":"2.49"}},{"OddsType":4,"OddsValues":{"A":"1.51","B":"1.49"}}],"OddsType":1,"Odds":-0.66}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878854,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2522000,"EventGroupTypeId":1,"TotalMarketLineCount":21,"IsPopular":false,"IsFavourite":false,"HomeTeamId":146907,"HomeTeam":"河北华夏幸福","EngHomeTeam":null,"AwayTeamId":146916,"AwayTeam":"武汉卓尔FC","EngAwayTeam":null,"RBTime":"1H 18","RBTimeStatus":0,"HomeScore":1,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17175,"CompetitionName":"IM 独家FIFA20中国","EngCompetitionName":null,"PMOrderNumber":9911,"RBOrderNumber":7470},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355605552,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121405,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":2,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":3,"OddsValues":{"A":"1.87","B":"1.86"}},{"OddsType":4,"OddsValues":{"A":"-1.15","B":"-1.17"}}],"OddsType":1,"Odds":0.87},{"WagerSelectionId":4350121406,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89}]},{"MarketlineId":1355605553,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121407,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.8","B":"-0.81"}},{"OddsType":2,"OddsValues":{"A":"1.25","B":"1.23"}},{"OddsType":3,"OddsValues":{"A":"2.25","B":"2.23"}},{"OddsType":4,"OddsValues":{"A":"1.25","B":"1.23"}}],"OddsType":1,"Odds":-0.8},{"WagerSelectionId":4350121408,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.56","B":"0.55"}},{"OddsType":2,"OddsValues":{"A":"0.56","B":"0.55"}},{"OddsType":3,"OddsValues":{"A":"1.56","B":"1.55"}},{"OddsType":4,"OddsValues":{"A":"-1.79","B":"-1.82"}}],"OddsType":1,"Odds":0.56}]},{"MarketlineId":1355605554,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121409,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":2,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":3,"OddsValues":{"A":"1.55","B":"1.54"}},{"OddsType":4,"OddsValues":{"A":"-1.82","B":"-1.86"}}],"OddsType":1,"Odds":0.55},{"WagerSelectionId":4350121410,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.79","B":"-0.8"}},{"OddsType":2,"OddsValues":{"A":"1.26","B":"1.25"}},{"OddsType":3,"OddsValues":{"A":"2.26","B":"2.25"}},{"OddsType":4,"OddsValues":{"A":"1.26","B":"1.25"}}],"OddsType":1,"Odds":-0.79}]},{"MarketlineId":1355605557,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121399,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99},{"WagerSelectionId":4350121400,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":2,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":3,"OddsValues":{"A":"1.77","B":"1.76"}},{"OddsType":4,"OddsValues":{"A":"-1.3","B":"-1.32"}}],"OddsType":1,"Odds":0.77}]},{"MarketlineId":1355605558,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121401,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73},{"WagerSelectionId":4350121402,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97}]},{"MarketlineId":1355605559,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121403,"SelectionId":3,"SelectionName":"大","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.71","B":"-0.72"}},{"OddsType":2,"OddsValues":{"A":"1.4","B":"1.38"}},{"OddsType":3,"OddsValues":{"A":"2.4","B":"2.38"}},{"OddsType":4,"OddsValues":{"A":"1.4","B":"1.38"}}],"OddsType":1,"Odds":-0.71},{"WagerSelectionId":4350121404,"SelectionId":4,"SelectionName":"小","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":2,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":3,"OddsValues":{"A":"1.47","B":"1.46"}},{"OddsType":4,"OddsValues":{"A":"-2.13","B":"-2.18"}}],"OddsType":1,"Odds":0.47}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880873,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2522581,"EventGroupTypeId":1,"TotalMarketLineCount":27,"IsPopular":false,"IsFavourite":false,"HomeTeamId":129261,"HomeTeam":"英格兰","EngHomeTeam":null,"AwayTeamId":129326,"AwayTeam":"西班牙","EngAwayTeam":null,"RBTime":"1H 18","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":19861,"CompetitionName":"IM独家P21 欧洲友谊赛","EngCompetitionName":null,"PMOrderNumber":9916,"RBOrderNumber":7445},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355666761,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344032154,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0},{"WagerSelectionId":4344032155,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":2,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":3,"OddsValues":{"A":"1.76","B":"1.75"}},{"OddsType":4,"OddsValues":{"A":"-1.32","B":"-1.34"}}],"OddsType":1,"Odds":0.76}]},{"MarketlineId":1355666762,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344032158,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":2,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":3,"OddsValues":{"A":"1.64","B":"1.63"}},{"OddsType":4,"OddsValues":{"A":"-1.57","B":"-1.59"}}],"OddsType":1,"Odds":0.64},{"WagerSelectionId":4344032159,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.88","B":"-0.89"}},{"OddsType":2,"OddsValues":{"A":"1.13","B":"1.12"}},{"OddsType":3,"OddsValues":{"A":"2.13","B":"2.12"}},{"OddsType":4,"OddsValues":{"A":"1.13","B":"1.12"}}],"OddsType":1,"Odds":-0.88}]},{"MarketlineId":1355666763,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344032156,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78},{"WagerSelectionId":4344032157,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":2,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":3,"OddsValues":{"A":"1.54","B":"1.53"}},{"OddsType":4,"OddsValues":{"A":"-1.86","B":"-1.89"}}],"OddsType":1,"Odds":0.54}]},{"MarketlineId":1355666766,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122757,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4350122758,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78}]},{"MarketlineId":1355666767,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123025,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":2,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":3,"OddsValues":{"A":"1.68","B":"1.67"}},{"OddsType":4,"OddsValues":{"A":"-1.48","B":"-1.5"}}],"OddsType":1,"Odds":0.68},{"WagerSelectionId":4350123026,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92}]},{"MarketlineId":1355666768,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344032150,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.79","B":"-0.8"}},{"OddsType":2,"OddsValues":{"A":"1.26","B":"1.25"}},{"OddsType":3,"OddsValues":{"A":"2.26","B":"2.25"}},{"OddsType":4,"OddsValues":{"A":"1.26","B":"1.25"}}],"OddsType":1,"Odds":-0.79},{"WagerSelectionId":4344032151,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":2,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":3,"OddsValues":{"A":"1.55","B":"1.54"}},{"OddsType":4,"OddsValues":{"A":"-1.82","B":"-1.86"}}],"OddsType":1,"Odds":0.55}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880847,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2522580,"EventGroupTypeId":1,"TotalMarketLineCount":26,"IsPopular":false,"IsFavourite":false,"HomeTeamId":129459,"HomeTeam":"葡萄牙","EngHomeTeam":null,"AwayTeamId":129485,"AwayTeam":"德国","EngAwayTeam":null,"RBTime":"1H 16","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":19861,"CompetitionName":"IM独家P21 欧洲友谊赛","EngCompetitionName":null,"PMOrderNumber":9916,"RBOrderNumber":7445},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355664925,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122883,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95},{"WagerSelectionId":4350122884,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":2,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":3,"OddsValues":{"A":"1.71","B":"1.7"}},{"OddsType":4,"OddsValues":{"A":"-1.41","B":"-1.43"}}],"OddsType":1,"Odds":0.71}]},{"MarketlineId":1355664926,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122881,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":2,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":3,"OddsValues":{"A":"1.7","B":"1.69"}},{"OddsType":4,"OddsValues":{"A":"-1.43","B":"-1.45"}}],"OddsType":1,"Odds":0.7},{"WagerSelectionId":4350122882,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.94","B":"-0.95"}},{"OddsType":2,"OddsValues":{"A":"1.06","B":"1.05"}},{"OddsType":3,"OddsValues":{"A":"2.06","B":"2.05"}},{"OddsType":4,"OddsValues":{"A":"1.06","B":"1.05"}}],"OddsType":1,"Odds":-0.94}]},{"MarketlineId":1355664927,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123266,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.72","B":"-0.73"}},{"OddsType":2,"OddsValues":{"A":"1.38","B":"1.36"}},{"OddsType":3,"OddsValues":{"A":"2.38","B":"2.36"}},{"OddsType":4,"OddsValues":{"A":"1.38","B":"1.36"}}],"OddsType":1,"Odds":-0.72},{"WagerSelectionId":4350123267,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":2,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":3,"OddsValues":{"A":"1.48","B":"1.47"}},{"OddsType":4,"OddsValues":{"A":"-2.09","B":"-2.13"}}],"OddsType":1,"Odds":0.48}]},{"MarketlineId":1355664930,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121224,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99},{"WagerSelectionId":4350121225,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":2,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":3,"OddsValues":{"A":"1.77","B":"1.76"}},{"OddsType":4,"OddsValues":{"A":"-1.3","B":"-1.32"}}],"OddsType":1,"Odds":0.77}]},{"MarketlineId":1355664931,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122877,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":2,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":3,"OddsValues":{"A":"1.69","B":"1.68"}},{"OddsType":4,"OddsValues":{"A":"-1.45","B":"-1.48"}}],"OddsType":1,"Odds":0.69},{"WagerSelectionId":4350122878,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.93","B":"-0.94"}},{"OddsType":2,"OddsValues":{"A":"1.07","B":"1.06"}},{"OddsType":3,"OddsValues":{"A":"2.07","B":"2.06"}},{"OddsType":4,"OddsValues":{"A":"1.07","B":"1.06"}}],"OddsType":1,"Odds":-0.93}]},{"MarketlineId":1355664932,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122879,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.79","B":"-0.8"}},{"OddsType":2,"OddsValues":{"A":"1.26","B":"1.25"}},{"OddsType":3,"OddsValues":{"A":"2.26","B":"2.25"}},{"OddsType":4,"OddsValues":{"A":"1.26","B":"1.25"}}],"OddsType":1,"Odds":-0.79},{"WagerSelectionId":4350122880,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":2,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":3,"OddsValues":{"A":"1.55","B":"1.54"}},{"OddsType":4,"OddsValues":{"A":"-1.82","B":"-1.86"}}],"OddsType":1,"Odds":0.55}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878883,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2522033,"EventGroupTypeId":1,"TotalMarketLineCount":22,"IsPopular":false,"IsFavourite":false,"HomeTeamId":146915,"HomeTeam":"天津天海","EngHomeTeam":null,"AwayTeamId":146910,"AwayTeam":"山东鲁能","EngAwayTeam":null,"RBTime":"1H 19","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17175,"CompetitionName":"IM 独家FIFA20中国","EngCompetitionName":null,"PMOrderNumber":9911,"RBOrderNumber":7470},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355607496,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121172,"SelectionId":1,"SelectionName":"主","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":2,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":3,"OddsValues":{"A":"1.87","B":"1.86"}},{"OddsType":4,"OddsValues":{"A":"-1.15","B":"-1.17"}}],"OddsType":1,"Odds":0.87},{"WagerSelectionId":4350121173,"SelectionId":2,"SelectionName":"客","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89}]},{"MarketlineId":1355607497,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122945,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.87","B":"-0.88"}},{"OddsType":2,"OddsValues":{"A":"1.14","B":"1.13"}},{"OddsType":3,"OddsValues":{"A":"2.14","B":"2.13"}},{"OddsType":4,"OddsValues":{"A":"1.14","B":"1.13"}}],"OddsType":1,"Odds":-0.87},{"WagerSelectionId":4350122946,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":2,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":3,"OddsValues":{"A":"1.63","B":"1.62"}},{"OddsType":4,"OddsValues":{"A":"-1.59","B":"-1.62"}}],"OddsType":1,"Odds":0.63}]},{"MarketlineId":1355607498,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122947,"SelectionId":1,"SelectionName":"主","Handicap":-1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":2,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":3,"OddsValues":{"A":"1.53","B":"1.52"}},{"OddsType":4,"OddsValues":{"A":"-1.89","B":"-1.93"}}],"OddsType":1,"Odds":0.53},{"WagerSelectionId":4350122948,"SelectionId":2,"SelectionName":"客","Handicap":-1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.77","B":"-0.78"}},{"OddsType":2,"OddsValues":{"A":"1.29","B":"1.28"}},{"OddsType":3,"OddsValues":{"A":"2.29","B":"2.28"}},{"OddsType":4,"OddsValues":{"A":"1.29","B":"1.28"}}],"OddsType":1,"Odds":-0.77}]},{"MarketlineId":1355607501,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121168,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4350121169,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78}]},{"MarketlineId":1355607502,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122711,"SelectionId":3,"SelectionName":"大","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":2,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":3,"OddsValues":{"A":"1.71","B":"1.7"}},{"OddsType":4,"OddsValues":{"A":"-1.41","B":"-1.43"}}],"OddsType":1,"Odds":0.71},{"WagerSelectionId":4350122712,"SelectionId":4,"SelectionName":"小","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95}]},{"MarketlineId":1355607503,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122713,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.76","B":"-0.77"}},{"OddsType":2,"OddsValues":{"A":"1.31","B":"1.29"}},{"OddsType":3,"OddsValues":{"A":"2.31","B":"2.29"}},{"OddsType":4,"OddsValues":{"A":"1.31","B":"1.29"}}],"OddsType":1,"Odds":-0.76},{"WagerSelectionId":4350122714,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.52","B":"0.51"}},{"OddsType":2,"OddsValues":{"A":"0.52","B":"0.51"}},{"OddsType":3,"OddsValues":{"A":"1.52","B":"1.51"}},{"OddsType":4,"OddsValues":{"A":"-1.93","B":"-1.97"}}],"OddsType":1,"Odds":0.52}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878869,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2521995,"EventGroupTypeId":1,"TotalMarketLineCount":22,"IsPopular":false,"IsFavourite":false,"HomeTeamId":146878,"HomeTeam":"伯恩茅斯足球俱乐部","EngHomeTeam":null,"AwayTeamId":129290,"AwayTeam":"水晶宫","EngAwayTeam":null,"RBTime":"1H 16","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17176,"CompetitionName":"IM 独家FIFA20英格兰","EngCompetitionName":null,"PMOrderNumber":9912,"RBOrderNumber":7450},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355605822,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120865,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79},{"WagerSelectionId":4350120866,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97}]},{"MarketlineId":1355605823,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350120867,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.93","B":"-0.94"}},{"OddsType":2,"OddsValues":{"A":"1.07","B":"1.06"}},{"OddsType":3,"OddsValues":{"A":"2.07","B":"2.06"}},{"OddsType":4,"OddsValues":{"A":"1.07","B":"1.06"}}],"OddsType":1,"Odds":-0.93},{"WagerSelectionId":4350120868,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":2,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":3,"OddsValues":{"A":"1.69","B":"1.68"}},{"OddsType":4,"OddsValues":{"A":"-1.45","B":"-1.48"}}],"OddsType":1,"Odds":0.69}]},{"MarketlineId":1355605824,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343895518,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.51","B":"0.5"}},{"OddsType":2,"OddsValues":{"A":"0.51","B":"0.5"}},{"OddsType":3,"OddsValues":{"A":"1.51","B":"1.5"}},{"OddsType":4,"OddsValues":{"A":"-1.97","B":"-2"}}],"OddsType":1,"Odds":0.51},{"WagerSelectionId":4343895519,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.75","B":"-0.76"}},{"OddsType":2,"OddsValues":{"A":"1.33","B":"1.31"}},{"OddsType":3,"OddsValues":{"A":"2.33","B":"2.31"}},{"OddsType":4,"OddsValues":{"A":"1.33","B":"1.31"}}],"OddsType":1,"Odds":-0.75}]},{"MarketlineId":1355605827,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121863,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":2,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":3,"OddsValues":{"A":"1.88","B":"1.87"}},{"OddsType":4,"OddsValues":{"A":"-1.14","B":"-1.15"}}],"OddsType":1,"Odds":0.88},{"WagerSelectionId":4350121864,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":2,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":3,"OddsValues":{"A":"1.88","B":"1.87"}},{"OddsType":4,"OddsValues":{"A":"-1.14","B":"-1.15"}}],"OddsType":1,"Odds":0.88}]},{"MarketlineId":1355605828,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122951,"SelectionId":3,"SelectionName":"大","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":2,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":3,"OddsValues":{"A":"1.65","B":"1.64"}},{"OddsType":4,"OddsValues":{"A":"-1.54","B":"-1.57"}}],"OddsType":1,"Odds":0.65},{"WagerSelectionId":4350122952,"SelectionId":4,"SelectionName":"小","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.89","B":"-0.9"}},{"OddsType":2,"OddsValues":{"A":"1.12","B":"1.11"}},{"OddsType":3,"OddsValues":{"A":"2.12","B":"2.11"}},{"OddsType":4,"OddsValues":{"A":"1.12","B":"1.11"}}],"OddsType":1,"Odds":-0.89}]},{"MarketlineId":1355605829,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122953,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.8","B":"-0.81"}},{"OddsType":2,"OddsValues":{"A":"1.25","B":"1.23"}},{"OddsType":3,"OddsValues":{"A":"2.25","B":"2.23"}},{"OddsType":4,"OddsValues":{"A":"1.25","B":"1.23"}}],"OddsType":1,"Odds":-0.8},{"WagerSelectionId":4350122954,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.56","B":"0.55"}},{"OddsType":2,"OddsValues":{"A":"0.56","B":"0.55"}},{"OddsType":3,"OddsValues":{"A":"1.56","B":"1.55"}},{"OddsType":4,"OddsValues":{"A":"-1.79","B":"-1.82"}}],"OddsType":1,"Odds":0.56}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67878887,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:10:00","GroundTypeId":1,"EventGroupId":2522032,"EventGroupTypeId":1,"TotalMarketLineCount":22,"IsPopular":false,"IsFavourite":false,"HomeTeamId":129239,"HomeTeam":"曼联","EngHomeTeam":null,"AwayTeamId":146874,"AwayTeam":"伯恩利","EngAwayTeam":null,"RBTime":"1H 17","RBTimeStatus":0,"HomeScore":0,"AwayScore":0,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":17176,"CompetitionName":"IM 独家FIFA20英格兰","EngCompetitionName":null,"PMOrderNumber":9912,"RBOrderNumber":7450},"Programme":{"ProgrammeId":181,"ProgrammeName":"VS FIFA"},"MarketLines":[{"MarketlineId":1355607658,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343899562,"SelectionId":1,"SelectionName":"主","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97},{"WagerSelectionId":4343899563,"SelectionId":2,"SelectionName":"客","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73}]},{"MarketlineId":1355607659,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121136,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":2,"OddsValues":{"A":"0.71","B":"0.7"}},{"OddsType":3,"OddsValues":{"A":"1.71","B":"1.7"}},{"OddsType":4,"OddsValues":{"A":"-1.41","B":"-1.43"}}],"OddsType":1,"Odds":0.71},{"WagerSelectionId":4350121137,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95}]},{"MarketlineId":1355607660,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122979,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":2,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":3,"OddsValues":{"A":"1.47","B":"1.46"}},{"OddsType":4,"OddsValues":{"A":"-2.13","B":"-2.18"}}],"OddsType":1,"Odds":0.47},{"WagerSelectionId":4350122980,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.71","B":"-0.72"}},{"OddsType":2,"OddsValues":{"A":"1.4","B":"1.38"}},{"OddsType":3,"OddsValues":{"A":"2.4","B":"2.38"}},{"OddsType":4,"OddsValues":{"A":"1.4","B":"1.38"}}],"OddsType":1,"Odds":-0.71}]},{"MarketlineId":1355607663,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350123180,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73},{"WagerSelectionId":4350123181,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97}]},{"MarketlineId":1355607664,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350119996,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.96","B":"-0.97"}},{"OddsType":2,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":3,"OddsValues":{"A":"2.04","B":"2.03"}},{"OddsType":4,"OddsValues":{"A":"1.04","B":"1.03"}}],"OddsType":1,"Odds":-0.96},{"WagerSelectionId":4350119997,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72}]},{"MarketlineId":1355607665,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350122977,"SelectionId":3,"SelectionName":"大","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":2,"OddsValues":{"A":"0.54","B":"0.53"}},{"OddsType":3,"OddsValues":{"A":"1.54","B":"1.53"}},{"OddsType":4,"OddsValues":{"A":"-1.86","B":"-1.89"}}],"OddsType":1,"Odds":0.54},{"WagerSelectionId":4350122978,"SelectionId":4,"SelectionName":"小","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78}]}]},{"OpenParlay":true,"IsLive":true,"Market":3,"EventId":67880867,"EventStatusId":1,"OrderNumber":999,"EventDate":"2023-03-02 14:00:00","GroundTypeId":1,"EventGroupId":2522602,"EventGroupTypeId":1,"TotalMarketLineCount":11,"IsPopular":false,"IsFavourite":false,"HomeTeamId":169740,"HomeTeam":"日本","EngHomeTeam":"VS - Japan","AwayTeamId":173478,"AwayTeam":"韩国","EngAwayTeam":"VS - South Korea","RBTime":"1H 45","RBTimeStatus":0,"HomeScore":0,"AwayScore":1,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":21033,"CompetitionName":"IM独家P21亚洲友谊赛","EngCompetitionName":"VS - IM PES21 Cyberbattle Asia Friendly","PMOrderNumber":9910,"RBOrderNumber":7440},"Programme":{"ProgrammeId":199,"ProgrammeName":"VS PES"},"MarketLines":[{"MarketlineId":1355666545,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350116056,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85},{"WagerSelectionId":4350116057,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":2,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":3,"OddsValues":{"A":"1.91","B":"1.9"}},{"OddsType":4,"OddsValues":{"A":"-1.1","B":"-1.12"}}],"OddsType":1,"Odds":0.91}]},{"MarketlineId":1355666546,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350113327,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":2,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":3,"OddsValues":{"A":"1.48","B":"1.47"}},{"OddsType":4,"OddsValues":{"A":"-2.09","B":"-2.13"}}],"OddsType":1,"Odds":0.48},{"WagerSelectionId":4350113328,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.72","B":"-0.73"}},{"OddsType":2,"OddsValues":{"A":"1.38","B":"1.36"}},{"OddsType":3,"OddsValues":{"A":"2.38","B":"2.36"}},{"OddsType":4,"OddsValues":{"A":"1.38","B":"1.36"}}],"OddsType":1,"Odds":-0.72}]},{"MarketlineId":1355666547,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350115989,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.52","B":"-0.53"}},{"OddsType":2,"OddsValues":{"A":"1.92","B":"1.88"}},{"OddsType":3,"OddsValues":{"A":"2.92","B":"2.88"}},{"OddsType":4,"OddsValues":{"A":"1.92","B":"1.88"}}],"OddsType":1,"Odds":-0.52},{"WagerSelectionId":4350115990,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.28","B":"0.27"}},{"OddsType":2,"OddsValues":{"A":"0.28","B":"0.27"}},{"OddsType":3,"OddsValues":{"A":"1.28","B":"1.27"}},{"OddsType":4,"OddsValues":{"A":"-3.58","B":"-3.71"}}],"OddsType":1,"Odds":0.28}]},{"MarketlineId":1355666550,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4350121086,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":2,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":3,"OddsValues":{"A":"1.63","B":"1.62"}},{"OddsType":4,"OddsValues":{"A":"-1.59","B":"-1.62"}}],"OddsType":1,"Odds":0.63},{"WagerSelectionId":4350121087,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.87","B":"-0.88"}},{"OddsType":2,"OddsValues":{"A":"1.14","B":"1.13"}},{"OddsType":3,"OddsValues":{"A":"2.14","B":"2.13"}},{"OddsType":4,"OddsValues":{"A":"1.14","B":"1.13"}}],"OddsType":1,"Odds":-0.87}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67069686,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 18:00:00","GroundTypeId":1,"EventGroupId":2487274,"EventGroupTypeId":1,"TotalMarketLineCount":114,"IsPopular":false,"IsFavourite":false,"HomeTeamId":100456,"HomeTeam":"韩国U20","EngHomeTeam":null,"AwayTeamId":216732,"AwayTeam":"阿曼U20","EngAwayTeam":null,"RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":45187,"CompetitionName":"亚足联亚洲杯U20(在乌兹别克斯坦)","EngCompetitionName":null,"PMOrderNumber":4540,"RBOrderNumber":1080},"Programme":{"ProgrammeId":7,"ProgrammeName":"亚洲"},"MarketLines":[{"MarketlineId":1337771926,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4328452687,"SelectionId":1,"SelectionName":"主","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":2,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":3,"OddsValues":{"A":"1.82","B":"1.81"}},{"OddsType":4,"OddsValues":{"A":"-1.22","B":"-1.24"}}],"OddsType":1,"Odds":0.82},{"WagerSelectionId":4328452688,"SelectionId":2,"SelectionName":"客","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.98","B":"-0.99"}},{"OddsType":2,"OddsValues":{"A":"1.02","B":"1.01"}},{"OddsType":3,"OddsValues":{"A":"2.02","B":"2.01"}},{"OddsType":4,"OddsValues":{"A":"1.02","B":"1.01"}}],"OddsType":1,"Odds":-0.98}]},{"MarketlineId":1337771927,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347755482,"SelectionId":1,"SelectionName":"主","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.89","B":"-0.9"}},{"OddsType":2,"OddsValues":{"A":"1.12","B":"1.11"}},{"OddsType":3,"OddsValues":{"A":"2.12","B":"2.11"}},{"OddsType":4,"OddsValues":{"A":"1.12","B":"1.11"}}],"OddsType":1,"Odds":-0.89},{"WagerSelectionId":4347755483,"SelectionId":2,"SelectionName":"客","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73}]},{"MarketlineId":1337771928,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347755484,"SelectionId":1,"SelectionName":"主","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.61","B":"0.6"}},{"OddsType":2,"OddsValues":{"A":"0.61","B":"0.6"}},{"OddsType":3,"OddsValues":{"A":"1.61","B":"1.6"}},{"OddsType":4,"OddsValues":{"A":"-1.64","B":"-1.67"}}],"OddsType":1,"Odds":0.61},{"WagerSelectionId":4347755485,"SelectionId":2,"SelectionName":"客","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.77","B":"-0.78"}},{"OddsType":2,"OddsValues":{"A":"1.29","B":"1.28"}},{"OddsType":3,"OddsValues":{"A":"2.29","B":"2.28"}},{"OddsType":4,"OddsValues":{"A":"1.29","B":"1.28"}}],"OddsType":1,"Odds":-0.77}]},{"MarketlineId":1337771931,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347317115,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":2,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":3,"OddsValues":{"A":"1.88","B":"1.87"}},{"OddsType":4,"OddsValues":{"A":"-1.14","B":"-1.15"}}],"OddsType":1,"Odds":0.88},{"WagerSelectionId":4347317116,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":2,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":3,"OddsValues":{"A":"1.94","B":"1.93"}},{"OddsType":4,"OddsValues":{"A":"-1.07","B":"-1.08"}}],"OddsType":1,"Odds":0.94}]},{"MarketlineId":1337771932,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347822727,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":2,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":3,"OddsValues":{"A":"1.68","B":"1.67"}},{"OddsType":4,"OddsValues":{"A":"-1.48","B":"-1.5"}}],"OddsType":1,"Odds":0.68},{"WagerSelectionId":4347822728,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.86","B":"-0.87"}},{"OddsType":2,"OddsValues":{"A":"1.16","B":"1.14"}},{"OddsType":3,"OddsValues":{"A":"2.16","B":"2.14"}},{"OddsType":4,"OddsValues":{"A":"1.16","B":"1.14"}}],"OddsType":1,"Odds":-0.86}]},{"MarketlineId":1337771933,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347822729,"SelectionId":3,"SelectionName":"大","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.85","B":"-0.86"}},{"OddsType":2,"OddsValues":{"A":"1.17","B":"1.16"}},{"OddsType":3,"OddsValues":{"A":"2.17","B":"2.16"}},{"OddsType":4,"OddsValues":{"A":"1.17","B":"1.16"}}],"OddsType":1,"Odds":-0.85},{"WagerSelectionId":4347822730,"SelectionId":4,"SelectionName":"小","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.67","B":"0.66"}},{"OddsType":2,"OddsValues":{"A":"0.67","B":"0.66"}},{"OddsType":3,"OddsValues":{"A":"1.67","B":"1.66"}},{"OddsType":4,"OddsValues":{"A":"-1.5","B":"-1.52"}}],"OddsType":1,"Odds":0.67}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67069684,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 20:00:00","GroundTypeId":1,"EventGroupId":2487272,"EventGroupTypeId":1,"TotalMarketLineCount":45,"IsPopular":false,"IsFavourite":false,"HomeTeamId":33198,"HomeTeam":"塔吉克斯坦U20","EngHomeTeam":"Tajikistan U20","AwayTeamId":216673,"AwayTeam":"约旦U20","EngAwayTeam":"Jordan U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":45187,"CompetitionName":"亚足联亚洲杯U20(在乌兹别克斯坦)","EngCompetitionName":"AFC U20 Asian Cup (In Uzbekistan)","PMOrderNumber":4540,"RBOrderNumber":1080},"Programme":{"ProgrammeId":7,"ProgrammeName":"亚洲"},"MarketLines":[{"MarketlineId":1337771818,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4296790606,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97},{"WagerSelectionId":4296790607,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":2,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":3,"OddsValues":{"A":"1.81","B":"1.8"}},{"OddsType":4,"OddsValues":{"A":"-1.24","B":"-1.25"}}],"OddsType":1,"Odds":0.81}]},{"MarketlineId":1337771819,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347323768,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":2,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":3,"OddsValues":{"A":"1.77","B":"1.76"}},{"OddsType":4,"OddsValues":{"A":"-1.3","B":"-1.32"}}],"OddsType":1,"Odds":0.77},{"WagerSelectionId":4347323769,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.93","B":"-0.94"}},{"OddsType":2,"OddsValues":{"A":"1.07","B":"1.06"}},{"OddsType":3,"OddsValues":{"A":"2.07","B":"2.06"}},{"OddsType":4,"OddsValues":{"A":"1.07","B":"1.06"}}],"OddsType":1,"Odds":-0.93}]},{"MarketlineId":1337771820,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347414181,"SelectionId":1,"SelectionName":"主","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":2,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":3,"OddsValues":{"A":"1.55","B":"1.54"}},{"OddsType":4,"OddsValues":{"A":"-1.82","B":"-1.86"}}],"OddsType":1,"Odds":0.55},{"WagerSelectionId":4347414182,"SelectionId":2,"SelectionName":"客","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.71","B":"-0.72"}},{"OddsType":2,"OddsValues":{"A":"1.4","B":"1.38"}},{"OddsType":3,"OddsValues":{"A":"2.4","B":"2.38"}},{"OddsType":4,"OddsValues":{"A":"1.4","B":"1.38"}}],"OddsType":1,"Odds":-0.71}]},{"MarketlineId":1337771823,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4296790608,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4296790609,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84}]},{"MarketlineId":1337771824,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347414173,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73},{"WagerSelectionId":4347414174,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.91","B":"-0.92"}},{"OddsType":2,"OddsValues":{"A":"1.09","B":"1.08"}},{"OddsType":3,"OddsValues":{"A":"2.09","B":"2.08"}},{"OddsType":4,"OddsValues":{"A":"1.09","B":"1.08"}}],"OddsType":1,"Odds":-0.91}]},{"MarketlineId":1337771825,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347414175,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.81","B":"-0.82"}},{"OddsType":2,"OddsValues":{"A":"1.23","B":"1.21"}},{"OddsType":3,"OddsValues":{"A":"2.23","B":"2.21"}},{"OddsType":4,"OddsValues":{"A":"1.23","B":"1.21"}}],"OddsType":1,"Odds":-0.81},{"WagerSelectionId":4347414176,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":2,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":3,"OddsValues":{"A":"1.63","B":"1.62"}},{"OddsType":4,"OddsValues":{"A":"-1.59","B":"-1.62"}}],"OddsType":1,"Odds":0.63}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67884425,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 22:00:00","GroundTypeId":1,"EventGroupId":2522886,"EventGroupTypeId":1,"TotalMarketLineCount":114,"IsPopular":false,"IsFavourite":true,"HomeTeamId":14495,"HomeTeam":"塞内加尔U20","EngHomeTeam":"Senegal U20","AwayTeamId":92329,"AwayTeam":"贝宁U20","EngAwayTeam":"Benin U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":45262,"CompetitionName":"非洲国家杯U20(在埃及)","EngCompetitionName":"Africa Cup Of Nations U20 (In Egypt)","PMOrderNumber":4540,"RBOrderNumber":3485},"Programme":{"ProgrammeId":47,"ProgrammeName":"埃及"},"MarketLines":[{"MarketlineId":1355746524,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346623756,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":2,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":3,"OddsValues":{"A":"1.75","B":"1.74"}},{"OddsType":4,"OddsValues":{"A":"-1.34","B":"-1.36"}}],"OddsType":1,"Odds":0.75},{"WagerSelectionId":4346623757,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.99","B":"1"}},{"OddsType":2,"OddsValues":{"A":"1.01","B":"1"}},{"OddsType":3,"OddsValues":{"A":"2.01","B":"2"}},{"OddsType":4,"OddsValues":{"A":"1.01","B":"1"}}],"OddsType":1,"Odds":-0.99}]},{"MarketlineId":1355746529,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346623763,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.84","B":"-0.85"}},{"OddsType":2,"OddsValues":{"A":"1.19","B":"1.17"}},{"OddsType":3,"OddsValues":{"A":"2.19","B":"2.17"}},{"OddsType":4,"OddsValues":{"A":"1.19","B":"1.17"}}],"OddsType":1,"Odds":-0.84},{"WagerSelectionId":4346623764,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.6","B":"0.59"}},{"OddsType":2,"OddsValues":{"A":"0.6","B":"0.59"}},{"OddsType":3,"OddsValues":{"A":"1.6","B":"1.59"}},{"OddsType":4,"OddsValues":{"A":"-1.67","B":"-1.7"}}],"OddsType":1,"Odds":0.6}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67884424,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 01:00:00","GroundTypeId":1,"EventGroupId":2522885,"EventGroupTypeId":1,"TotalMarketLineCount":115,"IsPopular":false,"IsFavourite":false,"HomeTeamId":54233,"HomeTeam":"乌干达U20","EngHomeTeam":"Uganda U20","AwayTeamId":92328,"AwayTeam":"尼日利亚U20","EngAwayTeam":"Nigeria U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":45262,"CompetitionName":"非洲国家杯U20(在埃及)","EngCompetitionName":"Africa Cup Of Nations U20 (In Egypt)","PMOrderNumber":4540,"RBOrderNumber":3485},"Programme":{"ProgrammeId":47,"ProgrammeName":"埃及"},"MarketLines":[{"MarketlineId":1355746470,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346624002,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":2,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":3,"OddsValues":{"A":"1.96","B":"1.95"}},{"OddsType":4,"OddsValues":{"A":"-1.05","B":"-1.06"}}],"OddsType":1,"Odds":0.96},{"WagerSelectionId":4346624003,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8}]},{"MarketlineId":1355746475,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346624007,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.89","B":"-0.9"}},{"OddsType":2,"OddsValues":{"A":"1.12","B":"1.11"}},{"OddsType":3,"OddsValues":{"A":"2.12","B":"2.11"}},{"OddsType":4,"OddsValues":{"A":"1.12","B":"1.11"}}],"OddsType":1,"Odds":-0.89},{"WagerSelectionId":4346624008,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":2,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":3,"OddsValues":{"A":"1.65","B":"1.64"}},{"OddsType":4,"OddsValues":{"A":"-1.54","B":"-1.57"}}],"OddsType":1,"Odds":0.65}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67878740,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 20:00:00","GroundTypeId":1,"EventGroupId":2521982,"EventGroupTypeId":1,"TotalMarketLineCount":3,"IsPopular":false,"IsFavourite":false,"HomeTeamId":44763,"HomeTeam":"阿根廷青年预备队","EngHomeTeam":"Argentinos Juniors (R)","AwayTeamId":181,"AwayTeam":"堤格雷预备队","EngAwayTeam":"Club Atletico Tigre (R)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":158,"CompetitionName":"阿根廷预备队联赛","EngCompetitionName":"Argentina Reserves League","PMOrderNumber":8450,"RBOrderNumber":3845},"Programme":{"ProgrammeId":19,"ProgrammeName":"阿根廷"},"MarketLines":[{"MarketlineId":1355603434,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343884690,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.84","B":"-0.85"}},{"OddsType":2,"OddsValues":{"A":"1.19","B":"1.17"}},{"OddsType":3,"OddsValues":{"A":"2.19","B":"2.17"}},{"OddsType":4,"OddsValues":{"A":"1.19","B":"1.17"}}],"OddsType":1,"Odds":-0.84},{"WagerSelectionId":4343884691,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":2,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":3,"OddsValues":{"A":"1.64","B":"1.63"}},{"OddsType":4,"OddsValues":{"A":"-1.57","B":"-1.59"}}],"OddsType":1,"Odds":0.64}]},{"MarketlineId":1355603439,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343884677,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95},{"WagerSelectionId":4343884678,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67878741,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 20:00:00","GroundTypeId":1,"EventGroupId":2521983,"EventGroupTypeId":1,"TotalMarketLineCount":3,"IsPopular":false,"IsFavourite":false,"HomeTeamId":8775,"HomeTeam":"萨斯菲尔德预备队","EngHomeTeam":"CA Velez Sarsfield (R)","AwayTeamId":20232,"AwayTeam":"塔勒雷斯预备队","EngAwayTeam":"Talleres Cordoba (R)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":158,"CompetitionName":"阿根廷预备队联赛","EngCompetitionName":"Argentina Reserves League","PMOrderNumber":8450,"RBOrderNumber":3845},"Programme":{"ProgrammeId":19,"ProgrammeName":"阿根廷"},"MarketLines":[{"MarketlineId":1355603488,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343884869,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89},{"WagerSelectionId":4343884870,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":2,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":3,"OddsValues":{"A":"1.91","B":"1.9"}},{"OddsType":4,"OddsValues":{"A":"-1.1","B":"-1.12"}}],"OddsType":1,"Odds":0.91}]},{"MarketlineId":1355603493,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343884861,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0},{"WagerSelectionId":4343884862,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67878742,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 20:00:00","GroundTypeId":1,"EventGroupId":2521984,"EventGroupTypeId":1,"TotalMarketLineCount":3,"IsPopular":false,"IsFavourite":false,"HomeTeamId":111622,"HomeTeam":"科尔多瓦中央预备队","EngHomeTeam":"Central Cordoba De Santiago Del Estero (R)","AwayTeamId":114520,"AwayTeam":"CA普拉滕斯预备队","EngAwayTeam":"CA Platense (R)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":158,"CompetitionName":"阿根廷预备队联赛","EngCompetitionName":"Argentina Reserves League","PMOrderNumber":8450,"RBOrderNumber":3845},"Programme":{"ProgrammeId":19,"ProgrammeName":"阿根廷"},"MarketLines":[{"MarketlineId":1355603542,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344006721,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4344006722,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0}]},{"MarketlineId":1355603547,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4343884494,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84},{"WagerSelectionId":4343884495,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":2,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":3,"OddsValues":{"A":"1.96","B":"1.95"}},{"OddsType":4,"OddsValues":{"A":"-1.05","B":"-1.06"}}],"OddsType":1,"Odds":0.96}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67925729,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 07:00:00","GroundTypeId":1,"EventGroupId":2523494,"EventGroupTypeId":1,"TotalMarketLineCount":3,"IsPopular":false,"IsFavourite":false,"HomeTeamId":18189,"HomeTeam":"河床预备队","EngHomeTeam":"CA River Plate (R)","AwayTeamId":8774,"AwayTeam":"拉努斯预备队","EngAwayTeam":"Club Atletico Lanus (R)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":158,"CompetitionName":"阿根廷预备队联赛","EngCompetitionName":"Argentina Reserves League","PMOrderNumber":8450,"RBOrderNumber":3845},"Programme":{"ProgrammeId":19,"ProgrammeName":"阿根廷"},"MarketLines":[{"MarketlineId":1356598816,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346501274,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95},{"WagerSelectionId":4346501275,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85}]},{"MarketlineId":1356598821,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346501282,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4346501283,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0}]}]},{"OpenParlay":false,"IsLive":true,"Market":2,"EventId":67883367,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 23:30:00","GroundTypeId":0,"EventGroupId":2522840,"EventGroupTypeId":1,"TotalMarketLineCount":10,"IsPopular":false,"IsFavourite":false,"HomeTeamId":41493,"HomeTeam":"巴林沙巴柏","EngHomeTeam":"Al Shabab Bahrain","AwayTeamId":49996,"AwayTeam":"布戴亚","EngAwayTeam":"Budaiya Club","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":299,"CompetitionName":"巴林超级联赛","EngCompetitionName":"Bahrain Premier League","PMOrderNumber":1180,"RBOrderNumber":1490},"Programme":{"ProgrammeId":31,"ProgrammeName":"巴林岛"},"MarketLines":[{"MarketlineId":1355725736,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346714204,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85},{"WagerSelectionId":4346714205,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85}]},{"MarketlineId":1355725737,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347021344,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.62","B":"0.61"}},{"OddsType":2,"OddsValues":{"A":"0.62","B":"0.61"}},{"OddsType":3,"OddsValues":{"A":"1.62","B":"1.61"}},{"OddsType":4,"OddsValues":{"A":"-1.62","B":"-1.64"}}],"OddsType":1,"Odds":0.62},{"WagerSelectionId":4347021345,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92}]},{"MarketlineId":1355725741,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344202661,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84},{"WagerSelectionId":4344202662,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":2,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":3,"OddsValues":{"A":"1.86","B":"1.85"}},{"OddsType":4,"OddsValues":{"A":"-1.17","B":"-1.18"}}],"OddsType":1,"Odds":0.86}]},{"MarketlineId":1355725742,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344202663,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.93","B":"-0.94"}},{"OddsType":2,"OddsValues":{"A":"1.07","B":"1.06"}},{"OddsType":3,"OddsValues":{"A":"2.07","B":"2.06"}},{"OddsType":4,"OddsValues":{"A":"1.07","B":"1.06"}}],"OddsType":1,"Odds":-0.93},{"WagerSelectionId":4344202664,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":2,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":3,"OddsValues":{"A":"1.63","B":"1.62"}},{"OddsType":4,"OddsValues":{"A":"-1.59","B":"-1.62"}}],"OddsType":1,"Odds":0.63}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67883368,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 23:30:00","GroundTypeId":1,"EventGroupId":2522841,"EventGroupTypeId":1,"TotalMarketLineCount":128,"IsPopular":false,"IsFavourite":false,"HomeTeamId":4936,"HomeTeam":"阿赫利麦纳麦","EngHomeTeam":"Al Ahli Manama","AwayTeamId":150603,"AwayTeam":"卡利迪亚","EngAwayTeam":"Khalidiya","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":299,"CompetitionName":"巴林超级联赛","EngCompetitionName":"Bahrain Premier League","PMOrderNumber":1180,"RBOrderNumber":1490},"Programme":{"ProgrammeId":31,"ProgrammeName":"巴林岛"},"MarketLines":[{"MarketlineId":1355725790,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344203043,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95},{"WagerSelectionId":4344203044,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.93","B":"0.92"}},{"OddsType":2,"OddsValues":{"A":"0.93","B":"0.92"}},{"OddsType":3,"OddsValues":{"A":"1.93","B":"1.92"}},{"OddsType":4,"OddsValues":{"A":"-1.08","B":"-1.09"}}],"OddsType":1,"Odds":0.93}]},{"MarketlineId":1355725791,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348007441,"SelectionId":1,"SelectionName":"主","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":2,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":3,"OddsValues":{"A":"1.69","B":"1.68"}},{"OddsType":4,"OddsValues":{"A":"-1.45","B":"-1.48"}}],"OddsType":1,"Odds":0.69},{"WagerSelectionId":4348007442,"SelectionId":2,"SelectionName":"客","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.81","B":"-0.82"}},{"OddsType":2,"OddsValues":{"A":"1.23","B":"1.21"}},{"OddsType":3,"OddsValues":{"A":"2.23","B":"2.21"}},{"OddsType":4,"OddsValues":{"A":"1.23","B":"1.21"}}],"OddsType":1,"Odds":-0.81}]},{"MarketlineId":1355725792,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348007439,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.78","B":"-0.79"}},{"OddsType":2,"OddsValues":{"A":"1.28","B":"1.26"}},{"OddsType":3,"OddsValues":{"A":"2.28","B":"2.26"}},{"OddsType":4,"OddsValues":{"A":"1.28","B":"1.26"}}],"OddsType":1,"Odds":-0.78},{"WagerSelectionId":4348007440,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":2,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":3,"OddsValues":{"A":"1.66","B":"1.65"}},{"OddsType":4,"OddsValues":{"A":"-1.52","B":"-1.54"}}],"OddsType":1,"Odds":0.66}]},{"MarketlineId":1355725795,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344203027,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.94","B":"-0.95"}},{"OddsType":2,"OddsValues":{"A":"1.06","B":"1.05"}},{"OddsType":3,"OddsValues":{"A":"2.06","B":"2.05"}},{"OddsType":4,"OddsValues":{"A":"1.06","B":"1.05"}}],"OddsType":1,"Odds":-0.94},{"WagerSelectionId":4344203028,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8}]},{"MarketlineId":1355725796,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347360764,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":2,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":3,"OddsValues":{"A":"1.76","B":"1.75"}},{"OddsType":4,"OddsValues":{"A":"-1.32","B":"-1.34"}}],"OddsType":1,"Odds":0.76},{"WagerSelectionId":4347360765,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.9","B":"-0.91"}},{"OddsType":2,"OddsValues":{"A":"1.11","B":"1.09"}},{"OddsType":3,"OddsValues":{"A":"2.11","B":"2.09"}},{"OddsType":4,"OddsValues":{"A":"1.11","B":"1.09"}}],"OddsType":1,"Odds":-0.9}]},{"MarketlineId":1355725797,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347360766,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.74","B":"-0.75"}},{"OddsType":2,"OddsValues":{"A":"1.35","B":"1.33"}},{"OddsType":3,"OddsValues":{"A":"2.35","B":"2.33"}},{"OddsType":4,"OddsValues":{"A":"1.35","B":"1.33"}}],"OddsType":1,"Odds":-0.74},{"WagerSelectionId":4347360767,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.6","B":"0.59"}},{"OddsType":2,"OddsValues":{"A":"0.6","B":"0.59"}},{"OddsType":3,"OddsValues":{"A":"1.6","B":"1.59"}},{"OddsType":4,"OddsValues":{"A":"-1.67","B":"-1.7"}}],"OddsType":1,"Odds":0.6}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":66374338,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 03:45:00","GroundTypeId":1,"EventGroupId":2458971,"EventGroupTypeId":1,"TotalMarketLineCount":135,"IsPopular":true,"IsFavourite":false,"HomeTeamId":30245,"HomeTeam":"安特卫普","EngHomeTeam":"Royal Antwerp","AwayTeamId":440,"AwayTeam":"圣吉罗斯","EngAwayTeam":"Union Saint Gilloise","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":true}","Competition":{"CompetitionId":3783,"CompetitionName":"比利时杯","EngCompetitionName":"Belgium Cup","PMOrderNumber":616,"RBOrderNumber":860},"Programme":{"ProgrammeId":34,"ProgrammeName":"比利时"},"MarketLines":[{"MarketlineId":1322662673,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4262104147,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89},{"WagerSelectionId":4262104148,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97}]},{"MarketlineId":1322662674,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4262542428,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.83","B":"-0.84"}},{"OddsType":2,"OddsValues":{"A":"1.2","B":"1.19"}},{"OddsType":3,"OddsValues":{"A":"2.2","B":"2.19"}},{"OddsType":4,"OddsValues":{"A":"1.2","B":"1.19"}}],"OddsType":1,"Odds":-0.83},{"WagerSelectionId":4262542429,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":2,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":3,"OddsValues":{"A":"1.75","B":"1.74"}},{"OddsType":4,"OddsValues":{"A":"-1.34","B":"-1.36"}}],"OddsType":1,"Odds":0.75}]},{"MarketlineId":1322662675,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4265453431,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":2,"OddsValues":{"A":"0.65","B":"0.64"}},{"OddsType":3,"OddsValues":{"A":"1.65","B":"1.64"}},{"OddsType":4,"OddsValues":{"A":"-1.54","B":"-1.57"}}],"OddsType":1,"Odds":0.65},{"WagerSelectionId":4265453432,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.73","B":"-0.74"}},{"OddsType":2,"OddsValues":{"A":"1.36","B":"1.35"}},{"OddsType":3,"OddsValues":{"A":"2.36","B":"2.35"}},{"OddsType":4,"OddsValues":{"A":"1.36","B":"1.35"}}],"OddsType":1,"Odds":-0.73}]},{"MarketlineId":1322662676,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4266340984,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.66","B":"-0.67"}},{"OddsType":2,"OddsValues":{"A":"1.51","B":"1.49"}},{"OddsType":3,"OddsValues":{"A":"2.51","B":"2.49"}},{"OddsType":4,"OddsValues":{"A":"1.51","B":"1.49"}}],"OddsType":1,"Odds":-0.66},{"WagerSelectionId":4266340985,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.58","B":"0.57"}},{"OddsType":2,"OddsValues":{"A":"0.58","B":"0.57"}},{"OddsType":3,"OddsValues":{"A":"1.58","B":"1.57"}},{"OddsType":4,"OddsValues":{"A":"-1.73","B":"-1.76"}}],"OddsType":1,"Odds":0.58}]},{"MarketlineId":1322662677,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4266340986,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.51","B":"0.5"}},{"OddsType":2,"OddsValues":{"A":"0.51","B":"0.5"}},{"OddsType":3,"OddsValues":{"A":"1.51","B":"1.5"}},{"OddsType":4,"OddsValues":{"A":"-1.97","B":"-2"}}],"OddsType":1,"Odds":0.51},{"WagerSelectionId":4266340987,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.59","B":"-0.6"}},{"OddsType":2,"OddsValues":{"A":"1.69","B":"1.66"}},{"OddsType":3,"OddsValues":{"A":"2.69","B":"2.66"}},{"OddsType":4,"OddsValues":{"A":"1.69","B":"1.66"}}],"OddsType":1,"Odds":-0.59}]},{"MarketlineId":1322662678,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4255985002,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97},{"WagerSelectionId":4255985003,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.93","B":"0.92"}},{"OddsType":2,"OddsValues":{"A":"0.93","B":"0.92"}},{"OddsType":3,"OddsValues":{"A":"1.93","B":"1.92"}},{"OddsType":4,"OddsValues":{"A":"-1.08","B":"-1.09"}}],"OddsType":1,"Odds":0.93}]},{"MarketlineId":1322662679,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347887122,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72},{"WagerSelectionId":4347887123,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.82","B":"-0.83"}},{"OddsType":2,"OddsValues":{"A":"1.21","B":"1.2"}},{"OddsType":3,"OddsValues":{"A":"2.21","B":"2.2"}},{"OddsType":4,"OddsValues":{"A":"1.21","B":"1.2"}}],"OddsType":1,"Odds":-0.82}]},{"MarketlineId":1322662680,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347887124,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.82","B":"-0.83"}},{"OddsType":2,"OddsValues":{"A":"1.21","B":"1.2"}},{"OddsType":3,"OddsValues":{"A":"2.21","B":"2.2"}},{"OddsType":4,"OddsValues":{"A":"1.21","B":"1.2"}}],"OddsType":1,"Odds":-0.82},{"WagerSelectionId":4347887125,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72}]},{"MarketlineId":1322662681,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4266340982,"SelectionId":3,"SelectionName":"大","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.6","B":"-0.61"}},{"OddsType":2,"OddsValues":{"A":"1.66","B":"1.63"}},{"OddsType":3,"OddsValues":{"A":"2.66","B":"2.63"}},{"OddsType":4,"OddsValues":{"A":"1.66","B":"1.63"}}],"OddsType":1,"Odds":-0.6},{"WagerSelectionId":4266340983,"SelectionId":4,"SelectionName":"小","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.5","B":"0.49"}},{"OddsType":2,"OddsValues":{"A":"0.5","B":"0.49"}},{"OddsType":3,"OddsValues":{"A":"1.5","B":"1.49"}},{"OddsType":4,"OddsValues":{"A":"-2","B":"-2.05"}}],"OddsType":1,"Odds":0.5}]},{"MarketlineId":1322662682,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4266340980,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":2,"OddsValues":{"A":"0.47","B":"0.46"}},{"OddsType":3,"OddsValues":{"A":"1.47","B":"1.46"}},{"OddsType":4,"OddsValues":{"A":"-2.13","B":"-2.18"}}],"OddsType":1,"Odds":0.47},{"WagerSelectionId":4266340981,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.57","B":"-0.58"}},{"OddsType":2,"OddsValues":{"A":"1.75","B":"1.72"}},{"OddsType":3,"OddsValues":{"A":"2.75","B":"2.72"}},{"OddsType":4,"OddsValues":{"A":"1.75","B":"1.72"}}],"OddsType":1,"Odds":-0.57}]}]},{"OpenParlay":false,"IsLive":true,"Market":2,"EventId":67935588,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 06:45:00","GroundTypeId":1,"EventGroupId":2524204,"EventGroupTypeId":1,"TotalMarketLineCount":6,"IsPopular":false,"IsFavourite":false,"HomeTeamId":125364,"HomeTeam":"里奥布朗库AC","EngHomeTeam":"Rio Branco AC","AwayTeamId":60103,"AwayTeam":"伊塔佩米林","EngAwayTeam":"Atletico Itapemirim ES","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":5831,"CompetitionName":"巴西甲级联赛卡里奥卡","EngCompetitionName":"Brazil Campeonato Capixaba Serie A","PMOrderNumber":8266,"RBOrderNumber":5525},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356819432,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347099669,"SelectionId":1,"SelectionName":"主","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72},{"WagerSelectionId":4347099670,"SelectionId":2,"SelectionName":"客","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.96","B":"-0.97"}},{"OddsType":2,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":3,"OddsValues":{"A":"2.04","B":"2.03"}},{"OddsType":4,"OddsValues":{"A":"1.04","B":"1.03"}}],"OddsType":1,"Odds":-0.96}]},{"MarketlineId":1356819437,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347099665,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78},{"WagerSelectionId":4347099666,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98}]}]},{"OpenParlay":false,"IsLive":true,"Market":2,"EventId":67937499,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:30:00","GroundTypeId":0,"EventGroupId":2524322,"EventGroupTypeId":1,"TotalMarketLineCount":10,"IsPopular":false,"IsFavourite":false,"HomeTeamId":19955,"HomeTeam":"古兰尼CE","EngHomeTeam":"Guarani Esporte Clube CE","AwayTeamId":66599,"AwayTeam":"巴巴利亚","EngAwayTeam":"Barbalha FC","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":563,"CompetitionName":"巴西塞阿腊州甲级联赛","EngCompetitionName":"Brazil Campeonato Cearense Division 1","PMOrderNumber":8268,"RBOrderNumber":5355},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356862460,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347403628,"SelectionId":1,"SelectionName":"主","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74},{"WagerSelectionId":4347403629,"SelectionId":2,"SelectionName":"客","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":2,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":3,"OddsValues":{"A":"1.96","B":"1.95"}},{"OddsType":4,"OddsValues":{"A":"-1.05","B":"-1.06"}}],"OddsType":1,"Odds":0.96}]},{"MarketlineId":1356862461,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347403630,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97},{"WagerSelectionId":4347403631,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73}]},{"MarketlineId":1356862465,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347436824,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":2,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":3,"OddsValues":{"A":"1.87","B":"1.86"}},{"OddsType":4,"OddsValues":{"A":"-1.15","B":"-1.17"}}],"OddsType":1,"Odds":0.87},{"WagerSelectionId":4347436825,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":2,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":3,"OddsValues":{"A":"1.83","B":"1.82"}},{"OddsType":4,"OddsValues":{"A":"-1.21","B":"-1.22"}}],"OddsType":1,"Odds":0.83}]},{"MarketlineId":1356862466,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347436826,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":2,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":3,"OddsValues":{"A":"1.66","B":"1.65"}},{"OddsType":4,"OddsValues":{"A":"-1.52","B":"-1.54"}}],"OddsType":1,"Odds":0.66},{"WagerSelectionId":4347436827,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.96","B":"-0.97"}},{"OddsType":2,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":3,"OddsValues":{"A":"2.04","B":"2.03"}},{"OddsType":4,"OddsValues":{"A":"1.04","B":"1.03"}}],"OddsType":1,"Odds":-0.96}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67935593,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:30:00","GroundTypeId":1,"EventGroupId":2524205,"EventGroupTypeId":1,"TotalMarketLineCount":72,"IsPopular":false,"IsFavourite":false,"HomeTeamId":38025,"HomeTeam":"泰拉登特斯","EngHomeTeam":"Tiradentes CE","AwayTeamId":187872,"AwayTeam":"普格梅诺斯","EngAwayTeam":"Gremio Recreativo Pague Menos CE","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":6616,"CompetitionName":"巴西塞阿腊州乙级联赛","EngCompetitionName":"Brazil Campeonato Cearense Serie B","PMOrderNumber":8277,"RBOrderNumber":5838},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356819591,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348018988,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89},{"WagerSelectionId":4348018989,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":2,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":3,"OddsValues":{"A":"1.87","B":"1.86"}},{"OddsType":4,"OddsValues":{"A":"-1.15","B":"-1.17"}}],"OddsType":1,"Odds":0.87}]},{"MarketlineId":1356819596,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347100330,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4347100331,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78}]}]},{"OpenParlay":false,"IsLive":true,"Market":2,"EventId":67950269,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 07:00:00","GroundTypeId":1,"EventGroupId":2525819,"EventGroupTypeId":1,"TotalMarketLineCount":10,"IsPopular":false,"IsFavourite":false,"HomeTeamId":154494,"HomeTeam":"克拉特乌斯竞技俱乐部CE","EngHomeTeam":"Crateus Esporte Clube CE","AwayTeamId":104273,"AwayTeam":"克拉图","EngAwayTeam":"Crato Esporte Clube","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":6616,"CompetitionName":"巴西塞阿腊州乙级联赛","EngCompetitionName":"Brazil Campeonato Cearense Serie B","PMOrderNumber":8277,"RBOrderNumber":5838},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1357180315,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348039694,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72},{"WagerSelectionId":4348039695,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98}]},{"MarketlineId":1357180316,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348039696,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0},{"WagerSelectionId":4348039697,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":2,"OddsValues":{"A":"0.7","B":"0.69"}},{"OddsType":3,"OddsValues":{"A":"1.7","B":"1.69"}},{"OddsType":4,"OddsValues":{"A":"-1.43","B":"-1.45"}}],"OddsType":1,"Odds":0.7}]},{"MarketlineId":1357180320,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348039684,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4348039685,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":2,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":3,"OddsValues":{"A":"1.9","B":"1.89"}},{"OddsType":4,"OddsValues":{"A":"-1.12","B":"-1.13"}}],"OddsType":1,"Odds":0.9}]},{"MarketlineId":1357180321,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348039686,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92},{"WagerSelectionId":4348039687,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.62","B":"0.61"}},{"OddsType":2,"OddsValues":{"A":"0.62","B":"0.61"}},{"OddsType":3,"OddsValues":{"A":"1.62","B":"1.61"}},{"OddsType":4,"OddsValues":{"A":"-1.62","B":"-1.64"}}],"OddsType":1,"Odds":0.62}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67936510,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 03:00:00","GroundTypeId":1,"EventGroupId":2524275,"EventGroupTypeId":1,"TotalMarketLineCount":116,"IsPopular":false,"IsFavourite":false,"HomeTeamId":58155,"HomeTeam":"马拉巴老鹰足球俱乐部","EngHomeTeam":"Aguia De Maraba","AwayTeamId":7064,"AwayTeam":"保地花高(若昂佩索阿)","EngAwayTeam":"Botafogo Futebol Clube PB","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":737,"CompetitionName":"巴西杯","EngCompetitionName":"Brazil Cup","PMOrderNumber":6210,"RBOrderNumber":3510},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356839501,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347184597,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79},{"WagerSelectionId":4347184598,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95}]},{"MarketlineId":1356839506,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347277827,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92},{"WagerSelectionId":4347277828,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67937921,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 03:30:00","GroundTypeId":1,"EventGroupId":2524369,"EventGroupTypeId":1,"TotalMarketLineCount":115,"IsPopular":false,"IsFavourite":false,"HomeTeamId":26654,"HomeTeam":"皇家阿里克米斯RO","EngHomeTeam":"Real Ariquemes RO","AwayTeamId":12638,"AwayTeam":"基斯奥马","EngAwayTeam":"Criciuma Esporte Clube","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":737,"CompetitionName":"巴西杯","EngCompetitionName":"Brazil Cup","PMOrderNumber":6210,"RBOrderNumber":3510},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356873468,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347387298,"SelectionId":1,"SelectionName":"主","Handicap":-1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79},{"WagerSelectionId":4347387299,"SelectionId":2,"SelectionName":"客","Handicap":-1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95}]},{"MarketlineId":1356873473,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347387292,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.99","B":"1"}},{"OddsType":2,"OddsValues":{"A":"1.01","B":"1"}},{"OddsType":3,"OddsValues":{"A":"2.01","B":"2"}},{"OddsType":4,"OddsValues":{"A":"1.01","B":"1"}}],"OddsType":1,"Odds":-0.99},{"WagerSelectionId":4347387293,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":2,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":3,"OddsValues":{"A":"1.81","B":"1.8"}},{"OddsType":4,"OddsValues":{"A":"-1.24","B":"-1.25"}}],"OddsType":1,"Odds":0.81}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67937395,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 06:15:00","GroundTypeId":1,"EventGroupId":2524300,"EventGroupTypeId":1,"TotalMarketLineCount":117,"IsPopular":false,"IsFavourite":false,"HomeTeamId":39107,"HomeTeam":"AD伊瓜图CE","EngHomeTeam":"AD Iguatu CE","AwayTeamId":19946,"AwayTeam":"阿美利加纳泰","EngAwayTeam":"America Futebol Clube Natal-RN","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":737,"CompetitionName":"巴西杯","EngCompetitionName":"Brazil Cup","PMOrderNumber":6210,"RBOrderNumber":3510},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356859634,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347279191,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":2,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":3,"OddsValues":{"A":"1.83","B":"1.82"}},{"OddsType":4,"OddsValues":{"A":"-1.21","B":"-1.22"}}],"OddsType":1,"Odds":0.83},{"WagerSelectionId":4347279192,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.99","B":"1"}},{"OddsType":2,"OddsValues":{"A":"1.01","B":"1"}},{"OddsType":3,"OddsValues":{"A":"2.01","B":"2"}},{"OddsType":4,"OddsValues":{"A":"1.01","B":"1"}}],"OddsType":1,"Odds":-0.99}]},{"MarketlineId":1356859639,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347279207,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":2,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":3,"OddsValues":{"A":"1.91","B":"1.9"}},{"OddsType":4,"OddsValues":{"A":"-1.1","B":"-1.12"}}],"OddsType":1,"Odds":0.91},{"WagerSelectionId":4347279208,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":2,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":3,"OddsValues":{"A":"1.91","B":"1.9"}},{"OddsType":4,"OddsValues":{"A":"-1.1","B":"-1.12"}}],"OddsType":1,"Odds":0.91}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67937919,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 07:00:00","GroundTypeId":1,"EventGroupId":2524367,"EventGroupTypeId":1,"TotalMarketLineCount":116,"IsPopular":false,"IsFavourite":false,"HomeTeamId":11773,"HomeTeam":"马林加","EngHomeTeam":"Maringa Futebol Clube","AwayTeamId":13689,"AwayTeam":"桑帕约科雷亚","EngAwayTeam":"Sampaio Correa Futebol Clube","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":737,"CompetitionName":"巴西杯","EngCompetitionName":"Brazil Cup","PMOrderNumber":6210,"RBOrderNumber":3510},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356873360,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347278782,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95},{"WagerSelectionId":4347278783,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89}]},{"MarketlineId":1356873365,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347278760,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92},{"WagerSelectionId":4347278761,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67937920,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 07:00:00","GroundTypeId":1,"EventGroupId":2524368,"EventGroupTypeId":1,"TotalMarketLineCount":114,"IsPopular":false,"IsFavourite":false,"HomeTeamId":19945,"HomeTeam":"瑟尔希培","EngHomeTeam":"Sergipe SE","AwayTeamId":7961,"AwayTeam":"博塔弗戈","EngAwayTeam":"Botafogo de Futebol e Regatas","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":737,"CompetitionName":"巴西杯","EngCompetitionName":"Brazil Cup","PMOrderNumber":6210,"RBOrderNumber":3510},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356873414,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347951861,"SelectionId":1,"SelectionName":"主","Handicap":-1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4347951862,"SelectionId":2,"SelectionName":"客","Handicap":-1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.96","B":"-0.97"}},{"OddsType":2,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":3,"OddsValues":{"A":"2.04","B":"2.03"}},{"OddsType":4,"OddsValues":{"A":"1.04","B":"1.03"}}],"OddsType":1,"Odds":-0.96}]},{"MarketlineId":1356873419,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347278571,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4347278572,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67938800,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:00:00","GroundTypeId":1,"EventGroupId":2524401,"EventGroupTypeId":1,"TotalMarketLineCount":74,"IsPopular":false,"IsFavourite":false,"HomeTeamId":29406,"HomeTeam":"美国MG U20","EngHomeTeam":"America Futebol Clube MG U20","AwayTeamId":172783,"AwayTeam":"红牛巴甘蒂诺U20","EngAwayTeam":"Red Bull Bragantino SP U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":2055,"CompetitionName":"巴西U20联赛","EngCompetitionName":"Brazil U20 Campeonato ","PMOrderNumber":8800,"RBOrderNumber":4615},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356892844,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347955686,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":2,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":3,"OddsValues":{"A":"1.86","B":"1.85"}},{"OddsType":4,"OddsValues":{"A":"-1.17","B":"-1.18"}}],"OddsType":1,"Odds":0.86},{"WagerSelectionId":4347955687,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":2,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":3,"OddsValues":{"A":"1.9","B":"1.89"}},{"OddsType":4,"OddsValues":{"A":"-1.12","B":"-1.13"}}],"OddsType":1,"Odds":0.9}]},{"MarketlineId":1356892849,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347955688,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84},{"WagerSelectionId":4347955689,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":2,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":3,"OddsValues":{"A":"1.92","B":"1.91"}},{"OddsType":4,"OddsValues":{"A":"-1.09","B":"-1.1"}}],"OddsType":1,"Odds":0.92}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67938801,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:00:00","GroundTypeId":1,"EventGroupId":2524402,"EventGroupTypeId":1,"TotalMarketLineCount":74,"IsPopular":false,"IsFavourite":false,"HomeTeamId":30476,"HomeTeam":"奎亚斯U20","EngHomeTeam":"Goias Esporte Clube U20","AwayTeamId":56803,"AwayTeam":"福塔雷萨U20","EngAwayTeam":"Fortaleza Esporte Clube U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":2055,"CompetitionName":"巴西U20联赛","EngCompetitionName":"Brazil U20 Campeonato ","PMOrderNumber":8800,"RBOrderNumber":4615},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356892898,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347957302,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78},{"WagerSelectionId":4347957303,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98}]},{"MarketlineId":1356892903,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347957307,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79},{"WagerSelectionId":4347957308,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67919825,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:00:00","GroundTypeId":1,"EventGroupId":2523062,"EventGroupTypeId":1,"TotalMarketLineCount":74,"IsPopular":false,"IsFavourite":false,"HomeTeamId":9316,"HomeTeam":"甘美奥U20","EngHomeTeam":"Gremio Foot-Ball Porto Alegrense U20","AwayTeamId":30477,"AwayTeam":"巴拉纳竞技U20","EngAwayTeam":"Clube Atletico Paranaense U20","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":2055,"CompetitionName":"巴西U20联赛","EngCompetitionName":"Brazil U20 Campeonato ","PMOrderNumber":8800,"RBOrderNumber":4615},"Programme":{"ProgrammeId":36,"ProgrammeName":"巴西"},"MarketLines":[{"MarketlineId":1356473251,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347958137,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4347958138,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78}]},{"MarketlineId":1356473256,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347958135,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":2,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":3,"OddsValues":{"A":"1.94","B":"1.93"}},{"OddsType":4,"OddsValues":{"A":"-1.07","B":"-1.08"}}],"OddsType":1,"Odds":0.94},{"WagerSelectionId":4347958136,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":2,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":3,"OddsValues":{"A":"1.82","B":"1.81"}},{"OddsType":4,"OddsValues":{"A":"-1.22","B":"-1.24"}}],"OddsType":1,"Odds":0.82}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67338487,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 07:30:00","GroundTypeId":0,"EventGroupId":2498627,"EventGroupTypeId":1,"TotalMarketLineCount":138,"IsPopular":true,"IsFavourite":false,"HomeTeamId":876,"HomeTeam":"智利大学","EngHomeTeam":"Universidad de Chile","AwayTeamId":3228,"AwayTeam":"卡拉雷联","EngAwayTeam":"Union La Calera","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":true}","Competition":{"CompetitionId":258,"CompetitionName":"智利甲级联赛","EngCompetitionName":"Chile Primera Division","PMOrderNumber":6500,"RBOrderNumber":760},"Programme":{"ProgrammeId":39,"ProgrammeName":"智利"},"MarketLines":[{"MarketlineId":1343723765,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4339580688,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85},{"WagerSelectionId":4339580689,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95}]},{"MarketlineId":1343723766,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340454951,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.9","B":"-0.91"}},{"OddsType":2,"OddsValues":{"A":"1.11","B":"1.09"}},{"OddsType":3,"OddsValues":{"A":"2.11","B":"2.09"}},{"OddsType":4,"OddsValues":{"A":"1.11","B":"1.09"}}],"OddsType":1,"Odds":-0.9},{"WagerSelectionId":4340454952,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8}]},{"MarketlineId":1343723767,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346790238,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.69","B":"-0.7"}},{"OddsType":2,"OddsValues":{"A":"1.44","B":"1.42"}},{"OddsType":3,"OddsValues":{"A":"2.44","B":"2.42"}},{"OddsType":4,"OddsValues":{"A":"1.44","B":"1.42"}}],"OddsType":1,"Odds":-0.69},{"WagerSelectionId":4346790239,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.59","B":"0.58"}},{"OddsType":2,"OddsValues":{"A":"0.59","B":"0.58"}},{"OddsType":3,"OddsValues":{"A":"1.59","B":"1.58"}},{"OddsType":4,"OddsValues":{"A":"-1.7","B":"-1.73"}}],"OddsType":1,"Odds":0.59}]},{"MarketlineId":1343723768,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346790242,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.57","B":"0.56"}},{"OddsType":2,"OddsValues":{"A":"0.57","B":"0.56"}},{"OddsType":3,"OddsValues":{"A":"1.57","B":"1.56"}},{"OddsType":4,"OddsValues":{"A":"-1.76","B":"-1.79"}}],"OddsType":1,"Odds":0.57},{"WagerSelectionId":4346790243,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.67","B":"-0.68"}},{"OddsType":2,"OddsValues":{"A":"1.49","B":"1.47"}},{"OddsType":3,"OddsValues":{"A":"2.49","B":"2.47"}},{"OddsType":4,"OddsValues":{"A":"1.49","B":"1.47"}}],"OddsType":1,"Odds":-0.67}]},{"MarketlineId":1343723769,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346790240,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.47","B":"-0.48"}},{"OddsType":2,"OddsValues":{"A":"2.12","B":"2.08"}},{"OddsType":3,"OddsValues":{"A":"3.12","B":"3.08"}},{"OddsType":4,"OddsValues":{"A":"2.12","B":"2.08"}}],"OddsType":1,"Odds":-0.47},{"WagerSelectionId":4346790241,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.37","B":"0.36"}},{"OddsType":2,"OddsValues":{"A":"0.37","B":"0.36"}},{"OddsType":3,"OddsValues":{"A":"1.37","B":"1.36"}},{"OddsType":4,"OddsValues":{"A":"-2.71","B":"-2.78"}}],"OddsType":1,"Odds":0.37}]},{"MarketlineId":1343723770,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4339580690,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99},{"WagerSelectionId":4339580691,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89}]},{"MarketlineId":1343723771,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340454943,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74},{"WagerSelectionId":4340454944,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.86","B":"-0.87"}},{"OddsType":2,"OddsValues":{"A":"1.16","B":"1.14"}},{"OddsType":3,"OddsValues":{"A":"2.16","B":"2.14"}},{"OddsType":4,"OddsValues":{"A":"1.16","B":"1.14"}}],"OddsType":1,"Odds":-0.86}]},{"MarketlineId":1343723772,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340454945,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.8","B":"-0.81"}},{"OddsType":2,"OddsValues":{"A":"1.25","B":"1.23"}},{"OddsType":3,"OddsValues":{"A":"2.25","B":"2.23"}},{"OddsType":4,"OddsValues":{"A":"1.25","B":"1.23"}}],"OddsType":1,"Odds":-0.8},{"WagerSelectionId":4340454946,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":2,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":3,"OddsValues":{"A":"1.68","B":"1.67"}},{"OddsType":4,"OddsValues":{"A":"-1.48","B":"-1.5"}}],"OddsType":1,"Odds":0.68}]},{"MarketlineId":1343723773,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340454947,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":2,"OddsValues":{"A":"0.48","B":"0.47"}},{"OddsType":3,"OddsValues":{"A":"1.48","B":"1.47"}},{"OddsType":4,"OddsValues":{"A":"-2.09","B":"-2.13"}}],"OddsType":1,"Odds":0.48},{"WagerSelectionId":4340454948,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.6","B":"-0.61"}},{"OddsType":2,"OddsValues":{"A":"1.66","B":"1.63"}},{"OddsType":3,"OddsValues":{"A":"2.66","B":"2.63"}},{"OddsType":4,"OddsValues":{"A":"1.66","B":"1.63"}}],"OddsType":1,"Odds":-0.6}]},{"MarketlineId":1343723774,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340454949,"SelectionId":3,"SelectionName":"大","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.58","B":"-0.59"}},{"OddsType":2,"OddsValues":{"A":"1.72","B":"1.69"}},{"OddsType":3,"OddsValues":{"A":"2.72","B":"2.69"}},{"OddsType":4,"OddsValues":{"A":"1.72","B":"1.69"}}],"OddsType":1,"Odds":-0.58},{"WagerSelectionId":4340454950,"SelectionId":4,"SelectionName":"小","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.46","B":"0.45"}},{"OddsType":2,"OddsValues":{"A":"0.46","B":"0.45"}},{"OddsType":3,"OddsValues":{"A":"1.46","B":"1.45"}},{"OddsType":4,"OddsValues":{"A":"-2.18","B":"-2.23"}}],"OddsType":1,"Odds":0.46}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67862821,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 08:40:00","GroundTypeId":1,"EventGroupId":2520778,"EventGroupTypeId":1,"TotalMarketLineCount":114,"IsPopular":false,"IsFavourite":false,"HomeTeamId":294,"HomeTeam":"奎迪奥","EngHomeTeam":"Deportes Quindio","AwayTeamId":7287,"AwayTeam":"巴瑞库拉","EngAwayTeam":"Barranquilla Futbol Club","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":182,"CompetitionName":"哥伦比亚乙级联赛","EngCompetitionName":"Colombia Primera B","PMOrderNumber":6645,"RBOrderNumber":3520},"Programme":{"ProgrammeId":40,"ProgrammeName":"哥伦比亚"},"MarketLines":[{"MarketlineId":1355247488,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4342941315,"SelectionId":1,"SelectionName":"主","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4342941316,"SelectionId":2,"SelectionName":"客","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.96","B":"-0.97"}},{"OddsType":2,"OddsValues":{"A":"1.04","B":"1.03"}},{"OddsType":3,"OddsValues":{"A":"2.04","B":"2.03"}},{"OddsType":4,"OddsValues":{"A":"1.04","B":"1.03"}}],"OddsType":1,"Odds":-0.96}]},{"MarketlineId":1355247493,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4342941310,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85},{"WagerSelectionId":4342941311,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67874378,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 04:15:00","GroundTypeId":1,"EventGroupId":2521668,"EventGroupTypeId":1,"TotalMarketLineCount":73,"IsPopular":false,"IsFavourite":false,"HomeTeamId":169325,"HomeTeam":"皇家桑坦德(女)","EngHomeTeam":"CD Real Santander (W)","AwayTeamId":110890,"AwayTeam":"佩雷拉(女)","EngAwayTeam":"Deportivo Pereira (W)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":11710,"CompetitionName":"哥伦比亚女子甲级联赛","EngCompetitionName":"Colombia Women League","PMOrderNumber":9200,"RBOrderNumber":5200},"Programme":{"ProgrammeId":40,"ProgrammeName":"哥伦比亚"},"MarketLines":[{"MarketlineId":1355501724,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346332362,"SelectionId":1,"SelectionName":"主","Handicap":-1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97},{"WagerSelectionId":4346332363,"SelectionId":2,"SelectionName":"客","Handicap":-1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79}]},{"MarketlineId":1355501729,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346335184,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":2,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":3,"OddsValues":{"A":"1.81","B":"1.8"}},{"OddsType":4,"OddsValues":{"A":"-1.24","B":"-1.25"}}],"OddsType":1,"Odds":0.81},{"WagerSelectionId":4346335185,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67874402,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 04:15:00","GroundTypeId":1,"EventGroupId":2521670,"EventGroupTypeId":1,"TotalMarketLineCount":73,"IsPopular":false,"IsFavourite":false,"HomeTeamId":110889,"HomeTeam":"曼特宁独立(女)","EngHomeTeam":"Independiente Medellin (W)","AwayTeamId":146978,"AwayTeam":"拉尼罗斯FC(女)","EngAwayTeam":"Llaneros FC (W)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":11710,"CompetitionName":"哥伦比亚女子甲级联赛","EngCompetitionName":"Colombia Women League","PMOrderNumber":9200,"RBOrderNumber":5200},"Programme":{"ProgrammeId":40,"ProgrammeName":"哥伦比亚"},"MarketLines":[{"MarketlineId":1355502465,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346402573,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":2,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":3,"OddsValues":{"A":"1.77","B":"1.76"}},{"OddsType":4,"OddsValues":{"A":"-1.3","B":"-1.32"}}],"OddsType":1,"Odds":0.77},{"WagerSelectionId":4346402574,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99}]},{"MarketlineId":1355502470,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346399815,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":2,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":3,"OddsValues":{"A":"1.81","B":"1.8"}},{"OddsType":4,"OddsValues":{"A":"-1.24","B":"-1.25"}}],"OddsType":1,"Odds":0.81},{"WagerSelectionId":4346399816,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67875104,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 04:15:00","GroundTypeId":1,"EventGroupId":2521722,"EventGroupTypeId":1,"TotalMarketLineCount":74,"IsPopular":false,"IsFavourite":false,"HomeTeamId":268229,"HomeTeam":"茨高(女)","EngHomeTeam":"Boyaca Chico FC (W)","AwayTeamId":110697,"AwayTeam":"哥杜雷亚(女)","EngAwayTeam":"Cortulua (W)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":11710,"CompetitionName":"哥伦比亚女子甲级联赛","EngCompetitionName":"Colombia Women League","PMOrderNumber":9200,"RBOrderNumber":5200},"Programme":{"ProgrammeId":40,"ProgrammeName":"哥伦比亚"},"MarketLines":[{"MarketlineId":1355517253,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347112490,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":2,"OddsValues":{"A":"0.77","B":"0.76"}},{"OddsType":3,"OddsValues":{"A":"1.77","B":"1.76"}},{"OddsType":4,"OddsValues":{"A":"-1.3","B":"-1.32"}}],"OddsType":1,"Odds":0.77},{"WagerSelectionId":4347112491,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99}]},{"MarketlineId":1355517258,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347112482,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":2,"OddsValues":{"A":"0.81","B":"0.8"}},{"OddsType":3,"OddsValues":{"A":"1.81","B":"1.8"}},{"OddsType":4,"OddsValues":{"A":"-1.24","B":"-1.25"}}],"OddsType":1,"Odds":0.81},{"WagerSelectionId":4347112483,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67875687,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 04:15:00","GroundTypeId":1,"EventGroupId":2521748,"EventGroupTypeId":1,"TotalMarketLineCount":73,"IsPopular":false,"IsFavourite":false,"HomeTeamId":147469,"HomeTeam":"帕斯托(女)","EngHomeTeam":"Deportivo Pasto (W)","AwayTeamId":111349,"AwayTeam":"国家体育会(女)","EngAwayTeam":"Atletico Nacional (W)","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":11710,"CompetitionName":"哥伦比亚女子甲级联赛","EngCompetitionName":"Colombia Women League","PMOrderNumber":9200,"RBOrderNumber":5200},"Programme":{"ProgrammeId":40,"ProgrammeName":"哥伦比亚"},"MarketLines":[{"MarketlineId":1355529405,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347119986,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.99","B":"1"}},{"OddsType":2,"OddsValues":{"A":"1.01","B":"1"}},{"OddsType":3,"OddsValues":{"A":"2.01","B":"2"}},{"OddsType":4,"OddsValues":{"A":"1.01","B":"1"}}],"OddsType":1,"Odds":-0.99},{"WagerSelectionId":4347119987,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":2,"OddsValues":{"A":"0.75","B":"0.74"}},{"OddsType":3,"OddsValues":{"A":"1.75","B":"1.74"}},{"OddsType":4,"OddsValues":{"A":"-1.34","B":"-1.36"}}],"OddsType":1,"Odds":0.75}]},{"MarketlineId":1355529410,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347119976,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.97","B":"-0.98"}},{"OddsType":2,"OddsValues":{"A":"1.03","B":"1.02"}},{"OddsType":3,"OddsValues":{"A":"2.03","B":"2.02"}},{"OddsType":4,"OddsValues":{"A":"1.03","B":"1.02"}}],"OddsType":1,"Odds":-0.97},{"WagerSelectionId":4347119977,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67817541,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 06:00:00","GroundTypeId":0,"EventGroupId":2519930,"EventGroupTypeId":1,"TotalMarketLineCount":131,"IsPopular":true,"IsFavourite":false,"HomeTeamId":88113,"HomeTeam":"随时候命","EngHomeTeam":"Club Always Ready","AwayTeamId":5511,"AwayTeam":"马加拉内斯","EngAwayTeam":"CD Magallanes","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":9129,"CompetitionName":"南美解放者杯预选赛","EngCompetitionName":"Copa Libertadores Qualifiers","PMOrderNumber":6270,"RBOrderNumber":1060},"Programme":{"ProgrammeId":22,"ProgrammeName":"南美洲"},"MarketLines":[{"MarketlineId":1354310535,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346651563,"SelectionId":1,"SelectionName":"主","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":2,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":3,"OddsValues":{"A":"1.88","B":"1.87"}},{"OddsType":4,"OddsValues":{"A":"-1.14","B":"-1.15"}}],"OddsType":1,"Odds":0.88},{"WagerSelectionId":4346651564,"SelectionId":2,"SelectionName":"客","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":2,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":3,"OddsValues":{"A":"1.96","B":"1.95"}},{"OddsType":4,"OddsValues":{"A":"-1.05","B":"-1.06"}}],"OddsType":1,"Odds":0.96}]},{"MarketlineId":1354310536,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346707081,"SelectionId":1,"SelectionName":"主","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.9","B":"-0.91"}},{"OddsType":2,"OddsValues":{"A":"1.11","B":"1.09"}},{"OddsType":3,"OddsValues":{"A":"2.11","B":"2.09"}},{"OddsType":4,"OddsValues":{"A":"1.11","B":"1.09"}}],"OddsType":1,"Odds":-0.9},{"WagerSelectionId":4346707082,"SelectionId":2,"SelectionName":"客","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74}]},{"MarketlineId":1354310537,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346707083,"SelectionId":1,"SelectionName":"主","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":2,"OddsValues":{"A":"0.66","B":"0.65"}},{"OddsType":3,"OddsValues":{"A":"1.66","B":"1.65"}},{"OddsType":4,"OddsValues":{"A":"-1.52","B":"-1.54"}}],"OddsType":1,"Odds":0.66},{"WagerSelectionId":4346707084,"SelectionId":2,"SelectionName":"客","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.82","B":"-0.83"}},{"OddsType":2,"OddsValues":{"A":"1.21","B":"1.2"}},{"OddsType":3,"OddsValues":{"A":"2.21","B":"2.2"}},{"OddsType":4,"OddsValues":{"A":"1.21","B":"1.2"}}],"OddsType":1,"Odds":-0.82}]},{"MarketlineId":1354310540,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346724394,"SelectionId":3,"SelectionName":"大","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":2,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":3,"OddsValues":{"A":"1.92","B":"1.91"}},{"OddsType":4,"OddsValues":{"A":"-1.09","B":"-1.1"}}],"OddsType":1,"Odds":0.92},{"WagerSelectionId":4346724395,"SelectionId":4,"SelectionName":"小","Handicap":3.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":2,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":3,"OddsValues":{"A":"1.9","B":"1.89"}},{"OddsType":4,"OddsValues":{"A":"-1.12","B":"-1.13"}}],"OddsType":1,"Odds":0.9}]},{"MarketlineId":1354310541,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346724392,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":2,"OddsValues":{"A":"0.69","B":"0.68"}},{"OddsType":3,"OddsValues":{"A":"1.69","B":"1.68"}},{"OddsType":4,"OddsValues":{"A":"-1.45","B":"-1.48"}}],"OddsType":1,"Odds":0.69},{"WagerSelectionId":4346724393,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.87","B":"-0.88"}},{"OddsType":2,"OddsValues":{"A":"1.14","B":"1.13"}},{"OddsType":3,"OddsValues":{"A":"2.14","B":"2.13"}},{"OddsType":4,"OddsValues":{"A":"1.14","B":"1.13"}}],"OddsType":1,"Odds":-0.87}]},{"MarketlineId":1354310542,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346725269,"SelectionId":3,"SelectionName":"大","Handicap":3.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.86","B":"-0.87"}},{"OddsType":2,"OddsValues":{"A":"1.16","B":"1.14"}},{"OddsType":3,"OddsValues":{"A":"2.16","B":"2.14"}},{"OddsType":4,"OddsValues":{"A":"1.16","B":"1.14"}}],"OddsType":1,"Odds":-0.86},{"WagerSelectionId":4346725270,"SelectionId":4,"SelectionName":"小","Handicap":3.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":2,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":3,"OddsValues":{"A":"1.68","B":"1.67"}},{"OddsType":4,"OddsValues":{"A":"-1.48","B":"-1.5"}}],"OddsType":1,"Odds":0.68}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67817550,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 08:00:00","GroundTypeId":1,"EventGroupId":2519931,"EventGroupTypeId":1,"TotalMarketLineCount":130,"IsPopular":true,"IsFavourite":false,"HomeTeamId":95866,"HomeTeam":"福塔雷萨","EngHomeTeam":"Fortaleza Esporte Clube","AwayTeamId":26487,"AwayTeam":"马尔多纳多","EngAwayTeam":"Deportivo Maldonado","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":9129,"CompetitionName":"南美解放者杯预选赛","EngCompetitionName":"Copa Libertadores Qualifiers","PMOrderNumber":6270,"RBOrderNumber":1060},"Programme":{"ProgrammeId":22,"ProgrammeName":"南美洲"},"MarketLines":[{"MarketlineId":1354310741,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348017404,"SelectionId":1,"SelectionName":"主","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.95","B":"-0.96"}},{"OddsType":2,"OddsValues":{"A":"1.05","B":"1.04"}},{"OddsType":3,"OddsValues":{"A":"2.05","B":"2.04"}},{"OddsType":4,"OddsValues":{"A":"1.05","B":"1.04"}}],"OddsType":1,"Odds":-0.95},{"WagerSelectionId":4348017405,"SelectionId":2,"SelectionName":"客","Handicap":1.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79}]},{"MarketlineId":1354310742,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348017406,"SelectionId":1,"SelectionName":"主","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78},{"WagerSelectionId":4348017407,"SelectionId":2,"SelectionName":"客","Handicap":1.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.94","B":"-0.95"}},{"OddsType":2,"OddsValues":{"A":"1.06","B":"1.05"}},{"OddsType":3,"OddsValues":{"A":"2.06","B":"2.05"}},{"OddsType":4,"OddsValues":{"A":"1.06","B":"1.05"}}],"OddsType":1,"Odds":-0.94}]},{"MarketlineId":1354310743,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347433654,"SelectionId":1,"SelectionName":"主","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.74","B":"-0.75"}},{"OddsType":2,"OddsValues":{"A":"1.35","B":"1.33"}},{"OddsType":3,"OddsValues":{"A":"2.35","B":"2.33"}},{"OddsType":4,"OddsValues":{"A":"1.35","B":"1.33"}}],"OddsType":1,"Odds":-0.74},{"WagerSelectionId":4347433655,"SelectionId":2,"SelectionName":"客","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.58","B":"0.57"}},{"OddsType":2,"OddsValues":{"A":"0.58","B":"0.57"}},{"OddsType":3,"OddsValues":{"A":"1.58","B":"1.57"}},{"OddsType":4,"OddsValues":{"A":"-1.73","B":"-1.76"}}],"OddsType":1,"Odds":0.58}]},{"MarketlineId":1354310746,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340670566,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":2,"OddsValues":{"A":"0.83","B":"0.82"}},{"OddsType":3,"OddsValues":{"A":"1.83","B":"1.82"}},{"OddsType":4,"OddsValues":{"A":"-1.21","B":"-1.22"}}],"OddsType":1,"Odds":0.83},{"WagerSelectionId":4340670567,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":2,"OddsValues":{"A":"0.99","B":"0.98"}},{"OddsType":3,"OddsValues":{"A":"1.99","B":"1.98"}},{"OddsType":4,"OddsValues":{"A":"-1.02","B":"-1.03"}}],"OddsType":1,"Odds":0.99}]},{"MarketlineId":1354310747,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346157126,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.92","B":"-0.93"}},{"OddsType":2,"OddsValues":{"A":"1.08","B":"1.07"}},{"OddsType":3,"OddsValues":{"A":"2.08","B":"2.07"}},{"OddsType":4,"OddsValues":{"A":"1.08","B":"1.07"}}],"OddsType":1,"Odds":-0.92},{"WagerSelectionId":4346157127,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":2,"OddsValues":{"A":"0.74","B":"0.73"}},{"OddsType":3,"OddsValues":{"A":"1.74","B":"1.73"}},{"OddsType":4,"OddsValues":{"A":"-1.36","B":"-1.37"}}],"OddsType":1,"Odds":0.74}]},{"MarketlineId":1354310748,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346157128,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":2,"OddsValues":{"A":"0.55","B":"0.54"}},{"OddsType":3,"OddsValues":{"A":"1.55","B":"1.54"}},{"OddsType":4,"OddsValues":{"A":"-1.82","B":"-1.86"}}],"OddsType":1,"Odds":0.55},{"WagerSelectionId":4346157129,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.73","B":"-0.74"}},{"OddsType":2,"OddsValues":{"A":"1.36","B":"1.35"}},{"OddsType":3,"OddsValues":{"A":"2.36","B":"2.35"}},{"OddsType":4,"OddsValues":{"A":"1.36","B":"1.35"}}],"OddsType":1,"Odds":-0.73}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67817556,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 08:00:00","GroundTypeId":1,"EventGroupId":2519933,"EventGroupTypeId":1,"TotalMarketLineCount":131,"IsPopular":true,"IsFavourite":false,"HomeTeamId":4497,"HomeTeam":"米伦拿列奥","EngHomeTeam":"Millonarios FC","AwayTeamId":1803,"AwayTeam":"厄瓜多尔卡托利卡","EngAwayTeam":"CD Universidad Catolica del Ecuador","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":9129,"CompetitionName":"南美解放者杯预选赛","EngCompetitionName":"Copa Libertadores Qualifiers","PMOrderNumber":6270,"RBOrderNumber":1060},"Programme":{"ProgrammeId":22,"ProgrammeName":"南美洲"},"MarketLines":[{"MarketlineId":1354311000,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340671246,"SelectionId":1,"SelectionName":"主","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":2,"OddsValues":{"A":"0.88","B":"0.87"}},{"OddsType":3,"OddsValues":{"A":"1.88","B":"1.87"}},{"OddsType":4,"OddsValues":{"A":"-1.14","B":"-1.15"}}],"OddsType":1,"Odds":0.88},{"WagerSelectionId":4340671247,"SelectionId":2,"SelectionName":"客","Handicap":0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":2,"OddsValues":{"A":"0.96","B":"0.95"}},{"OddsType":3,"OddsValues":{"A":"1.96","B":"1.95"}},{"OddsType":4,"OddsValues":{"A":"-1.05","B":"-1.06"}}],"OddsType":1,"Odds":0.96}]},{"MarketlineId":1354311001,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346651735,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":2,"OddsValues":{"A":"0.72","B":"0.71"}},{"OddsType":3,"OddsValues":{"A":"1.72","B":"1.71"}},{"OddsType":4,"OddsValues":{"A":"-1.39","B":"-1.41"}}],"OddsType":1,"Odds":0.72},{"WagerSelectionId":4346651736,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.88","B":"-0.89"}},{"OddsType":2,"OddsValues":{"A":"1.13","B":"1.12"}},{"OddsType":3,"OddsValues":{"A":"2.13","B":"2.12"}},{"OddsType":4,"OddsValues":{"A":"1.13","B":"1.12"}}],"OddsType":1,"Odds":-0.88}]},{"MarketlineId":1354311002,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346651733,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.8","B":"-0.81"}},{"OddsType":2,"OddsValues":{"A":"1.25","B":"1.23"}},{"OddsType":3,"OddsValues":{"A":"2.25","B":"2.23"}},{"OddsType":4,"OddsValues":{"A":"1.25","B":"1.23"}}],"OddsType":1,"Odds":-0.8},{"WagerSelectionId":4346651734,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":2,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":3,"OddsValues":{"A":"1.64","B":"1.63"}},{"OddsType":4,"OddsValues":{"A":"-1.57","B":"-1.59"}}],"OddsType":1,"Odds":0.64}]},{"MarketlineId":1354311005,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340671248,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4340671249,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84}]},{"MarketlineId":1354311006,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346651725,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.67","B":"0.66"}},{"OddsType":2,"OddsValues":{"A":"0.67","B":"0.66"}},{"OddsType":3,"OddsValues":{"A":"1.67","B":"1.66"}},{"OddsType":4,"OddsValues":{"A":"-1.5","B":"-1.52"}}],"OddsType":1,"Odds":0.67},{"WagerSelectionId":4346651726,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.85","B":"-0.86"}},{"OddsType":2,"OddsValues":{"A":"1.17","B":"1.16"}},{"OddsType":3,"OddsValues":{"A":"2.17","B":"2.16"}},{"OddsType":4,"OddsValues":{"A":"1.17","B":"1.16"}}],"OddsType":1,"Odds":-0.85}]},{"MarketlineId":1354311007,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346651727,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.81","B":"-0.82"}},{"OddsType":2,"OddsValues":{"A":"1.23","B":"1.21"}},{"OddsType":3,"OddsValues":{"A":"2.23","B":"2.21"}},{"OddsType":4,"OddsValues":{"A":"1.23","B":"1.21"}}],"OddsType":1,"Odds":-0.81},{"WagerSelectionId":4346651728,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":2,"OddsValues":{"A":"0.63","B":"0.62"}},{"OddsType":3,"OddsValues":{"A":"1.63","B":"1.62"}},{"OddsType":4,"OddsValues":{"A":"-1.59","B":"-1.62"}}],"OddsType":1,"Odds":0.63}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67880290,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 23:00:00","GroundTypeId":1,"EventGroupId":2522555,"EventGroupTypeId":1,"TotalMarketLineCount":116,"IsPopular":false,"IsFavourite":false,"HomeTeamId":6447,"HomeTeam":"萨拉米斯","EngHomeTeam":"Nea Salamis Famagusta","AwayTeamId":6445,"AwayTeam":"AEL利马索尔","EngAwayTeam":"AEL Limassol","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":789,"CompetitionName":"塞浦路斯杯","EngCompetitionName":"Cyprus Cup","PMOrderNumber":1915,"RBOrderNumber":2110},"Programme":{"ProgrammeId":43,"ProgrammeName":"塞浦路斯"},"MarketLines":[{"MarketlineId":1355652818,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346237215,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":2,"OddsValues":{"A":"0.94","B":"0.93"}},{"OddsType":3,"OddsValues":{"A":"1.94","B":"1.93"}},{"OddsType":4,"OddsValues":{"A":"-1.07","B":"-1.08"}}],"OddsType":1,"Odds":0.94},{"WagerSelectionId":4346237216,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":2,"OddsValues":{"A":"0.82","B":"0.81"}},{"OddsType":3,"OddsValues":{"A":"1.82","B":"1.81"}},{"OddsType":4,"OddsValues":{"A":"-1.22","B":"-1.24"}}],"OddsType":1,"Odds":0.82}]},{"MarketlineId":1355652823,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346237225,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":2,"OddsValues":{"A":"0.76","B":"0.75"}},{"OddsType":3,"OddsValues":{"A":"1.76","B":"1.75"}},{"OddsType":4,"OddsValues":{"A":"-1.32","B":"-1.34"}}],"OddsType":1,"Odds":0.76},{"WagerSelectionId":4346237226,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":2,"OddsValues":{"A":"1","B":"0.99"}},{"OddsType":3,"OddsValues":{"A":"2","B":"1.99"}},{"OddsType":4,"OddsValues":{"A":"1.0","B":"-1.02"}}],"OddsType":1,"Odds":1.0}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67884423,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 02:00:00","GroundTypeId":1,"EventGroupId":2522884,"EventGroupTypeId":1,"TotalMarketLineCount":116,"IsPopular":false,"IsFavourite":false,"HomeTeamId":4472,"HomeTeam":"安罗科萨斯","EngHomeTeam":"Anorthosis Famagusta","AwayTeamId":29008,"AwayTeam":"奥林比克斯尼克西亚","EngAwayTeam":"Olympiakos Nicosia","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":789,"CompetitionName":"塞浦路斯杯","EngCompetitionName":"Cyprus Cup","PMOrderNumber":1915,"RBOrderNumber":2110},"Programme":{"ProgrammeId":43,"ProgrammeName":"塞浦路斯"},"MarketLines":[{"MarketlineId":1355746416,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346740025,"SelectionId":1,"SelectionName":"主","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":2,"OddsValues":{"A":"0.9","B":"0.89"}},{"OddsType":3,"OddsValues":{"A":"1.9","B":"1.89"}},{"OddsType":4,"OddsValues":{"A":"-1.12","B":"-1.13"}}],"OddsType":1,"Odds":0.9},{"WagerSelectionId":4346740026,"SelectionId":2,"SelectionName":"客","Handicap":1.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":2,"OddsValues":{"A":"0.86","B":"0.85"}},{"OddsType":3,"OddsValues":{"A":"1.86","B":"1.85"}},{"OddsType":4,"OddsValues":{"A":"-1.17","B":"-1.18"}}],"OddsType":1,"Odds":0.86}]},{"MarketlineId":1355746421,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346237006,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":2,"OddsValues":{"A":"0.91","B":"0.9"}},{"OddsType":3,"OddsValues":{"A":"1.91","B":"1.9"}},{"OddsType":4,"OddsValues":{"A":"-1.1","B":"-1.12"}}],"OddsType":1,"Odds":0.91},{"WagerSelectionId":4346237007,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":2,"OddsValues":{"A":"0.85","B":"0.84"}},{"OddsType":3,"OddsValues":{"A":"1.85","B":"1.84"}},{"OddsType":4,"OddsValues":{"A":"-1.18","B":"-1.2"}}],"OddsType":1,"Odds":0.85}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":65773246,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-03 01:00:00","GroundTypeId":1,"EventGroupId":2431814,"EventGroupTypeId":1,"TotalMarketLineCount":140,"IsPopular":true,"IsFavourite":false,"HomeTeamId":16,"HomeTeam":"奥尔堡","EngHomeTeam":"Aalborg BK","AwayTeamId":1039,"AwayTeam":"维堡","EngAwayTeam":"Viborg FF","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":true}","Competition":{"CompetitionId":233,"CompetitionName":"丹麦杯","EngCompetitionName":"Denmark Cup","PMOrderNumber":660,"RBOrderNumber":510},"Programme":{"ProgrammeId":45,"ProgrammeName":"丹麦"},"MarketLines":[{"MarketlineId":1309306678,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4219945740,"SelectionId":1,"SelectionName":"主","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97},{"WagerSelectionId":4219945741,"SelectionId":2,"SelectionName":"客","Handicap":-0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":2,"OddsValues":{"A":"0.95","B":"0.94"}},{"OddsType":3,"OddsValues":{"A":"1.95","B":"1.94"}},{"OddsType":4,"OddsValues":{"A":"-1.06","B":"-1.07"}}],"OddsType":1,"Odds":0.95}]},{"MarketlineId":1309306679,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347031308,"SelectionId":1,"SelectionName":"主","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":2,"OddsValues":{"A":"0.73","B":"0.72"}},{"OddsType":3,"OddsValues":{"A":"1.73","B":"1.72"}},{"OddsType":4,"OddsValues":{"A":"-1.37","B":"-1.39"}}],"OddsType":1,"Odds":0.73},{"WagerSelectionId":4347031309,"SelectionId":2,"SelectionName":"客","Handicap":-0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.81","B":"-0.82"}},{"OddsType":2,"OddsValues":{"A":"1.23","B":"1.21"}},{"OddsType":3,"OddsValues":{"A":"2.23","B":"2.21"}},{"OddsType":4,"OddsValues":{"A":"1.23","B":"1.21"}}],"OddsType":1,"Odds":-0.81}]},{"MarketlineId":1309306680,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347031306,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.76","B":"-0.77"}},{"OddsType":2,"OddsValues":{"A":"1.31","B":"1.29"}},{"OddsType":3,"OddsValues":{"A":"2.31","B":"2.29"}},{"OddsType":4,"OddsValues":{"A":"1.31","B":"1.29"}}],"OddsType":1,"Odds":-0.76},{"WagerSelectionId":4347031307,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":2,"OddsValues":{"A":"0.68","B":"0.67"}},{"OddsType":3,"OddsValues":{"A":"1.68","B":"1.67"}},{"OddsType":4,"OddsValues":{"A":"-1.48","B":"-1.5"}}],"OddsType":1,"Odds":0.68}]},{"MarketlineId":1309306681,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347032762,"SelectionId":1,"SelectionName":"主","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":2,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":3,"OddsValues":{"A":"1.53","B":"1.52"}},{"OddsType":4,"OddsValues":{"A":"-1.89","B":"-1.93"}}],"OddsType":1,"Odds":0.53},{"WagerSelectionId":4347032763,"SelectionId":2,"SelectionName":"客","Handicap":-0.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.61","B":"-0.62"}},{"OddsType":2,"OddsValues":{"A":"1.63","B":"1.61"}},{"OddsType":3,"OddsValues":{"A":"2.63","B":"2.61"}},{"OddsType":4,"OddsValues":{"A":"1.63","B":"1.61"}}],"OddsType":1,"Odds":-0.61}]},{"MarketlineId":1309306682,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4347032760,"SelectionId":1,"SelectionName":"主","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.57","B":"-0.58"}},{"OddsType":2,"OddsValues":{"A":"1.75","B":"1.72"}},{"OddsType":3,"OddsValues":{"A":"2.75","B":"2.72"}},{"OddsType":4,"OddsValues":{"A":"1.75","B":"1.72"}}],"OddsType":1,"Odds":-0.57},{"WagerSelectionId":4347032761,"SelectionId":2,"SelectionName":"客","Handicap":0.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.49","B":"0.48"}},{"OddsType":2,"OddsValues":{"A":"0.49","B":"0.48"}},{"OddsType":3,"OddsValues":{"A":"1.49","B":"1.48"}},{"OddsType":4,"OddsValues":{"A":"-2.05","B":"-2.09"}}],"OddsType":1,"Odds":0.49}]},{"MarketlineId":1309306683,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4219945742,"SelectionId":3,"SelectionName":"大","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.94","B":"-0.95"}},{"OddsType":2,"OddsValues":{"A":"1.06","B":"1.05"}},{"OddsType":3,"OddsValues":{"A":"2.06","B":"2.05"}},{"OddsType":4,"OddsValues":{"A":"1.06","B":"1.05"}}],"OddsType":1,"Odds":-0.94},{"WagerSelectionId":4219945743,"SelectionId":4,"SelectionName":"小","Handicap":2.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84}]},{"MarketlineId":1309306684,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":2,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340212066,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":2,"OddsValues":{"A":"0.8","B":"0.79"}},{"OddsType":3,"OddsValues":{"A":"1.8","B":"1.79"}},{"OddsType":4,"OddsValues":{"A":"-1.25","B":"-1.27"}}],"OddsType":1,"Odds":0.8},{"WagerSelectionId":4340212067,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.9","B":"-0.91"}},{"OddsType":2,"OddsValues":{"A":"1.11","B":"1.09"}},{"OddsType":3,"OddsValues":{"A":"2.11","B":"2.09"}},{"OddsType":4,"OddsValues":{"A":"1.11","B":"1.09"}}],"OddsType":1,"Odds":-0.9}]},{"MarketlineId":1309306685,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":3,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4340212068,"SelectionId":3,"SelectionName":"大","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.74","B":"-0.75"}},{"OddsType":2,"OddsValues":{"A":"1.35","B":"1.33"}},{"OddsType":3,"OddsValues":{"A":"2.35","B":"2.33"}},{"OddsType":4,"OddsValues":{"A":"1.35","B":"1.33"}}],"OddsType":1,"Odds":-0.74},{"WagerSelectionId":4340212069,"SelectionId":4,"SelectionName":"小","Handicap":2.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":2,"OddsValues":{"A":"0.64","B":"0.63"}},{"OddsType":3,"OddsValues":{"A":"1.64","B":"1.63"}},{"OddsType":4,"OddsValues":{"A":"-1.57","B":"-1.59"}}],"OddsType":1,"Odds":0.64}]},{"MarketlineId":1309306686,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":4,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4346196504,"SelectionId":3,"SelectionName":"大","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":2,"OddsValues":{"A":"0.53","B":"0.52"}},{"OddsType":3,"OddsValues":{"A":"1.53","B":"1.52"}},{"OddsType":4,"OddsValues":{"A":"-1.89","B":"-1.93"}}],"OddsType":1,"Odds":0.53},{"WagerSelectionId":4346196505,"SelectionId":4,"SelectionName":"小","Handicap":2.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.63","B":"-0.64"}},{"OddsType":2,"OddsValues":{"A":"1.58","B":"1.56"}},{"OddsType":3,"OddsValues":{"A":"2.58","B":"2.56"}},{"OddsType":4,"OddsValues":{"A":"1.58","B":"1.56"}}],"OddsType":1,"Odds":-0.63}]},{"MarketlineId":1309306687,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":5,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348007075,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.41","B":"0.4"}},{"OddsType":2,"OddsValues":{"A":"0.41","B":"0.4"}},{"OddsType":3,"OddsValues":{"A":"1.41","B":"1.4"}},{"OddsType":4,"OddsValues":{"A":"-2.44","B":"-2.5"}}],"OddsType":1,"Odds":0.41},{"WagerSelectionId":4348007076,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"-0.51","B":"-0.52"}},{"OddsType":2,"OddsValues":{"A":"1.96","B":"1.92"}},{"OddsType":3,"OddsValues":{"A":"2.96","B":"2.92"}},{"OddsType":4,"OddsValues":{"A":"1.96","B":"1.92"}}],"OddsType":1,"Odds":-0.51}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67881177,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 21:00:00","GroundTypeId":1,"EventGroupId":2522782,"EventGroupTypeId":1,"TotalMarketLineCount":32,"IsPopular":false,"IsFavourite":false,"HomeTeamId":182387,"HomeTeam":"萨尔卢姆FC","EngHomeTeam":"Egy Salloum FC","AwayTeamId":51013,"AwayTeam":"奧林比克","EngAwayTeam":"El Olympi","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":13148,"CompetitionName":"埃及乙级联赛","EngCompetitionName":"Egypt Second League","PMOrderNumber":3545,"RBOrderNumber":4360},"Programme":{"ProgrammeId":47,"ProgrammeName":"埃及"},"MarketLines":[{"MarketlineId":1355680022,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344081169,"SelectionId":1,"SelectionName":"主","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":2,"OddsValues":{"A":"0.97","B":"0.96"}},{"OddsType":3,"OddsValues":{"A":"1.97","B":"1.96"}},{"OddsType":4,"OddsValues":{"A":"-1.04","B":"-1.05"}}],"OddsType":1,"Odds":0.97},{"WagerSelectionId":4344081170,"SelectionId":2,"SelectionName":"客","Handicap":0.0,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":2,"OddsValues":{"A":"0.79","B":"0.78"}},{"OddsType":3,"OddsValues":{"A":"1.79","B":"1.78"}},{"OddsType":4,"OddsValues":{"A":"-1.27","B":"-1.29"}}],"OddsType":1,"Odds":0.79}]},{"MarketlineId":1355680027,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4344081159,"SelectionId":3,"SelectionName":"大","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":2,"OddsValues":{"A":"0.84","B":"0.83"}},{"OddsType":3,"OddsValues":{"A":"1.84","B":"1.83"}},{"OddsType":4,"OddsValues":{"A":"-1.2","B":"-1.21"}}],"OddsType":1,"Odds":0.84},{"WagerSelectionId":4344081160,"SelectionId":4,"SelectionName":"小","Handicap":1.75,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":2,"OddsValues":{"A":"0.92","B":"0.91"}},{"OddsType":3,"OddsValues":{"A":"1.92","B":"1.91"}},{"OddsType":4,"OddsValues":{"A":"-1.09","B":"-1.1"}}],"OddsType":1,"Odds":0.92}]}]},{"OpenParlay":true,"IsLive":true,"Market":2,"EventId":67984361,"EventStatusId":1,"OrderNumber":9999,"EventDate":"2023-03-02 21:00:00","GroundTypeId":1,"EventGroupId":2525840,"EventGroupTypeId":1,"TotalMarketLineCount":2,"IsPopular":false,"IsFavourite":false,"HomeTeamId":50548,"HomeTeam":"高纳","EngHomeTeam":"El Gouna FC","AwayTeamId":150669,"AwayTeam":"克玛阿斯罔SC","EngAwayTeam":"Kima Aswan SC","RBTime":null,"RBTimeStatus":0,"HomeScore":null,"AwayScore":null,"IsBetTradeOpen":false,"RelatedScores":null,"ExtraInfo":"{\"HasCorner\":false}","Competition":{"CompetitionId":13148,"CompetitionName":"埃及乙级联赛","EngCompetitionName":"Egypt Second League","PMOrderNumber":3545,"RBOrderNumber":4360},"Programme":{"ProgrammeId":47,"ProgrammeName":"埃及"},"MarketLines":[{"MarketlineId":1357186348,"BetTypeId":1,"BetTypeName":"让球","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348059184,"SelectionId":1,"SelectionName":"主","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":2,"OddsValues":{"A":"0.89","B":"0.88"}},{"OddsType":3,"OddsValues":{"A":"1.89","B":"1.88"}},{"OddsType":4,"OddsValues":{"A":"-1.13","B":"-1.14"}}],"OddsType":1,"Odds":0.89},{"WagerSelectionId":4348059185,"SelectionId":2,"SelectionName":"客","Handicap":0.5,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":2,"OddsValues":{"A":"0.87","B":"0.86"}},{"OddsType":3,"OddsValues":{"A":"1.87","B":"1.86"}},{"OddsType":4,"OddsValues":{"A":"-1.15","B":"-1.17"}}],"OddsType":1,"Odds":0.87}]},{"MarketlineId":1357186353,"BetTypeId":2,"BetTypeName":"大/小","BetTypeNameList":null,"PeriodId":1,"PeriodName":"全场","MarketLineLevel":1,"MarketlineStatusId":1,"IsLocked":false,"WagerSelections":[{"WagerSelectionId":4348059186,"SelectionId":3,"SelectionName":"大","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":2,"OddsValues":{"A":"0.98","B":"0.97"}},{"OddsType":3,"OddsValues":{"A":"1.98","B":"1.97"}},{"OddsType":4,"OddsValues":{"A":"-1.03","B":"-1.04"}}],"OddsType":1,"Odds":0.98},{"WagerSelectionId":4348059187,"SelectionId":4,"SelectionName":"小","Handicap":2.25,"Specifiers":null,"OddsList":[{"OddsType":1,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":2,"OddsValues":{"A":"0.78","B":"0.77"}},{"OddsType":3,"OddsValues":{"A":"1.78","B":"1.77"}},{"OddsType":4,"OddsValues":{"A":"-1.29","B":"-1.3"}}],"OddsType":1,"Odds":0.78}]}]}]}],"Delta":230302021420000.0,"StatusCode":100,"StatusDesc":"Success","ServerTime":"2023-03-02 14:14:28","TempDelta":null}}
 ```
 <h3 id="d2.3.8"> 2.3.8 状态码</h3>
 
@@ -1389,7 +2143,8 @@
 ---
 
 
-<h2 id="d2.7"> 2.18 GETBETINFO 索取投注信息 描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
+<h2 id="d2.18"> 2.18 GETBETINFO 索取投注信息 
+<p>描述:此 API 常用于实际投注前索取最后的投注信息, 调用在会员投注时点击一个特定选项.. 访问频率限制: 5 秒</h2>
 
 <h3 id="d2.18.1"> 2.18.1 /api/Imd/InplayMatrix/GETBETINFO</h3>
 
@@ -1589,16 +2344,18 @@
 <h3 id="d2.19.1"> 2.19.1 /api/Imd/InplayMatrix/PLACEBET</h3>
 
 
-
-
 <!--### Request Headers-->
 <h3 id="d2.19.2"> 2.19.2 Request Headers</h3>
 
 ```
-["User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4", 
-"Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8", 
-"Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9", 
-"Content-Type": "application/json"]
+[
+    "Accept": "text/plain",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiI4bW5CeW91SDhrRlIwQXFIS1JhM29JeU92NjAifQ.eyJuYmYiOjE2Nzc3Mzc0NDQsImV4cCI6MTY3NzgyNDQ0NCwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjpbImh0dHA6Ly96ZGlkZW50aXR5c2VydmVyLnpoc2VydmljZS9yZXNvdXJjZXMiLCJhcGlzIl0sImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2Nzc3Mzc0NDQsImlkcCI6ImxvY2FsIiwiYWNjb3VudGlkIjoiMTQyODM1Iiwic3lzdGVtdHlwZSI6IjQxIiwiaXNzdXBlcmFkbWluIjoiRmFsc2UiLCJzY29wZSI6WyJhcGlzIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInBhc3N3b3JkIl19.SR34EMmpNTLOiCR0bkV9N9K-zbUx0m-pftbKdAvz0iX1jFBf8S48HkQstJKIi7t0iF9bDGZX9P_kFqEewc5-LZv4NsdBfQc8eYJzP0OFdlAMiwEVOI2GXCUv6LV8k4ZUnKnJETIf2pRvEgtlRUgIWaSJVzM4UVOPIYgOU9K4Q3tJ-fGgZHzK2Z1c2z-PVzgFw8hb_xVmFj0maTiFTJykpprO-21fskePaEUkuni4D77Uu9vcn3oB6G0DEL8H3ajU9H9_U6UgSO7PidxDLNJnBGtfJn_ab1ghf7jZPp8pYi3xOlL_IIyKxbMc-RC12V-juch7dfJlh8Y3hA9EDJ7dRw",
+    "Content-Type": "application/json,application/json-patch+json",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4"
+]
 ```
 
 <!--#### Request Method: Post-->
@@ -1649,7 +2406,38 @@
 <h3 id="d2.19.5"> 2.19.5 Request Demo</h3>
 
 ```
-{}
+{
+    "timeStamp": 1677738506.335727,
+    "ServerIP": "0.0.0.0",
+    "ComboSelections": [
+        {
+            "StakeAmount": 10,
+            "ComboSelection": 0
+        }
+    ],
+    "Token": "TY327N02,4dbf998e-dd55-4b1e-a99f-03001a5266ea",
+    "WagerSelectionInfos": [
+        {
+            "MarketlineId": 1355124458,
+            "OutrightTeamId": 0,
+            "BetTypeSelectionId": 1,
+            "BetTypeId": 1,
+            "WagerSelectionId": 4350110273,
+            "OddsType": 3,
+            "Odds": 2.14,
+            "HomeScore": 43,
+            "SportId": 2,
+            "Handicap": -2.5,
+            "Market": 3,
+            "AwayScore": 64,
+            "EventId": 67857057
+        }
+    ],
+    "MemberCode": "TY327N02",
+    "WagerType": 1,
+    "CustomerIP": "0.0.0.0",
+    "IsComboAcceptAnyOdds": false
+}
 
 ```
 
@@ -1779,12 +2567,12 @@
 
 ```
 [
-    "Content-Type": "application/json,application/json-patch+json",
-    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
-    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQURSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjhtbkJ5b3VIOGtGUjBBcUhLUmEzb0l5T3Y2MCJ9.eyJuYmYiOjE2Nzc3Mzk0NDEsImV4cCI6MTY3Nzc0MTg0MSwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjoiYXBpcyIsImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2Nzc0OTIzODksImlkcCI6ImxvY2FsIiwiYWNjb3VudF9pZCI6IjM4OTc5Iiwic3lzdGVtX3R5cGUiOiI0MSIsImlzX3N1cGVyX2FkbWluIjoiRmFsc2UiLCJleHRyYSI6IntcIk1lcmNoYW50SWRcIjo5LFwiU2lnbk5hbWVcIjpcImlvczAwM1wifSIsImp0aSI6IjJCQkU3N0VEREJGOTk1QzBFQUE3QzBDRjlBQjM2QTk5IiwiaWF0IjoxNjc3NDkyMzg5LCJzY29wZSI6WyJhcGlzLmNoYXQiLCJhcGlzLmNsaWVudCIsImFwaXMucGxheWVyIiwiYXBpcy5wdWJsaWMiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.aJepVotesiEKbL-HGHBaGpxy1irdymAJGh-kWF4S89-31RDaUm7VnGO9jo0PBdo5z47nnkpu7s910OE0kgvSJUCcQjQ89sCM6qmj52exYTTOScUhEj2prU1JyRN_RHs9fAhgPxKt4aUJza2PW-Xss3RPZy-ZxbaY9TI6TSq81Vs4XaGw35VMWMDyypcA4Bgi0bd9sWEYDFHtCNMB5TjHy5N0Pz-ADYNyfF-wD7tbLMYXVhbdeGEBjI_xMSY7xMGcxfO7cgkZu6bmjmPwbiAB6LM1QkQbzQo7RT1nRIcugfNcV_xmZXrn9ttsDK9kluUKVnICuDvmVZgLuUzFyczBYA",
     "Accept": "text/plain",
-    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
-    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiI4bW5CeW91SDhrRlIwQXFIS1JhM29JeU92NjAifQ.eyJuYmYiOjE2NzcwNTE3OTYsImV4cCI6MTY3NzEzODc5NiwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjpbImh0dHA6Ly96ZGlkZW50aXR5c2VydmVyLnpoc2VydmljZS9yZXNvdXJjZXMiLCJhcGlzIl0sImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2NzcwNTE3OTYsImlkcCI6ImxvY2FsIiwiYWNjb3VudGlkIjoiMTQyODM1Iiwic3lzdGVtdHlwZSI6IjQxIiwiaXNzdXBlcmFkbWluIjoiRmFsc2UiLCJzY29wZSI6WyJhcGlzIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInBhc3N3b3JkIl19.aooH-5ARYDLOlAKrb_-FrVQoMIsII82WS4SDxXdJ9uP0oIDEJMkR91LejjLH_LXPc1HXfWzUPwXW41T-gnbGB5ERiJF0OSbZLu5jla77kr3xZ-m_cgPdKuUeRCdrQQUaZn5TVxGHmDXMwjGfCZEKZsjEcTqDM5eYsNVjcBzcm6zbtAyjg07B4sbbE22QLdQS6DRFOOdmvMvngzM4tBaq2KDENNwdGkPE4_2_Y2ck0fc24K7ON5jtqBxdVzjn7imcPdBlg82uu9gNKE0cdvlY54ooollHv2S4UxiIwtiJY4MGxFx0G_fpNvDVDxZd8xi3SUM5jnshJG7te8w8zb5c-g"
+    "User-Agent": "DBJ2 qSportDevelop/2.1.7 (tw.ho.196dev; build:1; iOS 16.2.0) Alamofire/5.6.4",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
+    "Content-Type": "application/json,application/json-patch+json"
 ]
 ```
 
@@ -1810,15 +2598,14 @@
 
 ```
 {
-    "memberCode": "TY327N02",
-    "languageCode": "CHS",
-    "token": "TY327N02,0fe035fa-1b7c-4579-a799-bc1bcc4d2d41",
+    "token": "BP0U2R02,c52c7103-b9bd-4a0d-9ed3-81a8c412966d",
     "betConfirmationStatus": [
         2
     ],
-    "TimeStamp": 1677130476.0278029
+    "memberCode": "BP0U2R02",
+    "languageCode": "CHS",
+    "TimeStamp": 1677739776.658946
 }
-
 ```
 
 <!--#### 2.20.6 返回结果-->
@@ -1900,21 +2687,822 @@
 
 ```
 {
-    "refreshTime": 1677130536,
+    "refreshTime": 1677739837,
     "isSuccess": true,
     "errorCode": 10000,
     "message": "",
     "location": "",
     "data": {
         "WagerList": [
-            
+            {
+                "WagerId": "2303020247434377",
+                "WagerCreationDateTime": "2023-03-02 14:47:43",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 8,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 44812019,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-03-02 14:28:07",
+                        "SportId": 1,
+                        "CompetitionId": 15010,
+                        "CompetitionName": "Pooh OBT Event 🍒🍒华语",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 494936,
+                        "HomeTeamName": "CoconutShake93269116 CHS",
+                        "AwayTeamId": 494937,
+                        "AwayTeamName": "MangoFloat93269117",
+                        "FavTeam": "H",
+                        "BetTypeId": 1,
+                        "BetTypeName": "让球",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 1,
+                        "SelectionName": "主",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 1.8,
+                        "Handicap": -0.25,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2303020245544376",
+                "WagerCreationDateTime": "2023-03-02 14:45:54",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 8,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 44812019,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-03-02 14:28:07",
+                        "SportId": 1,
+                        "CompetitionId": 15010,
+                        "CompetitionName": "Pooh OBT Event 🍒🍒华语",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 494936,
+                        "HomeTeamName": "CoconutShake93269116 CHS",
+                        "AwayTeamId": 494937,
+                        "AwayTeamName": "MangoFloat93269117",
+                        "FavTeam": "H",
+                        "BetTypeId": 1,
+                        "BetTypeName": "让球",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 1,
+                        "SelectionName": "主",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 1.8,
+                        "Handicap": -0.25,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301090451558209",
+                "WagerCreationDateTime": "2023-01-09 16:51:55",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 22.2,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 44017618,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-09 15:00:53",
+                        "SportId": 2,
+                        "CompetitionId": 34785,
+                        "CompetitionName": "BB Cashout 4x10 Q4 🍒🍒华语",
+                        "EventGroupTypeId": 7,
+                        "HomeTeamId": 483852,
+                        "HomeTeamName": "HomeTeam975214 CHS",
+                        "AwayTeamId": 483853,
+                        "AwayTeamName": "AwayTeam975215 CHS",
+                        "FavTeam": "H",
+                        "BetTypeId": 4,
+                        "BetTypeName": "第四节 独赢",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 8,
+                        "SelectionName": "主",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 3.22,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": null,
+                        "WagerAwayTeamScore": null,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301060610345915",
+                "WagerCreationDateTime": "2023-01-06 18:10:34",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 8.9,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 2,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 43971385,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-06 18:00:00",
+                        "SportId": 1,
+                        "CompetitionId": 4640,
+                        "CompetitionName": "Israel Liga Bet CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 52598,
+                        "HomeTeamName": "Ironi Beit Dagan CHS",
+                        "AwayTeamId": 1495,
+                        "AwayTeamName": "Hapoel Mahane Yehuda CHS",
+                        "FavTeam": "H",
+                        "BetTypeId": 5,
+                        "BetTypeName": "下半场 单/双",
+                        "PeriodId": 3,
+                        "BetTypeSelectionId": 11,
+                        "SelectionName": "双",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 1.89,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301060610275908",
+                "WagerCreationDateTime": "2023-01-06 18:10:27",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 12.1,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 2,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 43971385,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-06 18:00:00",
+                        "SportId": 1,
+                        "CompetitionId": 4640,
+                        "CompetitionName": "Israel Liga Bet CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 52598,
+                        "HomeTeamName": "Ironi Beit Dagan CHS",
+                        "AwayTeamId": 1495,
+                        "AwayTeamName": "Hapoel Mahane Yehuda CHS",
+                        "FavTeam": "H",
+                        "BetTypeId": 5,
+                        "BetTypeName": "上半场 单/双",
+                        "PeriodId": 2,
+                        "BetTypeSelectionId": 10,
+                        "SelectionName": "单",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 2.21,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301060610185903",
+                "WagerCreationDateTime": "2023-01-06 18:10:18",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 10,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 2,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 43971385,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-06 18:00:00",
+                        "SportId": 1,
+                        "CompetitionId": 4640,
+                        "CompetitionName": "Israel Liga Bet CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 52598,
+                        "HomeTeamName": "Ironi Beit Dagan CHS",
+                        "AwayTeamId": 1495,
+                        "AwayTeamName": "Hapoel Mahane Yehuda CHS",
+                        "FavTeam": "H",
+                        "BetTypeId": 5,
+                        "BetTypeName": "单/双",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 10,
+                        "SelectionName": "单",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 2,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301060609545902",
+                "WagerCreationDateTime": "2023-01-06 18:09:54",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 14.5,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 2,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 3,
+                        "EventId": 43971385,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-06 18:00:00",
+                        "SportId": 1,
+                        "CompetitionId": 4640,
+                        "CompetitionName": "Israel Liga Bet CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 52598,
+                        "HomeTeamName": "Ironi Beit Dagan CHS",
+                        "AwayTeamId": 1495,
+                        "AwayTeamName": "Hapoel Mahane Yehuda CHS",
+                        "FavTeam": "H",
+                        "BetTypeId": 3,
+                        "BetTypeName": "独赢",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 5,
+                        "SelectionName": "主",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 2.45,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": 0,
+                        "WagerAwayTeamScore": 0,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301030356133237",
+                "WagerCreationDateTime": "2023-01-03 15:56:13",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 10.1,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 2,
+                        "EventId": 43836251,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-04 10:10:00",
+                        "SportId": 2,
+                        "CompetitionId": 199,
+                        "CompetitionName": "NBA CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 659,
+                        "HomeTeamName": "犹他爵士",
+                        "AwayTeamId": 1426,
+                        "AwayTeamName": "萨克拉门托国王",
+                        "FavTeam": "H",
+                        "BetTypeId": 2,
+                        "BetTypeName": "大/小",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 3,
+                        "SelectionName": "大",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 2.01,
+                        "Handicap": 243.0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": null,
+                        "WagerAwayTeamScore": null,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301030353363231",
+                "WagerCreationDateTime": "2023-01-03 15:53:36",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 7.2,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 2,
+                        "EventId": 43836251,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-04 10:10:00",
+                        "SportId": 2,
+                        "CompetitionId": 199,
+                        "CompetitionName": "NBA CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 659,
+                        "HomeTeamName": "犹他爵士",
+                        "AwayTeamId": 1426,
+                        "AwayTeamName": "萨克拉门托国王",
+                        "FavTeam": "H",
+                        "BetTypeId": 4,
+                        "BetTypeName": "上半场 独赢",
+                        "PeriodId": 2,
+                        "BetTypeSelectionId": 8,
+                        "SelectionName": "主",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 1.72,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": null,
+                        "WagerAwayTeamScore": null,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2301030353293230",
+                "WagerCreationDateTime": "2023-01-03 15:53:29",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 9.6,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 2,
+                        "EventId": 43836251,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2023-01-04 10:10:00",
+                        "SportId": 2,
+                        "CompetitionId": 199,
+                        "CompetitionName": "NBA CHS",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 659,
+                        "HomeTeamName": "犹他爵士",
+                        "AwayTeamId": 1426,
+                        "AwayTeamName": "萨克拉门托国王",
+                        "FavTeam": "H",
+                        "BetTypeId": 4,
+                        "BetTypeName": "独赢",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 9,
+                        "SelectionName": "客",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 1.96,
+                        "Handicap": 0,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": null,
+                        "WagerAwayTeamScore": null,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            },
+            {
+                "WagerId": "2212070441435731",
+                "WagerCreationDateTime": "2022-12-07 16:41:43",
+                "MemberCode": "bp0u2r02",
+                "InputtedStakeAmount": 10,
+                "MemberWinLossAmount": 0,
+                "OddsType": 3,
+                "WagerType": 1,
+                "BettingPlatform": "App",
+                "BetConfirmationStatus": 2,
+                "BetSettlementStatus": 0,
+                "BetResettled": 0,
+                "BetTradeStatus": 0,
+                "PricingId": null,
+                "BuyBackPricing": null,
+                "BetTradeBuyBackAmount": 0,
+                "NoOfCombination": 0,
+                "ComboSelection": 0,
+                "PotentialPayout": 66.6,
+                "CanSell": false,
+                "SettlementDateTime": null,
+                "BetTradeSuccessDateTime": null,
+                "Outcome": null,
+                "WagerItemList": [
+                    {
+                        "WagerItemConfirmationStatus": 2,
+                        "WagerItemConfirmationType": 1,
+                        "WagerItemCancelType": 1,
+                        "WagerItemCancelReason": 0,
+                        "Market": 2,
+                        "EventId": 43415955,
+                        "EventTypeId": 1,
+                        "EventDateTime": "2022-12-07 20:00:00",
+                        "SportId": 1,
+                        "CompetitionId": 42992,
+                        "CompetitionName": "Tipsport Cup 🍒🍒华语",
+                        "EventGroupTypeId": 1,
+                        "HomeTeamId": 4093,
+                        "HomeTeamName": "FK Viktoria Zizkov CHS",
+                        "AwayTeamId": 1011,
+                        "AwayTeamName": "FC Slovan Liberec 🍒🍒华语",
+                        "FavTeam": "H",
+                        "BetTypeId": 2,
+                        "BetTypeName": "大/小",
+                        "PeriodId": 1,
+                        "BetTypeSelectionId": 4,
+                        "SelectionName": "小",
+                        "EventOutrightName": "",
+                        "OutrightTeamId": 0,
+                        "OutrightTeamName": null,
+                        "Odds": 7.66,
+                        "Handicap": 1.5,
+                        "HomeTeamHTScore": null,
+                        "AwayTeamHTScore": null,
+                        "HomeTeamFTScore": null,
+                        "AwayTeamFTScore": null,
+                        "WagerHomeTeamScore": null,
+                        "WagerAwayTeamScore": null,
+                        "GroundTypeId": 1,
+                        "Season": 0,
+                        "MatchDay": 0,
+                        "Specifiers": "",
+                        "SourceId": null,
+                        "OverallScore": null,
+                        "WinningTeamList": null,
+                        "WinningSelection": null,
+                        "ProgrammeId": 0,
+                        "ProgrammeName": null,
+                        "ExtraInfo": ""
+                    }
+                ],
+                "RelatedScores": null
+            }
         ],
-        "ServerTime": "2023-02-23 13:34:36",
+        "ServerTime": "2023-03-02 14:49:36",
         "StatusCode": 100,
         "StatusDesc": "Success"
     }
 }
-
 ```
 
 <h3 id="d2.20.8"> 2.20.8 状态编码**</h3>
@@ -1947,10 +3535,14 @@
 <h3 id="d2.21.2"> 2.21.2 Request Headers</h3>
 
 ```
-["User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4", 
-"Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8", 
-"Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9", 
-"Content-Type": "application/json"]
+[
+    "User-Agent": "DBJ2 qSportDevelop/2.1.7 (tw.ho.196dev; build:1; iOS 16.2.0) Alamofire/5.6.4",
+    "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyNjlDMUNBOEI4N0YyNDE1MUQwMEE4NzI5MTZCN0EwOEM4RUJGQURSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IjhtbkJ5b3VIOGtGUjBBcUhLUmEzb0l5T3Y2MCJ9.eyJuYmYiOjE2Nzc3Mzk0NDEsImV4cCI6MTY3Nzc0MTg0MSwiaXNzIjoiaHR0cDovL3pkaWRlbnRpdHlzZXJ2ZXIuemhzZXJ2aWNlIiwiYXVkIjoiYXBpcyIsImNsaWVudF9pZCI6ImNvbXByZWhlbnNpdmUuYXBpcyIsInN1YiI6IlpkLkNvbXByZWhlbnNpdmUuVG9rZW4iLCJhdXRoX3RpbWUiOjE2Nzc0OTIzODksImlkcCI6ImxvY2FsIiwiYWNjb3VudF9pZCI6IjM4OTc5Iiwic3lzdGVtX3R5cGUiOiI0MSIsImlzX3N1cGVyX2FkbWluIjoiRmFsc2UiLCJleHRyYSI6IntcIk1lcmNoYW50SWRcIjo5LFwiU2lnbk5hbWVcIjpcImlvczAwM1wifSIsImp0aSI6IjJCQkU3N0VEREJGOTk1QzBFQUE3QzBDRjlBQjM2QTk5IiwiaWF0IjoxNjc3NDkyMzg5LCJzY29wZSI6WyJhcGlzLmNoYXQiLCJhcGlzLmNsaWVudCIsImFwaXMucGxheWVyIiwiYXBpcy5wdWJsaWMiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.aJepVotesiEKbL-HGHBaGpxy1irdymAJGh-kWF4S89-31RDaUm7VnGO9jo0PBdo5z47nnkpu7s910OE0kgvSJUCcQjQ89sCM6qmj52exYTTOScUhEj2prU1JyRN_RHs9fAhgPxKt4aUJza2PW-Xss3RPZy-ZxbaY9TI6TSq81Vs4XaGw35VMWMDyypcA4Bgi0bd9sWEYDFHtCNMB5TjHy5N0Pz-ADYNyfF-wD7tbLMYXVhbdeGEBjI_xMSY7xMGcxfO7cgkZu6bmjmPwbiAB6LM1QkQbzQo7RT1nRIcugfNcV_xmZXrn9ttsDK9kluUKVnICuDvmVZgLuUzFyczBYA",
+    "Accept": "text/plain",
+    "Content-Type": "application/json,application/json-patch+json",
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9"
+]
 ```
 
 <!--#### Request Method: Post-->
@@ -1976,7 +3568,16 @@
 <h3 id="d2.21.5"> 2.21.5 Request Demo</h3>
 
 ```
-{}
+{
+    "endTime": "11:59:59",
+    "DateType": 3,
+    "languageCode": "CHS",
+    "startDate": "2023-01-30",
+    "startTime": "12:00:00",
+    "endDate": "2023-03-03",
+    "memberCode": "BP0U2R02",
+    "token": "BP0U2R02,c52c7103-b9bd-4a0d-9ed3-81a8c412966d"
+}
 
 ```
 
@@ -2001,7 +3602,7 @@
 <h3 id="d2.21.7"> 2.21.7 Response Demo</h3>
 
 ```
-{}
+{"refreshTime":1677740522,"isSuccess":false,"errorCode":-30004,"message":"游戏平台维护中!","location":"","data":{"maintenanceTime":"2023-02-22 02:02-2023-02-23 22:58"}}
 
 ```
 
@@ -2202,10 +3803,10 @@
 
 ```
 [
-    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9",
-    "User-Agent": "DBJ2 qSportProduce/2.1.7 (tw.ho.196pro; build:6; iOS 16.2.0) Alamofire/5.6.4",
+    "Content-Type": "application/json",
+    "User-Agent": "DBJ2 qSportDevelop/2.1.7 (tw.ho.196dev; build:1; iOS 16.2.0) Alamofire/5.6.4",
     "Accept-Encoding": "br;q=1.0, gzip;q=0.9, deflate;q=0.8",
-    "Content-Type": "application/json"
+    "Accept-Language": "zh-Hans-US;q=1.0, en;q=0.9"
 ]
 ```
 
@@ -2253,7 +3854,244 @@
 <h3 id="d2.24.7"> 2.24.7 Response Demo</h3>
 
 ```
-{}
+{
+    "refreshTime": 1677740261,
+    "isSuccess": true,
+    "errorCode": 10000,
+    "message": "",
+    "location": "",
+    "data": {
+        "Announcement": [
+            {
+                "AnnouncementId": 1050,
+                "PostingDate": "2023-02-23 18:22:59",
+                "ExpiryDate": "2023-02-24 18:22:59",
+                "DateUpdated": "2023-02-23 18:23:19",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1048,
+                "PostingDate": "2023-02-21 18:20:00",
+                "ExpiryDate": "2023-02-22 18:20:00",
+                "DateUpdated": "2023-02-23 18:21:05",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "TEST Announcement sasahod na bukas"
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1049,
+                "PostingDate": "2023-02-20 18:21:00",
+                "ExpiryDate": "2023-02-22 18:21:00",
+                "DateUpdated": "2023-02-23 18:22:31",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "*LIVE. Due to wrong [(XXX Home) / (XXX Away)] team name displayed, all bets taken are considered REFUNDED. The actual team name is [XXX Correct Team Name] instead of [XXX Wrong Team Name]. Parlay will be counted as one (1). Sorry for the inconveniences caused!"
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "*直播。由于 [(XXX Home) / (XXX Away)] 队名显示错误，所有赌注将被退款。正确的队名是 [XXX Correct Team Name] 而不是 [XXX Wrong Team Name]。连串赌注以(1)计算。造成不便之处，敬请原谅！"
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "thasssssssssssssssssssssssssssssssss"
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "Viethseeeeeeeeeeeeeeeeeeeeeeeee"
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "indossssssssssssssssssssssssssssss"
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "spanissssssssssssssssssssssssssssssss"
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1051,
+                "PostingDate": "2023-02-19 18:23:00",
+                "ExpiryDate": "2023-02-23 18:23:00",
+                "DateUpdated": "2023-02-23 18:24:48",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "sssss sasahoddddddddddddddddddddddd na"
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1047,
+                "PostingDate": "2023-02-15 14:05:20",
+                "ExpiryDate": "2023-02-16 14:05:20",
+                "DateUpdated": "2023-02-15 14:06:12",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "[Soccer][Club Friendly] 'NK Varazdin-vs-FK Banga Gargzdai' - 15/02. AnnouncementType9618"
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "[足球][Club Friendly 🍒🍒华语] 'NK Varazdin CHS-vs-FK Banga Gargzdai CHS' - 15/02. AnnouncementType9563"
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "[ฟุตบอล][Club Friendly 🍒🍒ไทย] 'NK Varazdin THAI-vs-FK Banga Gargzdai THAI' - 15/02. "
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "[Luật Bóng đá][Club Friendly 🍒🍒Việt Nam] 'NK Varazdin-vs-FK Banga Gargzdai' - 15/02. "
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "[Sepakbola][Club Friendly] 'NK Varazdin-vs-FK Banga Gargzdai' - 15/02. "
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "[fútbol][Club Friendly 🍒🍒española] 'BC Nȏkia......-vs-FK Banga Gargzdai' - 15/02. * LIVE / Pre-Match / Early Market. Debido a la decisión del VAR (Árbitro asistente de video), todas las apuestas tomadas desde [Hora de inicioXXXXX] hasta [Hora de finalizaciónXXXXX] se consideran REEMBOLSADAS. Parlay cuenta como uno (1). Vuelva a revisar su boleto y saldo nuevamente. ¡Perdón por los inconvenientes causados!"
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1046,
+                "PostingDate": "2023-02-03 11:59:42",
+                "ExpiryDate": "2023-02-04 11:59:42",
+                "DateUpdated": "2023-02-03 16:23:05",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" "
+                    }
+                ]
+            },
+            {
+                "AnnouncementId": 1045,
+                "PostingDate": "2023-02-02 16:57:32",
+                "ExpiryDate": "2023-02-06 16:58:00",
+                "DateUpdated": "2023-02-02 16:58:43",
+                "AnnouncementDetail": [
+                    {
+                        "LanguageCode": "ENG",
+                        "Content": "[Soccer][VS - IM FIFA 20 Cyberbattle Italy] 'VS - Atalanta-vs-VS - Udinese' - 18/01. FOR TESTING ONLYYYY"
+                    },
+                    {
+                        "LanguageCode": "CHS",
+                        "Content": "[足球][VS - IM 独家FIFA20意大利] 'VS - 亚特兰大-vs-VS - 乌迪内斯' - 18/01. FOR TESTING ONLYYYY"
+                    },
+                    {
+                        "LanguageCode": "TH",
+                        "Content": "[ฟุตบอล][VS - IM FIFA20 แบทเทิลไซเบอร์ อิตาลี] 'VS - อตาลันต้า-vs-VS - อูดิเนเซ่' - 18/01. FOR TESTING ONLYYYY"
+                    },
+                    {
+                        "LanguageCode": "VN",
+                        "Content": "[Luật Bóng đá][VS - IM FIFA 20 Cyberbattle Ý] 'VS - Atalanta-vs-VS - Udinese' - 18/01. FOR TESTING ONLYYYY"
+                    },
+                    {
+                        "LanguageCode": "ID",
+                        "Content": "[Sepakbola][VS - IM FIFA 20 Cyberbattle Italy] 'VS - Atalanta-vs-VS - Udinese' - 18/01. FOR TESTING ONLYYYY"
+                    },
+                    {
+                        "LanguageCode": "ES",
+                        "Content": "[fútbol][VS - IM FIFA 20 Cyberbattle Italy] 'VS - Atalanta-vs-VS - Udinese' - 18/01. FOR TESTING ONLYYYY"
+                    }
+                ]
+            }
+        ],
+        "ServerTime": "2023-03-02 14:56:40",
+        "StatusCode": 100,
+        "StatusDesc": "Success"
+    }
+}
 
 ```
 
